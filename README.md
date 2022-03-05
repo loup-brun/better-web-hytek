@@ -5,7 +5,7 @@ Requires a base directory where HyTek web results files are uploaded.
 
 ## Ideas
 
-- imrpove overall ergonomy and respond to device screen size
+- improve overall ergonomy and respond to device screen size
 - very simple configuration: fork and change 1 param, deploy anywhere (esp. vercel or netlify, super easy)
 - retain similar design pattern (e.g.: event list on the left-hand side)
 - respect basic browser actions (e.g.: browser history when triggering the back button)
