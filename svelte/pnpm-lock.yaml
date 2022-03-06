@@ -4,6 +4,7 @@ specifiers:
   '@rollup/plugin-commonjs': ^17.0.0
   '@rollup/plugin-node-resolve': ^11.0.0
   carbon-components-svelte: ^0.60.0
+  carbon-icons-svelte: ^10.44.4
   carbon-preprocess-svelte: ^0.6.0
   postcss: ^8.4.7
   rollup: ^2.3.4
@@ -18,6 +19,7 @@ specifiers:
 
 dependencies:
   carbon-components-svelte: 0.60.0
+  carbon-icons-svelte: 10.44.4
   carbon-preprocess-svelte: 0.6.0_c5cb09fa6d50d3650e28319a32bd7849
   sirv-cli: 2.0.2
 
@@ -195,6 +197,10 @@ packages:
     resolution: {integrity: sha512-2Ppr5wqiEQpU8NmD9SIsq1P2ci4zekt/0L4YWuCEDN5YwQlfas687jVsHrWjUz3OzyBTej8Wd521ftP7lsXXhQ==}
     dependencies:
       flatpickr: 4.6.9
+    dev: false
+
+  /carbon-icons-svelte/10.44.4:
+    resolution: {integrity: sha512-KsqXj0tYFF4S9b4mDSyt3Ovo0TA6QQ6nW0XRoY7D7EahM6hGluz0CdMw3wp/lbAUItTlTfYk+aPpiCKvpbTIyA==}
     dev: false
 
   /carbon-preprocess-svelte/0.6.0_c5cb09fa6d50d3650e28319a32bd7849:

@@ -1,27 +1,33 @@
 <script>
+  export let isSideNavOpen = false;
+    import {
+    SideNav,
+    SideNavItems,
+    SideNavMenu,
+    SideNavMenuItem,
+  } from "carbon-components-svelte";
+
   export let sessions = [
     {
-      title: '',
-      events: []
+      title: 'Session #1 - Samedi 21 décembre',
+      events: [
+        {
+          href: '#',
+          text: 'Épreuve 00 - Saut en longueur'
+        },
+      ]
     }
   ]
-  export let events = []
 </script>
 
-<div class="EventIndex">
-  EventIndex
-
+<SideNav bind:isOpen={isSideNavOpen}>
+  <SideNavItems>
     {#each sessions as session}
-      <section class="EventIndex__session">
-        <h2 class="EventIndex__session-title">{session.title}</h2>
-
-        <ul class="EventIndex__session-list">
-          {#each session.events as event}
-            <li>
-              <a href={event.href}>{event.title}</a>
-            </li>
-          {/each}
-        </ul>
-      </section>
+    <SideNavMenu text={session.title} expanded="{true}">
+      {#each session.events as event}
+      <SideNavMenuItem href={event.href} text={event.text} />
+      {/each}
+    </SideNavMenu>
     {/each}
-</div>
+  </SideNavItems>
+</SideNav>
