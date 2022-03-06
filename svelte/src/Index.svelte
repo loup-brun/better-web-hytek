@@ -1,37 +1,23 @@
 <script>
+  import "carbon-components-svelte/css/white.css";
+  import { Button } from "carbon-components-svelte";
+  import { Grid, Row, Column } from "carbon-components-svelte";
+
   import EventIndex from './Components/EventIndex.svelte';
   import Main from './Components/Main.svelte';
 </script>
 
-<div class="Index">
-  <header class="Index__header">
-  </header>
-
-  <main class="Index__layout">
-    <div class="Index__sidebar">
+<Grid>
+  <Row>
+    <Column>
       <EventIndex />
-    </div>
-
-    <article class="Index__content-block">
+    </Column>
+    <Column>
       <Main />
-    </article>
-  </main>
-
-  <footer class="Index__footer"></footer>
-</div>
+    </Column>
+  </Row>
+</Grid>
 
 <style lang="scss">
-	.Index {
-    &__layout {
-      @media (min-width: 60rem) {
-        display: flex;
-        flex-direction: row;
-        align-items: stretch;
-      }
-    }
 
-    &__sidebar {
-      background-color: lightblue;
-    }
-	}
 </style>
