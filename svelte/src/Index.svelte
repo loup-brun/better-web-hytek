@@ -1,26 +1,11 @@
 <script>
   import { APP_CONFIG } from './config';
-
-  import {
-    Header,
-    HeaderNav,
-    HeaderNavItem,
-    SkipToContent,
-    Content,
-    Grid,
-    Row,
-    Column,
-    SideNav,
-    SideNavLink,
-    SideNavItems,
-    SideNavMenu,
-    SideNavMenuItem,
-    SideNavDivider,
-    InlineLoading,
-  } from "carbon-components-svelte";
-  import Screen16 from "carbon-icons-svelte/lib/Screen16";
   import { onMount } from 'svelte';
   import fetchHytek from './utils/fetchHytek.js';
+  // components
+  import Navbar from './components/Navbar.svelte';
+  import Sidebar from './components/Sidebar.svelte';
+  import Main from './components/Main.svelte';
 
   // vars
   // regex which captures the hash prefix + (event id) + .htm extension
@@ -32,6 +17,9 @@
 
   // client-side logic
   onMount(async () => {
+    // force showing sidebar with reactive assignment
+    isSideNavOpen = true;
+
     // get the event list
     const evtIndex = await fetchHytek('evtindex.htm', {
       hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
@@ -95,70 +83,40 @@
           hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
           hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
         });
-        mainHtml = eventDoc.querySelector('body').innerHTML;
+        mainHtml = eventDoc.querySelector('pre').innerHTML;
       } catch (e) {
         mainHtml = `
           <h2>Erreur ${e.status ? e.status: ''}</h2>
           <p>Erreur lors de la récupération de l’épreuve.</p>
         `;
-
       }
+
+      // event loaded (or error displayed), close sidebar
+      isSideNavOpen = false;
     }
   }
 </script>
 
-<Header
-  company="COCH"
-  platformName="Résultats Invitation 2022"
-  href="/"
-  bind:isSideNavOpen
->
-  <svelte:fragment slot="skip-to-content">
-    <SkipToContent />
-  </svelte:fragment>
-  <HeaderNav>
-    <HeaderNavItem href="/" text="À propos" />
-    <HeaderNavItem href={APP_CONFIG.hytekFtpLocation} text="Expérience classique" target="_blank" />
-  </HeaderNav>
-</Header>
+<!-- UI Shell -->
+<Navbar bind:isSideNavOpen={isSideNavOpen} />
 
-<SideNav bind:isOpen={isSideNavOpen}>
-  <SideNavItems>
-    {#if events && events.length}
-    {#each events as event}
-      <SideNavLink href={`#/event/${event.href}`} text={event.text} />
-    {/each}
-    {:else}
-      <SideNavMenuItem>
-        <InlineLoading description="Chargement des épreuves..." />
-      </SideNavMenuItem>
-    {/if}
-    <SideNavDivider />
-    <SideNavLink kind="ghost" href="{APP_CONFIG.hytekFtpLocation}" text="Interface classique" icon={Screen16} target="_blank" />
-  </SideNavItems>
-</SideNav>
+<Sidebar bind:isSideNavOpen={isSideNavOpen} {events} />
 
-<Content>
-  <Grid>
-    <Row>
-      <Column class="prose">
-
-        {#if mainHtml && mainHtml.length}
-          <pre>{@html mainHtml}</pre>
-          {:else}
-          <h2>Bienvenue</h2>
-          <p class="">
-            Veuillez sélectionner un événement dans le menu de gauche.
-          </p>
-        {/if}
-
-      </Column>
-    </Row>
-  </Grid>
-</Content>
-
+<Main>
+  {#if mainHtml && mainHtml.length}
+    <pre>
+      {@html mainHtml}
+    </pre>
+  {/if}
+</Main>
 
 <style>
+  @media (max-width: 1056px) {
+    :global(.bx--side-nav ~ .bx--content) {
+      /* fix bug in deisgn system */
+      margin-left: 0;
+    }
+  }
   pre {
     font-family: 'Courier New', Courier, monospace;
   }
