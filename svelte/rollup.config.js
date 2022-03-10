@@ -4,9 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-import { scss } from 'svelte-preprocess';
 import { optimizeImports } from "carbon-preprocess-svelte";
-
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -42,9 +40,6 @@ export default {
 	plugins: [
 		svelte({
 			preprocess: [
-				scss({
-					includePaths: 'node_modules',
-				}),
 				optimizeImports(),
 			],
 			compilerOptions: {

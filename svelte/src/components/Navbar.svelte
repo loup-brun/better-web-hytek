@@ -12,6 +12,7 @@
 </script>
 
 <Header
+  persistentHamburgerMenu={true}
   company="COCH"
   platformName="Résultats Invitation 2022"
   href="/"
