@@ -1,24 +1,69 @@
 <script>
-  import GlobalHeader from './Components/GlobalHeader.svelte';
-  import Main from './Components/Main.svelte';
+  import { APP_CONFIG } from './config';
+
+  import {
+    Header,
+    HeaderNav,
+    HeaderNavItem,
+    SkipToContent,
+    Content,
+    Grid,
+    Row,
+    Column,
+    SideNav,
+    SideNavLink,
+    SideNavItems,
+    SideNavMenu,
+    SideNavMenuItem,
+    SideNavDivider,
+    InlineLoading,
+  } from "carbon-components-svelte";
+  import Screen16 from "carbon-icons-svelte/lib/Screen16";
   import { onMount } from 'svelte';
   import fetchHytek from './utils/fetchHytek.js';
-
-  // props
-  export let APP_CONFIG; // app configuration -- MANDATORY
 
   // vars
   // regex which captures the hash prefix + (event id) + .htm extension
   const eventRegex = /^#\/event\/([0-9A-Za-z]+)\.htm$/;
   let mainHtml = '';
-  let decoder = new TextDecoder(APP_CONFIG.hytekHtmlEncoding);
+  let isSideNavOpen = false;
+  let sessions = [];
+  let events = [];
 
   // client-side logic
   onMount(async () => {
+    // get the event list
+    const evtIndex = await fetchHytek('evtindex.htm', {
+      hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
+      hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
+    });
+
+    // traverse the DOM tree
+    // start at first <h2> that does not have align=center
+    // and split sessions at each <hr>
+    // TODO make this function faster / more efficient
+    // let allElements = Array.prototype.slice.call(evtIndex.all);
+
+    // let headings = evtIndex.querySelectorAll('h2');
+    let links = evtIndex.querySelectorAll('a[href]')
+    // headings = Array.prototype.slice.call(headings); // arrayify
+    links = Array.prototype.slice.call(links); // arrayify
+    // headings = headings.filter(h => h.getAttribute('align') !== 'center');
+    // headings.forEach(heading => {
+    //   sessions.push({
+    //     title: heading.innerText,
+    //     events: links.map((e) => { return { href: e.getAttribute('href'), text: e.innerText } })
+    //   });
+    // });
+
+    // seemingly redundant assignment, but allows reactivity
+    sessions = sessions;
+    events = links.map((e) => { return { href: e.getAttribute('href'), text: e.innerText } });
+
     // check the hash first
     if (eventRegex.test(window.location.hash)) {
       // handle hash
-      handleHashChange();
+      await handleHashChange();
     } else {
       // get the main page
       const mainDoc = await fetchHytek('main.htm', {
@@ -30,6 +75,8 @@
 
     // listen for hash change
     window.addEventListener('hashchange', handleHashChange);
+
+    window.addEventListener('pushState', handleHashChange);
   });
 
   /////////
@@ -43,38 +90,73 @@
       let fetchFilename = currentHash.replace(eventRegex, '$1.htm');
 
       // do the fetch (variables updated reactively)
-      const eventDoc = await fetchHytek(fetchFilename, {
-        hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
-        hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
-      });
-      mainHtml = eventDoc.querySelector('body').innerHTML;
-    }
-  }
-
-  async function tmpFetch() {
-
-    // unknown error (unlikely when dealing with static files)
-    // TODO translatable
-    mainHtml = `
-          <h2>Erreur (code ${eventFetch.status})</h2>
+      try {
+        const eventDoc = await fetchHytek(fetchFilename, {
+          hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
+          hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
+        });
+        mainHtml = eventDoc.querySelector('body').innerHTML;
+      } catch (e) {
+        mainHtml = `
+          <h2>Erreur ${e.status ? e.status: ''}</h2>
           <p>Erreur lors de la récupération de l’épreuve.</p>
         `;
 
-    // catch err
-    // TODO translatable
-    mainHtml = `
-        <p>Erreur lors de la récupération de l’épreuve.</p>
-        `;
+      }
+    }
   }
 </script>
 
-<GlobalHeader {APP_CONFIG} />
+<Header
+  company="COCH"
+  platformName="Résultats Invitation 2022"
+  href="/"
+  bind:isSideNavOpen
+>
+  <svelte:fragment slot="skip-to-content">
+    <SkipToContent />
+  </svelte:fragment>
+  <HeaderNav>
+    <HeaderNavItem href="/" text="À propos" />
+    <HeaderNavItem href={APP_CONFIG.hytekFtpLocation} text="Expérience classique" target="_blank" />
+  </HeaderNav>
+</Header>
 
-<Main {APP_CONFIG}>
-  {#if mainHtml && mainHtml.length}
-  <pre>{@html mainHtml}</pre>
-  {/if}
-</Main>
+<SideNav bind:isOpen={isSideNavOpen}>
+  <SideNavItems>
+    {#if events && events.length}
+    {#each events as event}
+      <SideNavLink href={`#/event/${event.href}`} text={event.text} />
+    {/each}
+    {:else}
+      <SideNavMenuItem>
+        <InlineLoading description="Chargement des épreuves..." />
+      </SideNavMenuItem>
+    {/if}
+    <SideNavDivider />
+    <SideNavLink kind="ghost" href="{APP_CONFIG.hytekFtpLocation}" text="Interface classique" icon={Screen16} target="_blank" />
+  </SideNavItems>
+</SideNav>
+
+<Content>
+  <Grid>
+    <Row>
+      <Column class="prose">
+
+        {#if mainHtml && mainHtml.length}
+          <pre>{@html mainHtml}</pre>
+          {:else}
+          <h2>Bienvenue</h2>
+          <p class="">
+            Veuillez sélectionner un événement dans le menu de gauche.
+          </p>
+        {/if}
+
+      </Column>
+    </Row>
+  </Grid>
+</Content>
+
 
 <style>
   pre {

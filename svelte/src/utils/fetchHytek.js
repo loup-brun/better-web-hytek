@@ -30,8 +30,7 @@ export default async function fetchHytek(fileName, config) {
         // probably 404 not found
       }
     } catch (e) {
-      // fetch-level error, possibly a network failure
-      console.error('Fetch error', e);
+      // fetch-level error, possibly a network failure, CORS issue, etc.
       reject(e);
     }
 
