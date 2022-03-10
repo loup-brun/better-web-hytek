@@ -1,0 +1,20 @@
+{
+  "name": "sveltekit",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "carbon-components": "^10.54.0",
+    "carbon-components-svelte": "^0.60.0",
+    "carbon-icons-svelte": "^10.44.4",
+    "svelte": "^3.44.0"
+  },
+  "type": "module"
+}
