@@ -1,49 +1,83 @@
 <script>
   import GlobalHeader from './Components/GlobalHeader.svelte';
   import Main from './Components/Main.svelte';
-
   import { onMount } from 'svelte';
+  import fetchHytek from './utils/fetchHytek.js';
 
-  const APP_CONFIG = {
-    hytekFtpLocation: '/ftp/210731/', // must keep the trailing slash
-    hytekHtmlEncoding: 'ISO-8859-15', // your encoding may vary!
-  };
+  // props
+  export let APP_CONFIG; // app configuration -- MANDATORY
 
-  let mainHtml;
+  // vars
+  // regex which captures the hash prefix + (event id) + .htm extension
+  const eventRegex = /^#\/event\/([0-9A-Za-z]+)\.htm$/;
+  let mainHtml = '';
+  let decoder = new TextDecoder(APP_CONFIG.hytekHtmlEncoding);
 
-  let eventIndexHtml;
-
+  // client-side logic
   onMount(async () => {
-    let decoder = new TextDecoder(APP_CONFIG.hytekHtmlEncoding);
-    // get the main page
-    const mainFetch = await fetch(APP_CONFIG.hytekFtpLocation + 'main.htm', {
-      headers: {
-        'Accept': 'text/html',
-        'Content-Type': 'text/html',
-      }
-    });
-    const mainBuffer = await mainFetch.arrayBuffer();
-    mainHtml = decoder.decode(mainBuffer);
+    // check the hash first
+    if (eventRegex.test(window.location.hash)) {
+      // handle hash
+      handleHashChange();
+    } else {
+      // get the main page
+      const mainDoc = await fetchHytek('main.htm', {
+        hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
+        hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
+      });
+      mainHtml = mainDoc.querySelector('body').innerHTML;
+    }
 
-    // get the event list
-    const eventIndexFetch = await fetch(APP_CONFIG.hytekFtpLocation + 'evtindex.htm', {
-      headers: {
-        'Accept': 'text/html',
-        'Content-Type': 'text/html',
-      }
-    });
-    const eventIndexBuffer = await eventIndexFetch.arrayBuffer();
-    eventIndexHtml = decoder.decode(eventIndexBuffer);
-    // now parse this html and extract the links
+    // listen for hash change
+    window.addEventListener('hashchange', handleHashChange);
   });
+
+  /////////
+
+  // must be run client-side (e.g.: inside `onMount` function) for access to global `window` obj
+  async function handleHashChange() {
+    let currentHash = window.location.hash;
+    // if hash change matches pattern
+    if (eventRegex.test(currentHash)) {
+      // reconsruct the .htm filename
+      let fetchFilename = currentHash.replace(eventRegex, '$1.htm');
+
+      // do the fetch (variables updated reactively)
+      const eventDoc = await fetchHytek(fetchFilename, {
+        hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
+        hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
+      });
+      mainHtml = eventDoc.querySelector('body').innerHTML;
+    }
+  }
+
+  async function tmpFetch() {
+
+    // unknown error (unlikely when dealing with static files)
+    // TODO translatable
+    mainHtml = `
+          <h2>Erreur (code ${eventFetch.status})</h2>
+          <p>Erreur lors de la récupération de l’épreuve.</p>
+        `;
+
+    // catch err
+    // TODO translatable
+    mainHtml = `
+        <p>Erreur lors de la récupération de l’épreuve.</p>
+        `;
+  }
 </script>
 
 <GlobalHeader {APP_CONFIG} />
 
 <Main {APP_CONFIG}>
+  {#if mainHtml && mainHtml.length}
   <pre>{@html mainHtml}</pre>
-
-  <hr>
-
-  {@html eventIndexHtml}
+  {/if}
 </Main>
+
+<style>
+  pre {
+    font-family: 'Courier New', Courier, monospace;
+  }
+</style>

@@ -10,8 +10,6 @@
     HeaderPanelLink,
     SkipToContent,
   } from "carbon-components-svelte";
-  import SettingsAdjust20 from "carbon-icons-svelte/lib/SettingsAdjust20";
-  import UserAvatarFilledAlt20 from "carbon-icons-svelte/lib/UserAvatarFilledAlt20";
 
   import EventIndex from './EventIndex.svelte';
 
