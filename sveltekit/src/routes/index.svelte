@@ -1,5 +1,4 @@
 <script>
-  import "carbon-components-svelte/css/g10.css";
 
   import { APP_CONFIG } from '../config';
   import { onMount } from 'svelte';
@@ -13,6 +12,7 @@
   // regex which captures the hash prefix + (event id) + .htm extension
   const eventRegex = /^#\/event\/([0-9A-Za-z]+)\.htm$/;
   let mainHtml = '';
+  let error = null;
   let isSideNavOpen = false;
   let sessions = [];
   let events = [];
@@ -73,6 +73,7 @@
 
   // must be run client-side (e.g.: inside `onMount` function) for access to global `window` obj
   async function handleHashChange() {
+    error = null;
     let currentHash = window.location.hash;
     // if hash change matches pattern
     if (eventRegex.test(currentHash)) {
@@ -87,24 +88,19 @@
         });
         mainHtml = eventDoc.querySelector('pre').innerHTML;
       } catch (e) {
-        mainHtml = `
-          <h2>Erreur ${e.status ? e.status: ''}</h2>
-          <p>Erreur lors de la récupération de l’épreuve.</p>
-        `;
+        error = 'Erreur lors de la récupération de l’épreuve';
+        mainHtml = '';
       }
-
-      // event loaded (or error displayed), close sidebar
-      isSideNavOpen = false;
     }
   }
 </script>
 
 <!-- UI Shell -->
-<Navbar bind:isSideNavOpen={isSideNavOpen} />
+<Navbar bind:isSideNavOpen />
 
-<Sidebar bind:isSideNavOpen={isSideNavOpen} {events} />
+<Sidebar bind:isSideNavOpen {events} />
 
-<Main>
+<Main {error}>
   {#if mainHtml && mainHtml.length}
     <pre>
       {@html mainHtml}

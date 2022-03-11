@@ -5,12 +5,23 @@
     Grid,
     Row,
     Column,
+    InlineNotification,
   } from "carbon-components-svelte";
+
+  export let error = null;
 </script>
 <Content>
   <Grid>
     <Row>
       <Column class="prose">
+        {#if error}
+          <InlineNotification
+            title="Erreur"
+            subtitle={error}
+            hideCloseButton
+          />
+        {/if}
+
         <slot>
           <h2>Bienvenue</h2>
           <p class="">

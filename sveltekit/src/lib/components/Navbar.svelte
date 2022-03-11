@@ -12,7 +12,6 @@
 </script>
 
 <Header
-  persistentHamburgerMenu={true}
   company="COCH"
   platformName="Résultats Invitation 2022"
   href="/"
@@ -23,6 +22,6 @@
   </svelte:fragment>
   <HeaderNav>
     <HeaderNavItem href="/" text="À propos" />
-    <HeaderNavItem href={APP_CONFIG.hytekFtpLocation} text="Expérience classique" target="_blank" />
+    <HeaderNavItem href={APP_CONFIG.hytekFtpLocation + 'index.htm'} text="Retour à l’interface classique" target="_blank" />
   </HeaderNav>
 </Header>
