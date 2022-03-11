@@ -10,24 +10,24 @@
     InlineLoading,
   } from "carbon-components-svelte";
   import Screen16 from 'carbon-icons-svelte/lib/Screen16/Screen16.svelte';
-  import { onMount } from 'svelte';
 
   // props
   export let isSideNavOpen;
   export let events = [];
+  let innerWidth;
 
   // vars
   let expansionBreakpoint = 1056; // 1056 by default
-  let handleNavClick;
-  onMount(() => {
-    handleNavClick = () => {
-      if (window.innerWidth < expansionBreakpoint) {
-        isSideNavOpen = !isSideNavOpen;
-      }
+
+  function handleNavClick() {
+    if (innerWidth < expansionBreakpoint) {
+      isSideNavOpen = !isSideNavOpen;
     }
-  });
+  }
 
 </script>
+
+<svelte:window bind:innerWidth={innerWidth} />
 
 <SideNav bind:isOpen={isSideNavOpen}>
   <SideNavItems>

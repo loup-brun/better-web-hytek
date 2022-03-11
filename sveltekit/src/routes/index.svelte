@@ -62,11 +62,6 @@
       });
       mainHtml = mainDoc.querySelector('pre').innerHTML;
     }
-
-    // listen for hash change
-    window.addEventListener('hashchange', handleHashChange);
-
-    window.addEventListener('pushState', handleHashChange);
   });
 
   /////////
@@ -94,6 +89,9 @@
     }
   }
 </script>
+
+<svelte:window on:hashchange={handleHashChange}
+               on:pushState={handleHashChange} />
 
 <!-- UI Shell -->
 <Navbar bind:isSideNavOpen />
