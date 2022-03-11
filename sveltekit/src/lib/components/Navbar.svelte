@@ -25,9 +25,3 @@
     <HeaderNavItem href={APP_CONFIG.hytekFtpLocation + 'index.htm'} text="Retour à l’interface classique" target="_blank" />
   </HeaderNav>
 </Header>
-
-<style>
-  Header {
-    background-color: #ff6900;
-  }
-</style>
