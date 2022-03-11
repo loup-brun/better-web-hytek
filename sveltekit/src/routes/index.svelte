@@ -11,11 +11,14 @@
   // vars
   // regex which captures the hash prefix + (event id) + .htm extension
   const eventRegex = /^#\/event\/([0-9A-Za-z]+)\.htm$/;
+  // index controls major variables
+  let isSideNavOpen = false;
+  // content variables
   let mainHtml = '';
   let error = null;
-  let isSideNavOpen = false;
   let sessions = [];
-  let events = [];
+  let sessionModel = { title: '', events: [] };
+  let currentSession = false;
 
   // client-side logic
   onMount(async () => {
@@ -31,24 +34,38 @@
     // traverse the DOM tree
     // start at first <h2> that does not have align=center
     // and split sessions at each <hr>
-    // TODO make this function faster / more efficient
-    // let allElements = Array.prototype.slice.call(evtIndex.all);
-
-    // let headings = evtIndex.querySelectorAll('h2');
-    let links = evtIndex.querySelectorAll('a[href]')
-    // headings = Array.prototype.slice.call(headings); // arrayify
-    links = Array.prototype.slice.call(links); // arrayify
-    // headings = headings.filter(h => h.getAttribute('align') !== 'center');
-    // headings.forEach(heading => {
-    //   sessions.push({
-    //     title: heading.innerText,
-    //     events: links.map((e) => { return { href: e.getAttribute('href'), text: e.innerText } })
-    //   });
-    // });
+    walk(evtIndex.querySelector('body'), (node) => {
+      
+      if (currentSession) {
+        if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
+          currentSession.events.push({
+            href: node.getAttribute('href'),
+            text: node.innerText,
+          });
+          
+          currentSession = currentSession;
+        }
+      }
+      if (node.nodeName === 'H2') {
+        if (node.getAttribute('align') === 'center') {
+          return;
+        }
+        if (!currentSession) {
+          // start new section
+          currentSession = Object.assign({}, sessionModel);
+          currentSession.title = node.innerText;
+        } else {
+          sessions.push(currentSession);
+          // start new section
+          currentSession = Object.assign({}, sessionModel);
+          currentSession.title = node.innerText;
+          currentSession.events = [];
+        }
+      }
+    });
 
     // seemingly redundant assignment, but allows reactivity
     sessions = sessions;
-    events = links.map((e) => { return { href: e.getAttribute('href'), text: e.innerText } });
 
     // check the hash first
     if (eventRegex.test(window.location.hash)) {
@@ -65,6 +82,15 @@
   });
 
   /////////
+  
+  function walk(node, func) {
+    func(node);
+    node = node.firstChild;
+    while(node) {
+      walk(node, func);
+      node = node.nextSibling;
+    }
+  }
 
   // must be run client-side (e.g.: inside `onMount` function) for access to global `window` obj
   async function handleHashChange() {
@@ -96,7 +122,7 @@
 <!-- UI Shell -->
 <Navbar bind:isSideNavOpen />
 
-<Sidebar bind:isSideNavOpen {events} />
+<Sidebar bind:isSideNavOpen {sessions} />
 
 <Main {error}>
   {#if mainHtml && mainHtml.length}
@@ -115,21 +141,16 @@
   }
   pre {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 11px;
+    font-size: 10px;
   }
-  @media (max-width: 560px) {
+  @media (min-width: 768px) {
     pre {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
-  @media (max-width: 768px) {
+  @media (min-width: 1056px) {
     pre {
       font-size: 14px;
-    }
-  }
-  @media (max-width: 1056px) {
-    pre {
-      font-size: 16px;
     }
   }
 </style>

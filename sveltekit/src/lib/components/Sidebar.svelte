@@ -13,7 +13,7 @@
 
   // props
   export let isSideNavOpen;
-  export let events = [];
+  export let sessions = [];
   let innerWidth;
 
   // vars
@@ -31,13 +31,14 @@
 
 <SideNav bind:isOpen={isSideNavOpen}>
   <SideNavItems>
-    {#if events && events.length}
-      <SideNavMenu text="Session">
-
-      {#each events as event}
-        <SideNavMenuItem href={`#/event/${event.href}`} text={event.text} on:click={handleNavClick} />
-      {/each}
+    {#if sessions.length}
+      {#each sessions as session}
+      <SideNavMenu text={session.title}>
+          {#each session.events as event}
+          <SideNavMenuItem href={`#/event/${event.href}`} text={event.text} on:click={handleNavClick} />
+          {/each}
       </SideNavMenu>
+      {/each}
     {:else}
       <SideNavMenuItem>
         <InlineLoading description="Chargement des épreuves..." />
