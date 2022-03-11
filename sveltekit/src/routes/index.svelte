@@ -60,7 +60,7 @@
         hytekFtpLocation: APP_CONFIG.hytekFtpLocation,
         hytekHtmlEncoding: APP_CONFIG.hytekHtmlEncoding,
       });
-      mainHtml = mainDoc.querySelector('body').innerHTML;
+      mainHtml = mainDoc.querySelector('pre').innerHTML;
     }
 
     // listen for hash change
@@ -121,5 +121,21 @@
   }
   pre {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+  }
+  @media (max-width: 560px) {
+    pre {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 768px) {
+    pre {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 1056px) {
+    pre {
+      font-size: 16px;
+    }
   }
 </style>
