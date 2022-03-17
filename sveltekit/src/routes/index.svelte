@@ -95,6 +95,7 @@
   async function handleHashChange() {
     error = null;
     let currentHash = window.location.hash;
+
     // if hash change matches pattern
     if (eventRegex.test(currentHash)) {
       // reconsruct the .htm filename
@@ -111,6 +112,9 @@
         error = 'Erreur lors de la récupération de l’épreuve';
         mainHtml = '';
       }
+    } else {
+      // should we do something when hash matches nothing?
+      // btw there is no hashChange triggered when user goes to '/' (home)
     }
   }
 </script>
