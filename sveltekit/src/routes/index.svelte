@@ -20,7 +20,7 @@
   // content variables
   let mainHtml = '';
   let error = null;
-  let sessions = []; // pass this to the <Sidebar>
+  let sessions = []; // pass this to the <Sidebar />
   let sessionModel = { title: '', events: [] }; // base model for new sessions
   let currentSession = false; // for when traversing the event index
 
