@@ -1,13 +1,18 @@
 /**
- * Wrapper function around Fetch API handling encoding and returning decoded HTML as promise
+ * Wrapper function around Fetch API handling encoding and returning decoded HTML through promise
  * @param fileName
- * @param config Hytek options (hytekFtpLocation, hytekHtmlEncoding)
- * @returns {Promise<void>}
+ * @param config {Object}
+ * @returns {Promise<void>} Returns parsed document object if promise is ok, else the error
  */
-export default async function fetchHytek(fileName, config) {
-  const decoder = new TextDecoder(config.hytekHtmlEncoding);
+export default async function fetchDocument(fileName, config) {
+  config = config || {
+    encoding: 'utf-8',
+    baseLocation: '/',
+  };
+
+  const decoder = new TextDecoder(config.encoding);
   const parser = new DOMParser();
-  const url = config.hytekFtpLocation + fileName; // join paths (trailing slash on ftp location)
+  const url = config.baseLocation + fileName; // join paths (trailing slash on ftp location)
 
   const promise = new Promise(async (resolve, reject) => {
     try {
