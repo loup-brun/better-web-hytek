@@ -3,7 +3,7 @@
   import { APP_CONFIG } from '../config';
   import { onMount } from 'svelte';
   import fetchDocument from '$lib/utils/fetchDocument.js'; // for fetching documents
-  import walk from '$lib/utils/walk.js'; // for walking the DOM
+  import walkDOM from '$lib/utils/walkDOM.js'; // for walking the DOM
   // components
   import Navbar from '$lib/components/Navbar.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
@@ -35,10 +35,30 @@
       baseLocation: APP_CONFIG.hytekFtpLocation,
     });
 
+    // make event list, populate `sessions`
+    makeEventList(evtIndexDOM);
+
+    // check the hash on first load
+    if (eventRegex.test(window.location.hash)) {
+      // handle hash
+      await handleHashChange();
+    } else {
+      // get the main page
+      const mainDoc = await fetchDocument('main.htm', {
+        encoding: APP_CONFIG.hytekHtmlEncoding,
+        baseLocation: APP_CONFIG.hytekFtpLocation,
+      });
+      mainHtml = mainDoc.querySelector('pre').innerHTML;
+    }
+  });
+
+  /////////
+
+  function makeEventList(evtIndexDOM) {
     // traverse the DOM tree
     // start at first <h2> that does not have align=center
     // and split sessions at each <hr>
-    walk(evtIndexDOM.querySelector('body'), (node) => {
+    walkDOM(evtIndexDOM.querySelector('body'), (node) => {
       if (currentSession) {
         if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
           currentSession.events.push({
@@ -69,22 +89,7 @@
     // since Array.push() just modifies the array in place
     // https://svelte.dev/docs#component-format-script-2-assignments-are-reactive
     sessions = sessions;
-
-    // check the hash first
-    if (eventRegex.test(window.location.hash)) {
-      // handle hash
-      await handleHashChange();
-    } else {
-      // get the main page
-      const mainDoc = await fetchDocument('main.htm', {
-        encoding: APP_CONFIG.hytekHtmlEncoding,
-        baseLocation: APP_CONFIG.hytekFtpLocation,
-      });
-      mainHtml = mainDoc.querySelector('pre').innerHTML;
-    }
-  });
-
-  /////////
+  }
 
   // must be run client-side (e.g.: inside `onMount` function) for access to global `window` obj
   async function handleHashChange() {
@@ -136,23 +141,12 @@
   pre {
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
+    font-weight: normal;
     font-size: 14px;
   }
-  /*
-  @media (min-width: 768px) {
-    pre {
-      font-size: 16px;
-    }
-  }
-  */
   @media (min-width: 1056px) {
     pre {
       font-size: 14px;
     }
   }
-
-  /*:global(body) {*/
-  /*  height: 100vh;*/
-  /*  width: 100vw;*/
-  /*}*/
 </style>

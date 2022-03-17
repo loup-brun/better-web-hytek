@@ -4,11 +4,11 @@
  * @param node
  * @param func
  */
-export default function walk(node, func) {
+export default function walkDOM(node, func) {
   func(node);
   node = node.firstChild;
   while(node) {
-    walk(node, func);
+    walkDOM(node, func);
     node = node.nextSibling;
   }
 }
