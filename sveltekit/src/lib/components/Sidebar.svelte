@@ -45,6 +45,6 @@
       </SideNavMenuItem>
     {/if}
     <SideNavDivider />
-    <SideNavLink kind="ghost" href="{APP_CONFIG.hytekFtpLocation}" text="Interface classique" icon={Screen16} target="_blank" />
+    <SideNavLink kind="ghost" href="{APP_CONFIG.hytekFtpLocation}index.htm" text="Interface classique" icon={Screen16} target="_blank" />
   </SideNavItems>
 </SideNav>

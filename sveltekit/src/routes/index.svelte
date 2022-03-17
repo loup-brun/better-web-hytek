@@ -35,14 +35,14 @@
     // start at first <h2> that does not have align=center
     // and split sessions at each <hr>
     walk(evtIndex.querySelector('body'), (node) => {
-      
+
       if (currentSession) {
         if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
           currentSession.events.push({
             href: node.getAttribute('href'),
             text: node.innerText,
           });
-          
+
           currentSession = currentSession;
         }
       }
@@ -82,7 +82,7 @@
   });
 
   /////////
-  
+
   function walk(node, func) {
     func(node);
     node = node.firstChild;
@@ -133,24 +133,32 @@
 </Main>
 
 <style>
+  /* fix bug in deisgn system */
   @media (max-width: 1056px) {
     :global(.bx--side-nav ~ .bx--content) {
-      /* fix bug in deisgn system */
       margin-left: 0;
     }
   }
   pre {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 10px;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace; /* default mono fonts */
+    font-size: 14px;
   }
+  /*
   @media (min-width: 768px) {
     pre {
-      font-size: 13px;
+      font-size: 16px;
     }
   }
+  */
   @media (min-width: 1056px) {
     pre {
       font-size: 14px;
     }
   }
+
+  /*:global(body) {*/
+  /*  height: 100vh;*/
+  /*  width: 100vw;*/
+  /*}*/
 </style>
