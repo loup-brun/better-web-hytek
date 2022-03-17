@@ -17,4 +17,11 @@ Requires a base directory where HyTek web results files are uploaded.
 - components/styles: TODO but importing a design system (IBM Carbon, Google Material Design, etc.) adds a lot of code for little functionality needed and less flexible UI language.
 - theming: brand/color for separate events. Like intended by Benoit for Sherbrooke in pwa-results.
 
+## Implementation
+
+Go to `sveltekit/` and start your node/npm business from there.
+
+## Licence
+
+Unless otherwise noted, code is under GPL v3.
 
