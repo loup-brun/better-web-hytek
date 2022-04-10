@@ -136,7 +136,7 @@
 </Main>
 
 <style>
-  /* fix bug in deisgn system */
+  /* fix bug in design system */
   @media (max-width: 1056px) {
     :global(.bx--side-nav ~ .bx--content) {
       margin-left: 0;

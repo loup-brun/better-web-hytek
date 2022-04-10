@@ -8,7 +8,7 @@ const config = {
   },
   preprocess: preprocess({
 
-  })
+  }),
 };
 
 export default config;

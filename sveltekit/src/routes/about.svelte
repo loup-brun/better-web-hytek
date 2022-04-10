@@ -1,30 +1,32 @@
 <script>
-  import { APP_CONFIG } from '../config';
   import Navbar from '$lib/components/Navbar.svelte';
   import Main from '$lib/components/Main.svelte';
+
+  export let about_content;
 </script>
 
 <Navbar />
 
 <Main>
   <div class="prose">
-    <h2>À propos de cette interface</h2>
-    <p>
-      Cette interface vise à offrir une meilleure expérience des résultats HyTek, notamment sur les appareils mobiles. Elle est développée par <a href="mailto:louis@corsaire-chaparral.org">Louis-Olivier Brassard</a> du club d’athlétisme Corsaire-Chaparral.
-    </p>
+    {@html about_content}
   </div>
 </Main>
 
 <style>
   .prose {
     padding: 2rem 1rem;
+    max-width: 50rem;
   }
   @media (min-width: 768px) {
     .prose {
       padding: 3rem 2rem;
     }
   }
-  h2 {
+  :global(.prose h2) {
     margin-bottom: 1rem;
+  }
+  :global(.prose p) {
+    margin-bottom: 1.5rem;
   }
 </style>
