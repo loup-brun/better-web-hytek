@@ -2,6 +2,7 @@
 
   import { APP_CONFIG } from '../config';
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import fetchDocument from '$lib/utils/fetchDocument.js'; // for fetching documents
   import walkDOM from '$lib/utils/walkDOM.js'; // for walking the DOM
   // components
@@ -127,13 +128,15 @@
 
 <Sidebar bind:isSideNavOpen {sessions} />
 
+{#key mainHtml}
 <Main {error}>
   {#if mainHtml && mainHtml.length}
-    <pre>
+    <pre in:fade={{ duration: 250 }}>
       {@html mainHtml}
     </pre>
   {/if}
 </Main>
+    {/key}
 
 <style>
   /* fix bug in design system */

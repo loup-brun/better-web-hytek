@@ -9,12 +9,12 @@ export const APP_CONFIG = {
 
   // Encoding may vary, but tested with HyTek 5 works with 'ISO-8859-15'
   hytekHtmlEncoding: 'ISO-8859-15',
-  
+
   // title slots
   company: 'COCH',
   name: 'Résultats 2022',
   version: 'v0.1.0',
-  
+
   // basic theming
   themeColor: '#ff6900',
 };
