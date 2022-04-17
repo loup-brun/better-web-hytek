@@ -14,7 +14,7 @@
     "carbon-components": "^10.54.0",
     "carbon-components-svelte": "^0.60.0",
     "carbon-icons-svelte": "^10.44.4",
-    "svelte": "^3.44.0",
+    "svelte": "^3.46.4",
     "svelte-preprocess": "^4.10.4"
   },
   "type": "module",
