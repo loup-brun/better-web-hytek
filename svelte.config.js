@@ -13,7 +13,7 @@ const config = {
     //},
 
     paths: {
-      base: '/resultats/live'
+      // base: '/resultats/live'
     },
   },
   preprocess: preprocess({

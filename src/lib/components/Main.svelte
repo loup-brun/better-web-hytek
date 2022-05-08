@@ -1,10 +1,6 @@
 <script>
-  import { APP_CONFIG } from '../../config';
   import {
     Content,
-    Grid,
-    Row,
-    Column,
     InlineNotification,
   } from "carbon-components-svelte";
 

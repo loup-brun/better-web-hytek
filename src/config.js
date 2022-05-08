@@ -6,7 +6,7 @@ export const APP_CONFIG = {
   //
   // Also, MUST keep the trailing slash (e.g. '/ftp/meet20220222/')
   //hytekFtpLocation: '/ftp/210731/',
-  hytekFtpLocation: '/resultats/realtime/',
+  hytekFtpLocation: '/ftp/170610/',
 
   // Encoding may vary, but tested with HyTek 5 works with 'ISO-8859-15'
   hytekHtmlEncoding: 'ISO-8859-15',

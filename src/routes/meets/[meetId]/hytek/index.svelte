@@ -1,6 +1,6 @@
 <script>
 
-  import { APP_CONFIG } from '../config';
+  import { APP_CONFIG } from '../../../../config';
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import fetchDocument from '$lib/utils/fetchDocument.js'; // for fetching documents
@@ -24,6 +24,7 @@
   let sessions = []; // pass this to the <Sidebar />
   let sessionModel = { title: '', events: [] }; // base model for new sessions
   let currentSession = false; // for when traversing the event index
+  let navbarHeight;
 
   // client-side logic
   onMount(async () => {
@@ -123,20 +124,29 @@
 <svelte:window on:hashchange={handleHashChange}
                on:pushState={handleHashChange} />
 
-<!-- UI Shell -->
-<Navbar bind:isSideNavOpen />
+<div
+  class="HytekResults"
+  style="--navbarHeight: {navbarHeight}px;"
+>
+  <!-- UI Shell -->
+  <Navbar
+    bind:isSideNavOpen
+    bind:navbarHeight
+  />
 
-<Sidebar bind:isSideNavOpen {sessions} />
+  <Sidebar bind:isSideNavOpen {sessions} />
 
-{#key mainHtml}
-<Main {error}>
-  {#if mainHtml && mainHtml.length}
-    <pre in:fade={{ duration: 250 }}>
-      {@html mainHtml}
-    </pre>
-  {/if}
-</Main>
-    {/key}
+  {#key mainHtml}
+  <Main {error}>
+    {#if mainHtml && mainHtml.length}
+      <pre in:fade={{ duration: 250 }}>
+        {@html mainHtml}
+      </pre>
+    {/if}
+  </Main>
+  {/key}
+
+</div>
 
 <style>
   /* fix bug in design system */
@@ -144,6 +154,9 @@
     :global(.bx--side-nav ~ .bx--content) {
       margin-left: 0;
     }
+  }
+  .HytekResults {
+    padding-top: var(--navbarHeight, 100px);
   }
   pre {
     margin: 0 auto;

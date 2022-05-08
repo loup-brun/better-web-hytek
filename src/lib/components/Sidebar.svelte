@@ -1,5 +1,4 @@
 <script>
-  import { APP_CONFIG } from '../../config';
   import {
     SideNav,
     SideNavLink,
@@ -9,7 +8,12 @@
     SideNavDivider,
     InlineLoading,
   } from "carbon-components-svelte";
-  import Screen16 from 'carbon-icons-svelte/lib/Screen16/Screen16.svelte';
+  import { slide } from 'svelte/transition';
+  import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+  } from '@rgossiaux/svelte-headlessui';
 
   // props
   export let isSideNavOpen;
@@ -29,6 +33,37 @@
 
 <svelte:window bind:innerWidth={innerWidth} />
 
+<div class="EventList">
+  <header class="EventList__header"></header>
+
+  {#if sessions.length}
+    {#each sessions as session}
+      <Disclosure let:open>
+        <DisclosureButton>{session.title}</DisclosureButton>
+
+        {#if open}
+          <div transition:slide={{ duration: 800 }}>
+            <DisclosurePanel>
+              {#each session.events as event}
+                <a
+                  href={`#/event/${event.href}`}
+                  class="EventList__link"
+                  on:click={handleNavClick}
+                >{event.text}</a>
+              {/each}
+            </DisclosurePanel>
+          </div>
+        {/if}
+      </Disclosure>
+    {/each}
+  {:else}
+    <div>
+      Chargement des épreuves...
+    </div>
+  {/if}
+</div>
+
+<!--
 <SideNav bind:isOpen={isSideNavOpen}>
   <SideNavItems>
     {#if sessions.length}
@@ -45,6 +80,23 @@
       </SideNavMenuItem>
     {/if}
     <SideNavDivider />
-    <SideNavLink kind="ghost" href="{APP_CONFIG.hytekFtpLocation}index.htm" text="Interface classique" icon={Screen16} target="_blank" />
   </SideNavItems>
 </SideNav>
+-->
+
+<style>
+  .EventList {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+  }
+
+  .EventList__link {
+    display: block;
+    padding: .5rem .75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
