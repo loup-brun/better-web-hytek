@@ -1,27 +1,31 @@
 <script>
-  import {
-    SideNav,
-    SideNavLink,
-    SideNavItems,
-    SideNavMenu,
-    SideNavMenuItem,
-    SideNavDivider,
-    InlineLoading,
-  } from "carbon-components-svelte";
   import { slide } from 'svelte/transition';
+  import { onMount } from 'svelte';
   import {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
   } from '@rgossiaux/svelte-headlessui';
+  import walkDOM from '$lib/utils/walkDOM';
 
   // props
   export let isSideNavOpen;
   export let sessions = [];
-  let innerWidth;
+  export let evtIndexHTML = '';
 
   // vars
-  let expansionBreakpoint = 1056; // 1056 by default
+  let sessionModel = { title: '', events: [] }; // base model for new sessions
+  let innerWidth = 0;
+  let sidebar;
+
+  onMount(() => {
+    const parser = new DOMParser();
+    const evtIndexDOM = parser.parseFromString(evtIndexHTML, 'text/html');
+
+    sessions = makeEventList(evtIndexDOM);
+  });
+
+  //////////
 
   function handleNavClick() {
     if (innerWidth < expansionBreakpoint) {
@@ -29,17 +33,62 @@
     }
   }
 
+  function makeEventList(evtIndexDOM) {
+    let _sessions = [];
+    let _currentSession = false;
+    // traverse the DOM tree
+    // start at first <h2> that does not have align=center
+    // and split sessions at each <hr>
+    walkDOM(evtIndexDOM.querySelector('body'), (node) => {
+      if (_currentSession) {
+        if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
+          _currentSession.events.push({
+            href: node.getAttribute('href'),
+            text: node.innerText,
+          });
+        }
+      }
+      if (node.nodeName === 'H2') {
+        if (node.getAttribute('align') === 'center') {
+          return;
+        }
+        if (!_currentSession) {
+          // start new section
+          _currentSession = Object.assign({}, sessionModel);
+          _currentSession.title = node.innerText;
+        } else {
+          _sessions.push(_currentSession);
+          // start new section
+          _currentSession = Object.assign({}, sessionModel);
+          _currentSession.title = node.innerText;
+          _currentSession.events = [];
+        }
+      }
+    })
+    // seemingly redundant assignment, but allows reactivity
+    // since Array.push() just modifies the array in place
+    // https://svelte.dev/docs#component-format-script-2-assignments-are-reactive
+    return _sessions;
+  }
+
 </script>
 
-<svelte:window bind:innerWidth={innerWidth} />
+<svelte:window
+  bind:innerWidth={innerWidth}
+/>
 
-<div class="EventList">
-  <header class="EventList__header"></header>
+<div
+  class="EventList"
+  bind:this={sidebar}
+>
+  <header class="EventList__header"><slot name="header"></slot></header>
 
   {#if sessions.length}
     {#each sessions as session}
       <Disclosure let:open>
-        <DisclosureButton>{session.title}</DisclosureButton>
+        <DisclosureButton>
+          <div class="EventList__title-button | p-3 bold">{session.title}</div>
+        </DisclosureButton>
 
         {#if open}
           <div transition:slide={{ duration: 800 }}>
@@ -90,7 +139,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 20rem;
+    overflow-y: auto;
   }
 
   .EventList__link {

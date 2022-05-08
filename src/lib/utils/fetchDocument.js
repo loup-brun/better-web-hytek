@@ -4,14 +4,14 @@
  * @param config {Object}
  * @returns {Promise<void>} Returns parsed document object if promise is ok, else the error
  */
-export default async function fetchDocument(fileName, config) {
+export default async function fetchDocument(fetch, fileName, config) {
   config = config || {
     encoding: 'utf-8',
     baseLocation: '/',
   };
 
   const decoder = new TextDecoder(config.encoding);
-  const parser = new DOMParser();
+  // const parser = new DOMParser(); // browser-only api
   const url = config.baseLocation + fileName; // join paths (trailing slash on ftp location)
 
   const promise = new Promise(async (resolve, reject) => {
@@ -28,8 +28,8 @@ export default async function fetchDocument(fileName, config) {
         // parse HTML
         let decodedHtml = decoder.decode(eventBuffer);
         // create a DOM
-        let parsedDoc = parser.parseFromString(decodedHtml, 'text/html');
-        resolve(parsedDoc);
+        // let parsedDoc = parser.parseFromString(decodedHtml, 'text/html');
+        resolve(decodedHtml);
       } else {
         reject(res);
         // probably 404 not found
