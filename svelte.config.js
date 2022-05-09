@@ -1,12 +1,10 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter({
-      fallback: 'index.html',
-    }),
+    adapter: adapter(),
     // we don’t want to prerender, since index.htm (and alike) are fetched at runtime
     //prerender: {
     //  default: true,
