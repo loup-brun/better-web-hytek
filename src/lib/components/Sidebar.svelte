@@ -9,7 +9,6 @@
   import walkDOM from '$lib/utils/walkDOM';
 
   // props
-  export let isSideNavOpen;
   export let sessions = [];
   export let evtIndexHTML = '';
 
@@ -26,12 +25,6 @@
   });
 
   //////////
-
-  function handleNavClick() {
-    if (innerWidth < expansionBreakpoint) {
-      isSideNavOpen = !isSideNavOpen;
-    }
-  }
 
   function makeEventList(evtIndexDOM) {
     let _sessions = [];
@@ -97,7 +90,6 @@
                 <a
                   href={`#/event/${event.href}`}
                   class="EventList__link"
-                  on:click={handleNavClick}
                 >{event.text}</a>
               {/each}
             </DisclosurePanel>
@@ -142,10 +134,17 @@
     overflow-y: auto;
   }
 
+  .EventList__title-button {
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
   .EventList__link {
     display: block;
     padding: .5rem .75rem;
     text-decoration: none;
     color: inherit;
+    font-size: 13px;
   }
 </style>

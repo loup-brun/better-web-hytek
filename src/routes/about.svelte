@@ -1,17 +1,16 @@
 <script>
   import Navbar from '$lib/components/Navbar.svelte';
-  import Main from '$lib/components/Main.svelte';
 
   export let about_content;
 </script>
 
 <Navbar />
 
-<Main>
-  <div class="prose">
-    {@html about_content}
-  </div>
-</Main>
+
+<div class="prose">
+  {@html about_content}
+</div>
+
 
 <style>
   .prose {

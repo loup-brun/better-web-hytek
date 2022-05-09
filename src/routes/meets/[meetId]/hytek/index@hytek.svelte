@@ -1,6 +1,6 @@
 <script>
   import { APP_CONFIG } from '../../../../config';
-  import { onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import fetchDocument from '$lib/utils/fetchDocument.js'; // for fetching documents
 
@@ -14,6 +14,7 @@
   // content variables
   let mainHtml = '';
   let error = null;
+  const dispatch = createEventDispatcher();
 
   // client-side logic
   onMount(async () => {
@@ -68,6 +69,10 @@
       // btw there is no hashChange triggered when user goes to '/' (home)
     }
   }
+
+  function onChange() {
+    dispatch('changeEvent');
+  }
 </script>
 
 <svelte:window on:hashchange={handleHashChange}
@@ -75,6 +80,9 @@
 
 {#key mainHtml}
   {#if error}
+    <div in:fade={{ duration: 250 }}>
+      Résultat introuvable
+    </div>
   {:else}
     {#if mainHtml && mainHtml.length}
       <pre in:fade={{ duration: 250 }}>
