@@ -1,15 +1,10 @@
 <script context="module">
-  import fetchDocument from "$lib/utils/fetchDocument.js";
-  import { APP_CONFIG } from "$lib/../config.js";
-
   export async function load({ fetch, params }) {
     const { meetId, eventId } = params;
 
     // get the event list
-    const evtIndexHTML = await fetchDocument(fetch, 'evtindex.htm', {
-      encoding: APP_CONFIG.hytekHtmlEncoding,
-      baseLocation: APP_CONFIG.hytekFtpLocation,
-    });
+    const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
+    const { evtIndexHTML } = await getEvtIndex.json();
 
     return {
       props: {

@@ -1,44 +1,38 @@
 <script context="module">
-  import { APP_CONFIG } from '$lib/../config';
-  import fetchDocument from '$lib/utils/fetchDocument.js'; // for fetching documents
-
   export async function load({ fetch, params }) {
-    const { eventId } = params;
+    const { meetId, eventId } = params;
 
     try {
-      const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
-        encoding: APP_CONFIG.hytekHtmlEncoding,
-        baseLocation: APP_CONFIG.hytekFtpLocation,
-      });
+      // call page endpoint manually since there is already a load function in layout-hytek
+      const evtData = await fetch(`/meets/${meetId}/hytek/event/${eventId}.json`);
+      const { eventHTML } = await evtData.json();
+
       return {
         props: {
-          eventHTML
+          eventHTML,
+          error: null,
         }
       };
     } catch (e) {
       return {
         status: 404,
-        props: {
-          error: 'Épreuve non trouvée.'
+        body: {
+          error: e
         }
-      };
+      }
     }
   }
 </script>
-
 <script>
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
+  import { afterNavigate } from '$app/navigation';
 
-  // props
-  export let eventHTML = '';
+  // props (from page endpoint)
+  export let eventHTML;
   export let error;
 
   // vars
-  // regex which captures the hash prefix + (event id) + .htm extension
-  // checking the hash, working like an SPA
-  // http://example.com/results/#/event/123456.htm
-  const eventRegex = /^#\/event\/([0-9A-Za-z]+)\.htm$/;
   // index controls major variables
   let isSideNavOpen = false;
   // content variables
@@ -53,13 +47,17 @@
     // force showing sidebar with reactive assignment
     isSideNavOpen = true;
 
-    //
     parser = new DOMParser(); // browser-only API
 
+    console.log('onMount eventHTML', eventHTML)
+
     updateView = () => {
-      eventDoc = parser.parseFromString(eventHTML, 'text/html');
-      mainHtml = eventDoc.querySelector('pre').innerHTML;
+      if (eventHTML) {
+        eventDoc = parser.parseFromString(eventHTML, 'text/html');
+        mainHtml = eventDoc.querySelector('pre').innerHTML;
+      }
     }
+
 
     // check the hash on first load
     // if (eventRegex.test(window.location.hash)) {
@@ -80,8 +78,9 @@
     // }
   });
 
-  afterUpdate(() => {
+  afterNavigate(() => {
     // logic set onMount
+    console.log('afternavigate', eventHTML)
     updateView();
   })
 
