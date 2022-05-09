@@ -10,7 +10,9 @@
 
   // props
   export let sessions = [];
+  export let meetId;
   export let evtIndexHTML = '';
+  export let currentEventId;
 
   // vars
   let sessionModel = { title: '', events: [] }; // base model for new sessions
@@ -37,6 +39,7 @@
         if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
           _currentSession.events.push({
             href: node.getAttribute('href'),
+            eventId: node.getAttribute('href').replace('.htm', ''),
             text: node.innerText,
           });
         }
@@ -74,22 +77,28 @@
   class="EventList"
   bind:this={sidebar}
 >
-  <header class="EventList__header"><slot name="header"></slot></header>
+  <header class="EventList__header">
+    <slot name="header">
+      <div class="px-2 py-6"><a href="/meets/{meetId}/hytek">Accueil</a></div>
+    </slot>
+  </header>
 
   {#if sessions.length}
-    {#each sessions as session}
+    {#each sessions as session, i}
       <Disclosure let:open>
         <DisclosureButton>
-          <div class="EventList__title-button | p-3 bold">{session.title}</div>
+          <div class="EventList__title-button | px-2 py-3 bold">{session.title}</div>
         </DisclosureButton>
 
         {#if open}
-          <div transition:slide={{ duration: 800 }}>
+          <div transition:slide|local={{ duration: 800 }}>
             <DisclosurePanel>
               {#each session.events as event}
                 <a
-                  href={`#/event/${event.href}`}
+                  href="/meets/{meetId}/hytek/event/{event.eventId}"
                   class="EventList__link"
+                  class:active={event.eventId === currentEventId}
+                  title="{event.text}"
                 >{event.text}</a>
               {/each}
             </DisclosurePanel>
@@ -98,7 +107,7 @@
       </Disclosure>
     {/each}
   {:else}
-    <div>
+    <div class="p-4 text-neutral-500">
       Chargement des épreuves...
     </div>
   {/if}
@@ -128,6 +137,7 @@
 <style>
   .EventList {
     position: absolute;
+    max-width: 100%;
     top: 0;
     left: 0;
     bottom: 0;
@@ -137,14 +147,33 @@
   .EventList__title-button {
     text-align: left;
     font-weight: bold;
+    display: block;
     font-size: 14px;
+  }
+  .EventList__title-button:hover {
+    background-color: rgba(0, 0, 0, .1);
   }
 
   .EventList__link {
     display: block;
-    padding: .5rem .75rem;
+    padding: .75rem .5rem;
+    max-width: 100%;
     text-decoration: none;
     color: inherit;
     font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border-left: 4px solid transparent;
+  }
+  .EventList__link:not(.active):hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  .active {
+    border-left-color: var(--primary, #ff6900);
+    background-color: #fff;
+    cursor: default;
   }
 </style>

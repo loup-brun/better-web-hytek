@@ -18,15 +18,23 @@
   class="Navbar | flex flex-row items-center bg-black text-white"
   bind:this={navbar}
 >
-  <a
-    class="Navbar__brand | text-white inline-block px-4 py-6"
-    href="/"
-  >{APP_CONFIG.company}</a>
-
   <button
-    class="Navbar__sidebar-toggle | md:hidden"
+    class="Navbar__sidebar-toggle | md:hidden block px-4 py-4"
     on:click={() => isSideNavOpen = !isSideNavOpen}
   >Menu</button>
+
+  <a
+    class="Navbar__brand | text-white inline-block py-6 mx-3 font-bold"
+    href="/"
+  >Résultats en ligne {APP_CONFIG.company}</a>
+
+  <a
+    href="{APP_CONFIG.hytekFtpLocation}index.htm"
+    rel="external"
+    target="_blank"
+    class="inline-block mx-3 text-xs ml-auto"
+  >Expérience classique</a>
+
 
 </header>
 
@@ -52,10 +60,7 @@
 
 <style>
   .Navbar {
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-color: #212721;
     width: 100%;
   }
 

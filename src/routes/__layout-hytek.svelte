@@ -2,7 +2,8 @@
   import fetchDocument from "$lib/utils/fetchDocument.js";
   import { APP_CONFIG } from "$lib/../config.js";
 
-  export async function load({ fetch }) {
+  export async function load({ fetch, params }) {
+    const { meetId, eventId } = params;
 
     // get the event list
     const evtIndexHTML = await fetchDocument(fetch, 'evtindex.htm', {
@@ -13,6 +14,8 @@
     return {
       props: {
         evtIndexHTML,
+        meetId,
+        eventId: eventId || null,
       },
     }
   }
@@ -21,26 +24,42 @@
   import { fade, fly } from 'svelte/transition';
   // components
   import Navbar from '$lib/components/Navbar.svelte';
-  import Sidebar from '$lib/components/Sidebar.svelte';
+  import HytekEventList from '$lib/components/HytekEventList.svelte';
   import { onMount } from 'svelte';
+  import { afterNavigate } from '$app/navigation';
 
   // props
   export let evtIndexHTML;
+  export let meetId;
+  export let eventId;
 
   // vars
   let sidebar;
+  let innerWidth = 0;
   let navbarHeight = 0;
   let sidebarWidth = 0;
   let isSideNavOpen = true;
   let expansionBreakpoint = 768; // 1056 by default
   let mainContainer;
+  let currentEventId;
+
+  // reactive assignment
+  $: currentEventId = eventId || null;
 
   onMount(() => {
     sidebarWidth = sidebar.getBoundingClientRect().width;
   });
 
+  afterNavigate(() => {
+    // new page loaded
+    if (innerWidth < expansionBreakpoint) {
+      // close sidebar if has navigated
+      isSideNavOpen = false;
+    }
+  });
+
+
   function handleResize() {
-    console.log('handleResize')
     if (innerWidth > expansionBreakpoint) {
       if (!isSideNavOpen) {
         isSideNavOpen = true
@@ -56,17 +75,25 @@
 
 <svelte:window
   on:resize={handleResize}
-  />
+  bind:innerWidth
+/>
+
+<!-- Set title in browser tab bar -->
+<svelte:head>
+  <title>Résultats</title>
+</svelte:head>
 
 <div
   class="HytekLayout | flex flex-col"
   style="--navbarHeight: {navbarHeight}px; --sidebarWidth: {sidebarWidth}px;"
 >
+  <!--TODO: modularize navbar -->
   <Navbar
     bind:navbarHeight
     bind:isSideNavOpen
   />
 
+  <!-- Inner: horizontal layout w/ space for sidebar -->
   <div class="HytekLayout__inner | relative flex-grow flex flex-row">
 
     {#if isSideNavOpen}
@@ -75,7 +102,9 @@
         bind:this={sidebar}
         transition:fly={{ x: -sidebarWidth, opacity: 1 }}
       >
-        <Sidebar
+        <HytekEventList
+          {meetId}
+          {currentEventId}
           {evtIndexHTML}
         />
       </div>
@@ -101,14 +130,14 @@
 
 <style>
   .HytekLayout {
-    padding-top: var(--navbarHeight, 100px);
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
   }
   .HytekLayout__inner {
-    height: 100%;
     /*padding-left: var(--sidebarWidth);*/
     /*transition: .5s padding;*/
+    overflow: auto; /* enable native scroll */
   }
   .HytekLayout__sidebar {
     position: absolute;
@@ -116,15 +145,15 @@
     left: 0;
     z-index: 2;
     height: 100%;
-    width: 250px;
+    width: 260px;
     max-width: 100%;
     background-color: #efefef;
     border-right: 1px solid #ccc;
   }
   .HytekLayout__main {
     padding: 8px;
-    flex-grow: 1;
-    overflow: auto;
+    flex-grow: 1; /* fill up horizontal space */
+    overflow: auto; /* enable native scroll */
     margin-left: 0;
     transition: margin .35s;
   }

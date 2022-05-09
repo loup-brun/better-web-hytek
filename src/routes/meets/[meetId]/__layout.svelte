@@ -14,15 +14,13 @@
     bind:navbarHeight
   />
 
-  <div class="MeetLayout__inner">
-
+  <div class="MeetLayout__inner | flex-grow">
     <slot></slot>
   </div>
 </div>
 
 <style>
   .MeetLayout {
-    padding-top: var(--navbarHeight, 100px);
     height: 100vh;
     width: 100vw;
   }
