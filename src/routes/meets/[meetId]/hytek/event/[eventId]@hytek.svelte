@@ -29,7 +29,6 @@
 <script>
   import { afterUpdate, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { afterNavigate } from '$app/navigation';
 
   // props (from page endpoint)
   export let eventHTML;
@@ -43,7 +42,6 @@
   let eventDoc; // before transform
   let updateView; // fn
 
-
   // client-side logic
   onMount(async () => {
     // force showing sidebar with reactive assignment
@@ -55,7 +53,12 @@
     updateView = () => {
       if (eventHTML) {
         eventDoc = parser.parseFromString(eventHTML, 'text/html');
-        mainHtml = eventDoc.querySelector('pre').innerHTML;
+        const pre = eventDoc.querySelector('pre');
+        if (pre) {
+          mainHtml = pre.innerHTML;
+        } else {
+          mainHtml = ''; // something went wrong
+        }
       }
     }
   });
@@ -66,8 +69,6 @@
 
     updateView();
   });
-
-  /////////
 
 </script>
 
