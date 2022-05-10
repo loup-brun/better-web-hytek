@@ -4,7 +4,8 @@
 
     try {
       // call page endpoint manually since there is already a load function in layout-hytek
-      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}.html`);
+      // do not include .html extension since causes Vercel to render the wrong html
+      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}`);
 
       if (evtRequest.ok) {
         const eventHTML = await evtRequest.text();
