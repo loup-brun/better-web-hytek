@@ -52,7 +52,6 @@
 
     // when component is mounted, set this function w/ browser-side logic
     updateView = () => {
-      debugger;
       if (eventHTML) {
         eventDoc = parser.parseFromString(eventHTML, 'text/html');
         const pre = eventDoc.querySelector('pre');

@@ -24,7 +24,7 @@ export async function get({ params, url }) {
     });
     return {
       headers: {
-        'Mimetype': 'text/html'
+        'Content-Type': 'text/html; charset=UTF-8',
       },
       body: eventHTML,
     };
