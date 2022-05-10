@@ -182,13 +182,14 @@
     overflow: hidden;
   }
   .HytekLayout__inner {
-    /*padding-left: var(--sidebarWidth);*/
-    /*transition: .5s padding;*/
-    overflow: auto; /* enable native scroll */
+    /* enable native scroll */
+    overflow: auto;
+    /* add momentum scrolling for iOS >=12.5 (more recent devices support momentum scrolling by default) */
+    -webkit-overflow-scrolling: touch;
   }
   .HytekLayout__sidebar {
     position: absolute;
-    overflow-y: auto;
+    overflow-y: auto; /* enable native scroll */
     top: 0;
     left: 0;
     z-index: 2;
