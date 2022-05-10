@@ -146,7 +146,6 @@
     border-right: 1px solid #ccc;
   }
   .HytekLayout__main {
-    padding: 8px;
     flex-grow: 1; /* fill up horizontal space */
     overflow: auto; /* enable native scroll */
     margin-left: 0;

@@ -1,4 +1,5 @@
 <script>
+  import { APP_CONFIG } from "../../config.js";
   import { slide } from 'svelte/transition';
   import { onMount } from 'svelte';
   import {
@@ -6,6 +7,7 @@
     DisclosureButton,
     DisclosurePanel,
   } from '@rgossiaux/svelte-headlessui';
+  import Icon from '$lib/components/Icon.svelte';
   import walkDOM from '$lib/utils/walkDOM';
 
   // props
@@ -79,16 +81,26 @@
 >
   <header class="EventList__header">
     <slot name="header">
+      <!--
       <div class="px-2 py-6"><a href="/meets/{meetId}/hytek">Accueil</a></div>
+      -->
     </slot>
   </header>
 
   {#if sessions.length}
     {#each sessions as session, i}
       <Disclosure let:open>
-        <DisclosureButton>
-          <div class="EventList__title-button | px-2 py-3 bold">{session.title}</div>
-        </DisclosureButton>
+        <div class="EventList__title-wrap">
+          <DisclosureButton>
+            <span
+              class="EventList__title-icon"
+              class:open
+            >
+              <Icon name="chevronRight" />
+            </span>
+            {session.title}
+          </DisclosureButton>
+        </div>
 
         {#if open}
           <div transition:slide|local={{ duration: 800 }}>
@@ -96,7 +108,7 @@
               {#each session.events as event}
                 <a
                   href="/meets/{meetId}/hytek/event/{event.eventId}"
-                  class="EventList__link"
+                  class="EventList__button"
                   class:active={event.eventId === currentEventId}
                   title="{event.text}"
                 >{event.text}</a>
@@ -111,6 +123,24 @@
       Chargement des épreuves...
     </div>
   {/if}
+
+  <footer class="EventList__footer | p-2 mt-6">
+    <div class="my-1">
+      <a
+        href="/meets/{meetId}/hytek"
+        class="EventList__link"
+      >À propos</a>
+    </div>
+
+    <div class="my-1">
+      <a
+        href="{APP_CONFIG.hytekFtpLocation}index.htm"
+        rel="external"
+        target="_blank"
+        class="EventList__link"
+      >Utiliser l’expérience classique</a>
+    </div>
+  </footer>
 </div>
 
 <!--
@@ -143,7 +173,6 @@
     bottom: 0;
     overflow-y: auto;
   }
-
   .EventList__title-button {
     text-align: left;
     font-weight: bold;
@@ -153,8 +182,27 @@
   .EventList__title-button:hover {
     background-color: rgba(0, 0, 0, .1);
   }
+  .EventList__title-wrap :global(> button) {
+    /* target headless ui button */
+    display: block;
+    max-width: 100%;
+    @apply  px-1 py-2 font-bold text-sm block whitespace-nowrap overflow-hidden text-ellipsis max-w-full;
+  }
+  .EventList__title-wrap :global(> button):hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+  .EventList__title-icon {
+    position: relative;
+    display: inline-block;
+    top: .25rem;
+    transition: transform .2s;
+    line-height: 1; /* make ratio 1:1 */
+  }
+  .EventList__title-icon.open {
+    transform: rotate(90deg);
+  }
 
-  .EventList__link {
+  .EventList__button {
     display: block;
     padding: .75rem .5rem;
     max-width: 100%;
@@ -167,8 +215,19 @@
 
     border-left: 4px solid transparent;
   }
-  .EventList__link:not(.active):hover {
+  .EventList__button:not(.active):hover {
     background-color: rgba(0, 0, 0, .1);
+  }
+  .EventList__footer {
+    border-top: 1px solid #ccc;
+  }
+  .EventList__link {
+    color: #999;
+    text-decoration: none;
+    font-size: .75rem;
+  }
+  .EventList__link:hover {
+    text-decoration: underline;
   }
 
   .active {

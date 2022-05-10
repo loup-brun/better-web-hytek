@@ -4,15 +4,18 @@
 
     try {
       // call page endpoint manually since there is already a load function in layout-hytek
-      const evtData = await fetch(`/meets/${meetId}/hytek/event/${eventId}.json`);
-      const { eventHTML } = await evtData.json();
+      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}.html`);
 
-      return {
-        props: {
-          eventHTML,
-          error: null,
-        }
-      };
+      if (evtRequest.ok) {
+        const eventHTML = await evtRequest.text();
+
+        return {
+          props: {
+            eventHTML,
+            error: null,
+          }
+        };
+      }
     } catch (e) {
       return {
         status: 404,
@@ -40,6 +43,7 @@
   let parser; // DOMParser instance, set in browser
   let eventDoc; // before transform
   let updateView; // fn
+  let bgColor;
 
 
   // client-side logic
@@ -49,8 +53,7 @@
 
     parser = new DOMParser(); // browser-only API
 
-    console.log('onMount eventHTML', eventHTML)
-
+    // when component is mounted, set this function w/ browser-side logic
     updateView = () => {
       if (eventHTML) {
         eventDoc = parser.parseFromString(eventHTML, 'text/html');
@@ -79,8 +82,7 @@
   });
 
   afterNavigate(() => {
-    // logic set onMount
-    console.log('afternavigate', eventHTML)
+    // logic set in onMount
     updateView();
   })
 
@@ -95,7 +97,9 @@
     </div>
   {:else}
     {#if mainHtml && mainHtml.length}
-      <pre in:fade={{ duration: 250 }}>{@html mainHtml}</pre>
+      <pre
+        in:fade={{ duration: 250 }}
+      >{@html mainHtml}</pre>
     {/if}
   {/if}
 {/key}
@@ -106,6 +110,7 @@
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
     font-weight: normal;
     font-size: 14px;
+    padding: 8px;
   }
   @media (min-width: 1056px) {
     pre {

@@ -19,22 +19,14 @@
   bind:this={navbar}
 >
   <button
-    class="Navbar__sidebar-toggle | md:hidden block px-4 py-4"
+    class="Navbar__sidebar-toggle | md:hidden block px-3 py-4 text-xs uppercase"
     on:click={() => isSideNavOpen = !isSideNavOpen}
   >Menu</button>
 
   <a
-    class="Navbar__brand | text-white inline-block py-6 mx-3 font-bold"
+    class="Navbar__brand | text-white inline-block px-3 py-4 font-bold"
     href="/"
   >Résultats en ligne {APP_CONFIG.company}</a>
-
-  <a
-    href="{APP_CONFIG.hytekFtpLocation}index.htm"
-    rel="external"
-    target="_blank"
-    class="inline-block mx-3 text-xs ml-auto"
-  >Expérience classique</a>
-
 
 </header>
 
@@ -61,6 +53,7 @@
 <style>
   .Navbar {
     background-color: #212721;
+    background-color: #ff6900;
     width: 100%;
   }
 

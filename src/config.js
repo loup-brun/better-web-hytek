@@ -5,9 +5,9 @@ export const APP_CONFIG = {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
   //
   // Also, MUST keep the trailing slash (e.g. '/ftp/meet20220222/')
-  // hytekFtpLocation: '/ftp/210731/',
+  hytekFtpLocation: 'http://localhost:3000/ftp/210731/',
   // hytekFtpLocation: '/ftp/170610/',
-  hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220304/',
+  // hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
 
   // Encoding may vary, but tested with HyTek 5 works with 'ISO-8859-15'
   hytekHtmlEncoding: 'ISO-8859-15',

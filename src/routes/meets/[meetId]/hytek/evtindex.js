@@ -7,16 +7,25 @@ import { APP_CONFIG } from "$lib/../config.js";
  * @param params
  * @returns {Promise<{body: *}|{status: number}>}
  */
-export async function get({ params }) {
+export async function get({ params, url }) {
   // per meet config w/ meetId...
   const { meetId } = params;
+  const { origin } = url;
+
+  let meetConfig;
+  try {
+    const res = await fetch(`${origin}/meets/${meetId}/config`);
+    meetConfig = await res.json();
+  } catch (e) {
+    console.error('Error fetching event config', e);
+  }
 
   try {
     // get the event list
     // beware of CORS configuration (prefetching evtindex through SSR is preferable here)
     const evtIndexHTML = await fetchDocument(fetch, 'evtindex.htm', {
-      encoding: APP_CONFIG.hytekHtmlEncoding, // should be ISO-8859-15 (Latin3)
-      baseLocation: APP_CONFIG.hytekFtpLocation, // should be adjusted for meetId
+      encoding: meetConfig.hytekHtmlEncoding, // usually ISO-8859-15 (Latin3)
+      baseLocation: meetConfig.hytekFtpLocation, // with trailing slash
     });
 
     return {
