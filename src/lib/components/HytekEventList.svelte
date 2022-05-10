@@ -123,24 +123,6 @@
       Chargement des épreuves...
     </div>
   {/if}
-
-  <footer class="EventList__footer | p-2 mt-6">
-    <div class="my-1">
-      <a
-        href="/meets/{meetId}/hytek"
-        class="EventList__link"
-      >À propos</a>
-    </div>
-
-    <div class="my-1">
-      <a
-        href="{APP_CONFIG.hytekFtpLocation}index.htm"
-        rel="external"
-        target="_blank"
-        class="EventList__link"
-      >Utiliser l’expérience classique</a>
-    </div>
-  </footer>
 </div>
 
 <!--
@@ -166,27 +148,13 @@
 
 <style>
   .EventList {
-    position: absolute;
-    max-width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow-y: auto;
-  }
-  .EventList__title-button {
-    text-align: left;
-    font-weight: bold;
-    display: block;
-    font-size: 14px;
-  }
-  .EventList__title-button:hover {
-    background-color: rgba(0, 0, 0, .1);
   }
   .EventList__title-wrap :global(> button) {
     /* target headless ui button */
-    display: block;
+    width: 100%;
     max-width: 100%;
-    @apply  px-1 py-2 font-bold text-sm block whitespace-nowrap overflow-hidden text-ellipsis max-w-full;
+    text-align: left;
+    @apply  px-1 py-2 font-bold text-sm block whitespace-nowrap overflow-hidden text-ellipsis;
   }
   .EventList__title-wrap :global(> button):hover {
     background-color: rgba(0, 0, 0, .1);
@@ -218,18 +186,6 @@
   .EventList__button:not(.active):hover {
     background-color: rgba(0, 0, 0, .1);
   }
-  .EventList__footer {
-    border-top: 1px solid #ccc;
-  }
-  .EventList__link {
-    color: #999;
-    text-decoration: none;
-    font-size: .75rem;
-  }
-  .EventList__link:hover {
-    text-decoration: underline;
-  }
-
   .active {
     border-left-color: var(--primary, #ff6900);
     background-color: #fff;

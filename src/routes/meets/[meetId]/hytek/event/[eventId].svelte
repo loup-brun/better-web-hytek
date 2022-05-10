@@ -58,7 +58,8 @@
         if (pre) {
           mainHtml = pre.innerHTML;
         } else {
-          mainHtml = 'Une erreur système est survenue en allant chercher l’épreuve.'; // something went wrong
+          error = 'Une erreur est survenue en allant chercher l’épreuve.'; // something went wrong, possibly 404
+          mainHtml = '';
         }
       }
     }
@@ -74,8 +75,11 @@
 
 {#key mainHtml}
   {#if error}
-    <div in:fade={{ duration: 250 }}>
-      Résultat introuvable
+    <div
+      in:fade={{ duration: 250 }}
+      class="p-4"
+    >
+      Résultat introuvable.
     </div>
   {:else}
     {#if mainHtml && mainHtml.length}

@@ -1,11 +1,21 @@
+import { db } from '$lib/services/meetDB';
+
 export async function get({ params }) {
   const { meetId } = params;
+  let meetData;
 
-  // fetch the meet config setup
-  return {
-    body: {
-      hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
-      hytekHtmlEncoding: 'ISO-8859-15',
+  try {
+    // fetch the meet config setup
+    meetData = db.get(meetId);
+
+
+    return {
+      body: meetData
+    }
+  } catch (e) {
+    // not found
+    return {
+      status: 404
     }
   }
 }

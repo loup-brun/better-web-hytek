@@ -1,29 +1,24 @@
-<script>
-  // components
-  import Navbar from '$lib/components/Navbar.svelte';
-  // vars
-  let navbarHeight = 0;
-  let sidebarWidth = 0;
-</script>
+ <script context="module">
+   export async function load({ fetch, params }) {
+     const { meetId } = params;
+     let meetConfig;
 
-<div
-  class="MeetLayout | flex flex-col"
-  style="--navbarHeight: {navbarHeight}px; --sidebarWidth: {sidebarWidth}px;"
->
-  <Navbar
-    bind:navbarHeight
-  />
+     try {
+       const res = await fetch(`/meets/${meetId}/config`);
+       meetConfig = await res.json();
 
-  <div class="MeetLayout__inner | flex-grow">
-    <slot></slot>
-  </div>
-</div>
-
-<style>
-  .MeetLayout {
-    height: 100vh;
-    width: 100vw;
-  }
-  .MeetLayout__inner {
-  }
-</style>
+       if (res.ok) {
+         return {
+           stuff: { meetConfig }
+         };
+       } else {
+         return {
+           status: 404
+         }
+       }
+     } catch (e) {
+       console.error('Error fetching meet config', e);
+     }
+   }
+ </script>
+ <slot></slot>
