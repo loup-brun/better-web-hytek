@@ -5,7 +5,7 @@
     try {
       // call page endpoint manually since there is already a load function in layout-hytek
       // do not include .html extension since causes Vercel to render the wrong html
-      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}`);
+      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}-html`);
 
       if (evtRequest.ok) {
         const eventHTML = await evtRequest.text();
@@ -59,7 +59,7 @@
         if (pre) {
           mainHtml = pre.innerHTML;
         } else {
-          mainHtml = ''; // something went wrong
+          mainHtml = 'Une erreur système est survenue en allant chercher l’épreuve.'; // something went wrong
         }
       }
     }
