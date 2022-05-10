@@ -27,7 +27,7 @@
   }
 </script>
 <script>
-  import { onMount } from 'svelte';
+  import { afterUpdate, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import { afterNavigate } from '$app/navigation';
 
@@ -60,10 +60,12 @@
     }
   });
 
-  afterNavigate(() => {
+  afterUpdate(() => {
     // logic set in onMount
+    // afterNavigate is buggy in production, try another strategy (afterUpdate?)
+
     updateView();
-  })
+  });
 
   /////////
 
