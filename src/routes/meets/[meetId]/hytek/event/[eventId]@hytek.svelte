@@ -38,12 +38,10 @@
   // vars
   // index controls major variables
   let isSideNavOpen = false;
-  // content variables
   let mainHtml = '';
   let parser; // DOMParser instance, set in browser
   let eventDoc; // before transform
   let updateView; // fn
-  let bgColor;
 
 
   // client-side logic
@@ -60,25 +58,6 @@
         mainHtml = eventDoc.querySelector('pre').innerHTML;
       }
     }
-
-
-    // check the hash on first load
-    // if (eventRegex.test(window.location.hash)) {
-    //   // handle hash
-    //   await handleHashChange();
-    // } else {
-    //   // get the main page
-    //   const mainHTML = await fetchDocument(fetch, 'main.htm', {
-    //     encoding: APP_CONFIG.hytekHtmlEncoding,
-    //     baseLocation: APP_CONFIG.hytekFtpLocation,
-    //   });
-    // const parser = new DOMParser();
-    // const mainDoc = parser.parseFromString(mainHTML, 'text/html');
-    //
-    //   // grab only the stuff in <pre> (text results)
-    //   mainHtml = mainDoc.querySelector('pre').innerHTML;
-    //
-    // }
   });
 
   afterNavigate(() => {
