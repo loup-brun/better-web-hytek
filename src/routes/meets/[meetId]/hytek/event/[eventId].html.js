@@ -8,7 +8,7 @@ import fetchDocument from "$lib/utils/fetchDocument.js";
  */
 export async function get({ params, url }) {
   const { eventId, meetId } = params;
-  const { origin } = url;
+  const { origin } = url; // since this is a page endpoint, origin is always current env
 
   let meetConfig;
   try {
