@@ -25,11 +25,12 @@
   import Icon from '$lib/components/Icon.svelte';
   import { onMount } from 'svelte';
   import { afterNavigate } from '$app/navigation';
+  import { page } from '$app/stores';
 
   // props
   export let evtIndexHTML;
   export let meetId;
-  export let eventId;
+  export let eventId; // eventId won’t necessary be available on first load
   export let meetConfig;
 
   // vars
@@ -51,6 +52,8 @@
       // close sidebar if has navigated
       isSideNavOpen = false;
     }
+    // eventId will be different
+    eventId = $page.params.eventId;
   });
 
 
