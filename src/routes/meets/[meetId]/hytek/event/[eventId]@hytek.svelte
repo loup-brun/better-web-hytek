@@ -51,6 +51,7 @@
 
     // when component is mounted, set this function w/ browser-side logic
     updateView = () => {
+      debugger;
       if (eventHTML) {
         eventDoc = parser.parseFromString(eventHTML, 'text/html');
         const pre = eventDoc.querySelector('pre');
@@ -66,7 +67,6 @@
   afterUpdate(() => {
     // logic set in onMount
     // afterNavigate is buggy in production, try another strategy (afterUpdate?)
-
     updateView();
   });
 
