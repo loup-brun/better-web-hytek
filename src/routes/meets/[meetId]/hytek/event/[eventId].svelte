@@ -95,7 +95,7 @@
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
     padding: 8px;
   }
   @media (min-width: 1056px) {

@@ -3,25 +3,6 @@
 
 Sélectionnez un événement dans le menu latéral pour débuter.
 
-
-<span class="muted">
-C’est quoi cette interface?
----------------------------
-Les résultats HyTek Meet Manager ont été conçus à une autre époque,
-pour une autre époque. La présente  interface améliore l’expérience
-utilisateur, en particulier sur les appareils mobiles.
-
-Bien sûr, le format texte exporté par le logiciel Meet Manager est
-loin d’être idéal. Les besoins et les attentes aujourd’hui ont évolué
-depuis les années 1990 (résultats en temps réel, design adaptatif,
-données liées, etc.). En attendant, voici simplement :
-
-  <strong>“Better Web Hytek”</strong>.
-
-
-  Louis-Olivier Brassard
-  <em>développeur indépendant</em>
-</span>
 </pre>
 
 <style>

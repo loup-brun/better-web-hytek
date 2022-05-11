@@ -1,4 +1,5 @@
 <script>
+  import { scale } from 'svelte/transition';
   // props
   export let name;
   export let size = 20; // 20px by default (heroicons solid version)
@@ -16,21 +17,25 @@
   };
 </script>
 
+{#key name}
 <span
   class="Icon"
   style="--iconSize: {size}px;"
+  in:scale={{ duration: 150, start: .75 }}
 >
   {@html icons[name]}
 </span>
+{/key}
 
 <style>
   .Icon {
     width: var(--iconSize);
     height: var(--iconSize);
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    line-height: 1;
     color: inherit;
   }
   .Icon :global(svg) {

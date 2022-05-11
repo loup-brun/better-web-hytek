@@ -119,8 +119,19 @@
       </Disclosure>
     {/each}
   {:else}
-    <div class="p-4 text-neutral-500">
-      Chargement des épreuves...
+    <div class="EventList__loading-group cursor-wait">
+      <div class="h-10 bg-zinc-200 flex flex-row items-center p-3">
+        <div class="w-3 h-2 mr-3 bg-zinc-500"></div><div class="bg-zinc-500 h-2 flex-grow"></div>
+      </div>
+      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
+        <div class="bg-zinc-400 h-2 flex-grow"></div>
+      </div>
+      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
+        <div class="bg-zinc-400 h-2 flex-grow"></div>
+      </div>
+      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
+        <div class="bg-zinc-400 h-2 flex-grow"></div>
+      </div>
     </div>
   {/if}
 </div>

@@ -79,7 +79,7 @@
 
 <div
   class="HytekLayout | flex flex-col"
-  style="--navbarHeight: {navbarHeight}px; --sidebarWidth: {sidebarWidth}px;"
+  style="--navbarHeight: {navbarHeight}px;"
 >
   <Navbar
     bind:navbarHeight
@@ -88,18 +88,18 @@
       class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
       on:click={() => isSideNavOpen = !isSideNavOpen}
     >
-    <span class="mr-1">
+      <span class="mr-2">
         <Icon
           name="{isSideNavOpen ? 'close' : 'menu'}"
-          size={16}
+          size={20}
         />
-    </span>
+      </span>
       Menu
     </button>
 
     <span
-      class="Navbar__brand | flex flex-row items-center text-xs px-4 py-3 text-stone-400"
-    >Résultats en ligne</span>
+      class="Navbar__brand | mx-auto flex flex-row items-center text-xl px-4 py-2 text-white uppercase tracking-wide"
+    >Résultats</span>
   </Navbar>
 
   <!-- Inner: horizontal layout w/ space for sidebar -->
@@ -107,19 +107,19 @@
 
     {#if isSideNavOpen}
       <div
-        class="HytekLayout__sidebar | bg-stone-100 border-r border-stone-300"
+        class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300"
         bind:this={sidebar}
         transition:fly={{ x: -sidebarWidth, opacity: 1 }}
       >
         <header
-          class="HytekLayout__sidebar-header | py-6 px-3 flex flex-col justify-center items-center text-center"
+          class="HytekLayout__sidebar-header | px-3 py-4 mb-4 bg-zinc-100 text-zinc-600"
         >
-          <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold text-orange-600">
+          <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
             {meetConfig.title}
           </h1>
 
-          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-stone-400">
-            {meetConfig.location}
+          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600">
+            {meetConfig.stadiumName} ({meetConfig.city}, {meetConfig.province})
           </div>
       </header>
         <HytekEventList
@@ -140,10 +140,10 @@
         >Épreuve en direct</a>
         -->
 
-        <footer class="HytekLayout__sidebar-footer | border-t border-stone-300 p-2 mt-6">
+        <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 p-2 mt-6">
           <div class="my-1">
             <a
-              href="/meets/{meetId}/hytek"
+              href="/meets/{meetId}/hytek/about"
               class="HytekLayout__sidebar-link"
             >À propos</a>
           </div>
@@ -180,9 +180,14 @@
 
 <style>
   .HytekLayout {
+    --sidebarWidth: 275px;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+  }
+  .Navbar__sidebar-toggle {
+    -webkit-appearance: none;
+    line-height: 1;
   }
   .HytekLayout__inner {
     /* enable native scroll */
@@ -197,7 +202,7 @@
     left: 0;
     z-index: 2;
     height: 100%;
-    width: 260px;
+    width: var(--sidebarWidth);
     max-width: 100%;
   }
   .HytekLayout__main {

@@ -13,7 +13,7 @@
 </script>
 
 <header
-  class="Navbar | flex flex-row items-stretch bg-stone-900 text-stone-200 text-sm"
+  class="Navbar | flex flex-row items-stretch bg-zinc-900 text-zinc-200 text-sm"
   bind:this={navbar}
 >
   <slot></slot>
