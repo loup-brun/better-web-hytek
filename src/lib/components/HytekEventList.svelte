@@ -12,6 +12,7 @@
 
   // props
   export let sessions = [];
+  export let error = null;
   export let meetId;
   export let evtIndexHTML = '';
   export let currentEventId;
@@ -120,18 +121,14 @@
     {/each}
   {:else}
     <div class="EventList__loading-group cursor-wait">
-      <div class="h-10 bg-zinc-200 flex flex-row items-center p-3">
-        <div class="w-3 h-2 mr-3 bg-zinc-500"></div><div class="bg-zinc-500 h-2 flex-grow"></div>
+
+      {#each Array(4) as i}
+      <div class="EventList__loading-item | flex flex-row items-center p-3">
+        <div class="w-4 h-4 mr-3"></div>
+        <div class="h-4 flex-grow"></div>
       </div>
-      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
-        <div class="bg-zinc-400 h-2 flex-grow"></div>
-      </div>
-      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
-        <div class="bg-zinc-400 h-2 flex-grow"></div>
-      </div>
-      <div class="h-10 bg-zinc-100 flex flex-row items-center p-3">
-        <div class="bg-zinc-400 h-2 flex-grow"></div>
-      </div>
+      {/each}
+
     </div>
   {/if}
 </div>
@@ -201,5 +198,21 @@
     border-left-color: var(--primary, #ff6900);
     background-color: #fff;
     cursor: default;
+  }
+  .EventList__loading-item div {
+    animation: pulseLoad 1s linear infinite;
+    @apply bg-zinc-200;
+    background-image: linear-gradient(90deg, theme('colors.zinc.200'), theme('colors.zinc.300'), theme('colors.zinc.200'));
+    background-size: 400px 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+  }
+  .EventList__loading-item:nth-child(2n) div {
+    animation-delay: .15s;
+  }
+
+  @keyframes pulseLoad {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
   }
 </style>
