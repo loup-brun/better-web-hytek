@@ -6,9 +6,9 @@
  */
 export default function walkDOM(node, func) {
   func(node);
-  node = node.firstChild;
+  node = node.lastChild;
   while(node) {
     walkDOM(node, func);
-    node = node.nextSibling;
+    node = node.previousSibling;
   }
 }

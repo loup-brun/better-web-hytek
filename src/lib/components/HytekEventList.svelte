@@ -1,5 +1,4 @@
 <script>
-  import { APP_CONFIG } from "../../config.js";
   import { slide } from 'svelte/transition';
   import { onMount } from 'svelte';
   import {
@@ -16,6 +15,7 @@
   export let meetId;
   export let evtIndexHTML = '';
   export let currentEventId;
+  export let sessionNames;
 
   // vars
   let sessionModel = { title: '', events: [] }; // base model for new sessions
@@ -23,50 +23,71 @@
   let sidebar;
 
   onMount(() => {
-    const parser = new DOMParser();
-    const evtIndexDOM = parser.parseFromString(evtIndexHTML, 'text/html');
+    if (evtIndexHTML) {
+      const parser = new DOMParser();
+      const evtIndexDOM = parser.parseFromString(evtIndexHTML, 'text/html');
 
-    sessions = makeEventList(evtIndexDOM);
+      sessions = makeEventList(evtIndexDOM);
+    } else {
+      // if evtIndexHTML is false, there is error on parent
+
+    }
   });
 
   //////////
 
   function makeEventList(evtIndexDOM) {
     let _sessions = [];
-    let _currentSession = false;
+    let finishedWalking = false;
+    let _currentSession = Object.assign({}, sessionModel);
+    let sessionIndex = 1;
+
     // traverse the DOM tree
     // start at first <h2> that does not have align=center
     // and split sessions at each <hr>
     walkDOM(evtIndexDOM.querySelector('body'), (node) => {
-      if (_currentSession) {
+      if (!finishedWalking) {
         if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
-          _currentSession.events.push({
+          // unshift rather than push, since we’re walking from down to up
+          _currentSession.events.unshift({
             href: node.getAttribute('href'),
             eventId: node.getAttribute('href').replace('.htm', ''),
             text: node.innerText,
           });
         }
-      }
-      if (node.nodeName === 'H2') {
-        if (node.getAttribute('align') === 'center') {
-          return;
+        // if we’ve finished a section
+        if (node.nodeName === 'H2') {
+          if (node.getAttribute('align') === 'center') {
+            // we’re done, we’ve walked all the way up
+            finishedWalking = true;
+            return;
+          }
+          if (!_currentSession) {
+            // start new section
+            _currentSession = Object.assign({}, sessionModel);
+          } else {
+            // finished current section
+            _currentSession.title = node.innerText;
+            // map to meet setting
+
+            _sessions.unshift(_currentSession);
+            sessionIndex++
+            // reset _currentSession
+            _currentSession = Object.assign({}, sessionModel);
+            _currentSession.events = [];
+          }
         }
-        if (!_currentSession) {
-          // start new section
-          _currentSession = Object.assign({}, sessionModel);
-          _currentSession.title = node.innerText;
-        } else {
-          _sessions.push(_currentSession);
-          // start new section
-          _currentSession = Object.assign({}, sessionModel);
-          _currentSession.title = node.innerText;
-          _currentSession.events = [];
-        }
       }
-    })
+    });
     // seemingly redundant assignment, but allows reactivity
-    // since Array.push() just modifies the array in place
+    // since Array.unshift() just modifies the array in place
     // https://svelte.dev/docs#component-format-script-2-assignments-are-reactive
+    if (sessionNames) {
+      sessionNames.forEach((name, i) => {
+        _sessions[i].title = name;
+      });
+    }
+    _sessions = _sessions;
     return _sessions;
   }
 
@@ -88,6 +109,7 @@
     </slot>
   </header>
 
+  <!-- TODO: maybe await sessions? to catch on load error -->
   {#if sessions.length}
     {#each sessions as session, i}
       <Disclosure let:open>

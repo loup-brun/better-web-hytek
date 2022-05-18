@@ -4,16 +4,26 @@
     const { meetConfig } = stuff ;
 
     // get the event list
-    const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-    const { evtIndexHTML } = await getEvtIndex.json();
+    try {
+      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
+      const { evtIndexHTML } = await getEvtIndex.json();
 
-    return {
-      props: {
-        evtIndexHTML,
+      return {
+        props: {
+          evtIndexHTML,
+          meetConfig,
+          meetId,
+          eventId,
+        },
+      }
+    } catch (e) {
+      console.warn('Could not fetch event index', e);
+      return {
         meetConfig,
         meetId,
         eventId,
-      },
+        evtIndexHTML: null
+      }
     }
   }
 </script>
@@ -126,6 +136,7 @@
           {meetId}
           currentEventId={eventId}
           {evtIndexHTML}
+          sessionNames={meetConfig.sessionNames}
         >
         </HytekEventList>
 

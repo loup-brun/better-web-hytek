@@ -6,7 +6,7 @@ db.set('laval-primaire-2022', {
   // meet info
   dateStart: '2022-05-18',
   dateEnd: '2022-05-18',
-  title: 'Mini-athlétisme RSEQ Laval',
+  title: 'Championnat régional primaire RSEQ Laval',
   stadiumName: 'Stade d’athlétisme Claude-Ferragne',
   address: '4600 Cyrille-Delage',
   address2: '',
@@ -19,6 +19,7 @@ db.set('laval-primaire-2022', {
   finishlynx: true,
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220518/',
   hytekHtmlEncoding: 'ISO-8859-15',
+  sessionNames: [ 'Pelouse', 'Piste' ],
 
   // personnalisation
   logo: '',
