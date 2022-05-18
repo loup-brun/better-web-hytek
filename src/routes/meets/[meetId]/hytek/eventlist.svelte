@@ -1,16 +1,23 @@
 <script context="module">
   export async function load({ fetch, params }) {
     const { meetId } = params;
-    // get the event list
-    const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-    const { evtIndexHTML } = await getEvtIndex.json();
+    let error;
 
+    try {
+      // get the event list
+      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
+      const { evtIndexHTML } = await getEvtIndex.json();
 
-    return {
-      props: {
-        meetId,
-        evtIndexHTML,
+      return {
+        props: {
+          meetId,
+          evtIndexHTML,
+        }
       }
+    } catch (e) {
+      console.error('Error fetching event index', e);
+
+      error = e;
     }
   }
 </script>
@@ -19,9 +26,11 @@
 
   export let meetId;
   export let evtIndexHTML;
+  export let error;
 </script>
 
 <HytekEventList
   {meetId}
   {evtIndexHTML}
+  {error}
 />

@@ -2,6 +2,30 @@ export const db = new Map();
 
 // set values w/ meetId as key
 // TODO make DB schema (e.g. Supabase, Directus, ...)
+db.set('laval-primaire-2022', {
+  // meet info
+  dateStart: '2022-05-18',
+  dateEnd: '2022-05-18',
+  title: 'Mini-athlétisme RSEQ Laval',
+  stadiumName: 'Stade d’athlétisme Claude-Ferragne',
+  address: '4600 Cyrille-Delage',
+  address2: '',
+  city: 'Laval',
+  province: 'QC',
+  postalCode: '',
+
+  // résultats
+  resultsType: 'hytek',
+  finishlynx: true,
+  hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220518/',
+  hytekHtmlEncoding: 'ISO-8859-15',
+
+  // personnalisation
+  logo: '',
+  themeColor: '#013871',
+
+});
+
 db.set('rseq-ll-primaire-2022', {
   dateStart: '2022-05-25',
   dateEnd: '2022-05-25',
@@ -13,11 +37,15 @@ db.set('rseq-ll-primaire-2022', {
   province: 'QC',
   postalCode: 'J7E 4S4',
 
-  logo: '',
-
+  // résultats
   resultsType: 'hytek',
   hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
   hytekHtmlEncoding: 'ISO-8859-15',
+
+
+  // personnalisation
+  logo: '',
+  themeColor: '#ff6800',
 });
 
 db.set('rseq-ll-2022', {
@@ -31,11 +59,14 @@ db.set('rseq-ll-2022', {
   province: 'QC',
   postalCode: 'J7E 4S4',
 
-  logo: '',
-
+  // résultats
   resultsType: 'hytek',
   hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
   hytekHtmlEncoding: 'ISO-8859-15',
+
+  // personnalisation
+  logo: '',
+  themeColor: '#ff6800',
 });
 
 db.set('coch-inv-2022', {
@@ -49,9 +80,12 @@ db.set('coch-inv-2022', {
   province: 'QC',
   postalCode: 'J7E 4S4',
 
-  logo: '',
-
+  // résultats
   resultsType: 'hytek',
   hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
   hytekHtmlEncoding: 'ISO-8859-15',
+
+  // personnalisation
+  logo: '',
+  themeColor: '#ff6800',
 });
