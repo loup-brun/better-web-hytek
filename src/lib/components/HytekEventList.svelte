@@ -1,12 +1,14 @@
 <script>
   import { slide } from 'svelte/transition';
   import { onMount } from 'svelte';
+  import { beforeNavigate, afterNavigate } from '$app/navigation';
   import {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
   } from '@rgossiaux/svelte-headlessui';
   import Icon from '$lib/components/Icon.svelte';
+  import Spinner from '$lib/components/Spinner.svelte';
   import walkDOM from '$lib/utils/walkDOM';
 
   // props
@@ -21,6 +23,7 @@
   let sessionModel = { title: '', events: [] }; // base model for new sessions
   let innerWidth = 0;
   let sidebar;
+  let navigatingTo;
 
   onMount(() => {
     if (evtIndexHTML) {
@@ -30,8 +33,16 @@
       sessions = makeEventList(evtIndexDOM);
     } else {
       // if evtIndexHTML is false, there is error on parent
-
+      error = 'Erreur de chargement du programme d’épreuves.';
     }
+  });
+
+  beforeNavigate(({ to }) => {
+    navigatingTo = to;
+  });
+
+  afterNavigate(() => {
+    navigatingTo = null;
   });
 
   //////////
@@ -129,12 +140,19 @@
           <div transition:slide|local={{ duration: 800 }}>
             <DisclosurePanel>
               {#each session.events as event}
+                {@const evtPathname = `/meets/${meetId}/hytek/event/${event.eventId}`}
                 <a
-                  href="/meets/{meetId}/hytek/event/{event.eventId}"
+                  href="{evtPathname}"
                   class="EventList__button"
                   class:active={event.eventId === currentEventId}
                   title="{event.text}"
-                >{event.text}</a>
+                >
+                  {#if navigatingTo && navigatingTo.pathname === evtPathname}
+                    <Spinner size={14} />
+                  {:else}
+                  {event.text}
+                  {/if}
+                </a>
               {/each}
             </DisclosurePanel>
           </div>
@@ -142,10 +160,10 @@
       </Disclosure>
     {/each}
   {:else}
-    <div class="EventList__loading-group cursor-wait">
+    <div class="EventList__skeleton-group cursor-wait">
 
       {#each Array(4) as i}
-      <div class="EventList__loading-item | flex flex-row items-center p-3">
+      <div class="EventList__skeleton-item | flex flex-row items-center p-3">
         <div class="w-4 h-4 mr-3"></div>
         <div class="h-4 flex-grow"></div>
       </div>
@@ -154,27 +172,6 @@
     </div>
   {/if}
 </div>
-
-<!--
-<SideNav bind:isOpen={isSideNavOpen}>
-  <SideNavItems>
-    {#if sessions.length}
-      {#each sessions as session}
-      <SideNavMenu text={session.title}>
-          {#each session.events as event}
-          <SideNavMenuItem href={`#/event/${event.href}`} text={event.text} on:click={handleNavClick} />
-          {/each}
-      </SideNavMenu>
-      {/each}
-    {:else}
-      <SideNavMenuItem>
-        <InlineLoading description="Chargement des épreuves..." />
-      </SideNavMenuItem>
-    {/if}
-    <SideNavDivider />
-  </SideNavItems>
-</SideNav>
--->
 
 <style>
   .EventList {
@@ -221,7 +218,7 @@
     background-color: #fff;
     cursor: default;
   }
-  .EventList__loading-item div {
+  .EventList__skeleton-item div {
     animation: pulseLoad 1s linear infinite;
     @apply bg-zinc-200;
     background-image: linear-gradient(90deg, theme('colors.zinc.200'), theme('colors.zinc.300'), theme('colors.zinc.200'));
@@ -229,7 +226,7 @@
     background-position: top left;
     background-repeat: no-repeat;
   }
-  .EventList__loading-item:nth-child(2n) div {
+  .EventList__skeleton-item:nth-child(2n) div {
     animation-delay: .15s;
   }
 

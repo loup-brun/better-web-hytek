@@ -40,13 +40,12 @@
   // props
   export let evtIndexHTML;
   export let meetId;
-  export let eventId; // eventId won’t necessary be available on first load
+  export let eventId; // eventId won’t necessarily be available on first load
   export let meetConfig;
 
   // vars
   let sidebar;
   let innerWidth = 0;
-  let navbarHeight = 0;
   let sidebarWidth = 0;
   let isSideNavOpen = true;
   let expansionBreakpoint = 768; // 1056 by default
@@ -62,7 +61,8 @@
       // close sidebar if has navigated
       isSideNavOpen = false;
     }
-    // eventId will be different
+
+    // eventId will be different after navigate
     eventId = $page.params.eventId;
   });
 
@@ -89,11 +89,8 @@
 
 <div
   class="HytekLayout | flex flex-col"
-  style="--navbarHeight: {navbarHeight}px;"
 >
-  <Navbar
-    bind:navbarHeight
-  >
+  <Navbar>
     <button
       class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
       on:click={() => isSideNavOpen = !isSideNavOpen}
@@ -119,7 +116,7 @@
       <div
         class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300"
         bind:this={sidebar}
-        transition:fly={{ x: -sidebarWidth, opacity: 1 }}
+        transition:fly|local={{ x: -sidebarWidth, opacity: 1 }}
       >
         <header
           class="HytekLayout__sidebar-header | px-3 py-4 mb-4 bg-zinc-100 text-zinc-600"

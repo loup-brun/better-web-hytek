@@ -18,7 +18,12 @@
     class="text-2xl bold mb-6"
   >Pas encore de résultats pour cette épreuve</h1>
 
-  <small class="text-xs">Épreuve #{eventId}</small>
+  <small class="text-xs">
+    <!-- last 3 digits: evt number -->
+    Épreuve #{eventId.slice(-3)}
+    -
+    <!-- round -->
+    {eventId.slice(-4, -3)}</small>
 
 </div>
 
