@@ -29,6 +29,7 @@
 </script>
 <script>
   import { fade, fly } from 'svelte/transition';
+  import { linear, expoOut } from 'svelte/easing';
   // components
   import Navbar from '$lib/components/Navbar.svelte';
   import HytekEventList from '$lib/components/HytekEventList.svelte';
@@ -118,7 +119,8 @@
       <div
         class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300"
         bind:this={sidebar}
-        transition:fly|local={{ x: -sidebarWidth, opacity: 1 }}
+        in:fly|local={{ x: -sidebarWidth, opacity: 1, delay: 400, easing: expoOut }}
+        out:fly|local={{ x: -sidebarWidth, opacity: 1, easing: expoOut }}
       >
         <header
           class="HytekLayout__sidebar-header | px-3 py-4 mb-4 bg-zinc-100 text-zinc-600"
@@ -172,7 +174,8 @@
       <div
         class="HytekLayout__sidebar-overlay | bg-black/50 absolute top-0 left-0 h-full w-full md:hidden"
         on:click={() => isSideNavOpen = !isSideNavOpen}
-        transition:fade
+        in:fade={{ easing: linear }}
+        out:fade={{ delay: 200, duration: 200, easing: linear }}
       ></div>
     {/if}
 
@@ -210,10 +213,13 @@
     overflow-y: auto; /* enable native scroll */
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
     height: 100%;
     width: var(--sidebarWidth);
     max-width: 100%;
+  }
+  .HytekLayout__sidebar-overlay {
+    z-index: 9;
   }
   .HytekLayout__main {
     flex-grow: 1; /* fill up horizontal space */
