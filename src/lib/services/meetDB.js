@@ -40,7 +40,7 @@ db.set('rseq-ll-primaire-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
+  hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220525/',
   hytekHtmlEncoding: 'ISO-8859-15',
 
 
@@ -62,7 +62,7 @@ db.set('rseq-ll-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
+  hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220526/',
   hytekHtmlEncoding: 'ISO-8859-15',
 
   // personnalisation
@@ -83,7 +83,7 @@ db.set('coch-inv-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'https://sherbrooke.rsstiming.com/ftp/220319/',
+  hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220529/',
   hytekHtmlEncoding: 'ISO-8859-15',
 
   // personnalisation
