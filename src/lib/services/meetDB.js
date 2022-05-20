@@ -42,6 +42,7 @@ db.set('rseq-ll-primaire-2022', {
   resultsType: 'hytek',
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220525/',
   hytekHtmlEncoding: 'ISO-8859-15',
+  sessionNames: [ 'Piste', 'Pelouse' ],
 
 
   // personnalisation
@@ -64,6 +65,7 @@ db.set('rseq-ll-2022', {
   resultsType: 'hytek',
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220526/',
   hytekHtmlEncoding: 'ISO-8859-15',
+  sessionNames: [ 'Piste', 'Pelouse' ],
 
   // personnalisation
   logo: '',
@@ -85,6 +87,7 @@ db.set('coch-inv-2022', {
   resultsType: 'hytek',
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220529/',
   hytekHtmlEncoding: 'ISO-8859-15',
+  sessionNames: [ 'Piste', 'Pelouse' ],
 
   // personnalisation
   logo: '',
