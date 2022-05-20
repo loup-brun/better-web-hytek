@@ -90,24 +90,26 @@
 <div
   class="HytekLayout | flex flex-col"
 >
-  <Navbar>
-    <button
-      class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
-      on:click={() => isSideNavOpen = !isSideNavOpen}
-    >
-      <span class="mr-2">
-        <Icon
-          name="{isSideNavOpen ? 'close' : 'menu'}"
-          size={20}
-        />
-      </span>
-      Menu
-    </button>
+  <div class="HytekLayout__header | flex-shrink-0">
+    <Navbar>
+      <button
+        class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
+        on:click={() => isSideNavOpen = !isSideNavOpen}
+      >
+        <span class="mr-2">
+          <Icon
+            name="{isSideNavOpen ? 'close' : 'menu'}"
+            size={20}
+          />
+        </span>
+        Menu
+      </button>
 
-    <span
-      class="Navbar__brand | mx-auto flex flex-row items-center text-xl px-4 py-2 text-white uppercase tracking-wide"
-    >Résultats</span>
-  </Navbar>
+      <span
+        class="Navbar__brand | mx-auto flex flex-row items-center text-xl px-4 py-2 text-white uppercase tracking-wide"
+      >Résultats</span>
+    </Navbar>
+  </div>
 
   <!-- Inner: horizontal layout w/ space for sidebar -->
   <div class="HytekLayout__inner | relative flex-grow flex flex-row">
