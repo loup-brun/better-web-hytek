@@ -87,7 +87,7 @@ db.set('coch-inv-2022', {
   resultsType: 'hytek',
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220529/',
   hytekHtmlEncoding: 'ISO-8859-15',
-  sessionNames: [ 'Piste', 'Pelouse' ],
+  sessionNames: [ 'Councours', 'Piste' ],
 
   // personnalisation
   logo: '',
