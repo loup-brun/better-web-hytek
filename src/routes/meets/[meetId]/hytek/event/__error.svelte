@@ -9,25 +9,26 @@
     }
   }
 </script>
+
 <script>
+  import { fade } from 'svelte/transition';
   export let eventId;
 </script>
 
-<div class="ErrorPage | text-center px-4 py-10 text-neutral-400">
+{#key eventId}
+<div
+  class="ErrorPage | text-center px-4 py-20 text-neutral-400 flex-grow-1 text-zinc-400"
+  in:fade
+>
   <h1
-    class="text-2xl bold mb-6"
+    class="text-2xl sm:text-3xl bold mb-6"
   >Pas encore de résultats pour cette épreuve</h1>
 
   <small class="text-xs">
     <!-- last 3 digits: evt number -->
     Épreuve #{eventId.slice(-3)}
-    -
     <!-- round -->
-    {eventId.slice(-4, -3)}</small>
+    (série {eventId.slice(-4, -3)})</small>
 
 </div>
-
-
-<style>
-
-</style>
+{/key}

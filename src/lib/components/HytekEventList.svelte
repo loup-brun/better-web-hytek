@@ -162,10 +162,10 @@
   {:else}
     <div class="EventList__skeleton-group cursor-wait">
 
-      {#each Array(4) as i}
+      {#each Array(3) as i}
       <div class="EventList__skeleton-item | flex flex-row items-center p-3">
-        <div class="w-4 h-4 mr-3"></div>
-        <div class="h-4 flex-grow"></div>
+        <div class="w-3 h-3 mr-3"></div>
+        <div class="h-3 flex-grow"></div>
       </div>
       {/each}
 

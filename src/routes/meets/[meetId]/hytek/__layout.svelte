@@ -181,7 +181,7 @@
       bind:this={mainContainer}
     >
       <div
-        class="HytekLayout__main-container | mx-auto">
+        class="HytekLayout__main-container | mx-auto min-h-full">
         <slot></slot>
       </div>
     </div>
