@@ -128,6 +128,15 @@
         <header
           class="HytekLayout__sidebar-header | px-3 py-4 bg-zinc-100 text-zinc-600"
         >
+          {#if meetConfig.logo}
+          <img
+            src="{meetConfig.logo}"
+            alt="Logo"
+            class="mb-4"
+            style="max-width: 90px;"
+          />
+          {/if}
+
           <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
             {meetConfig.title}
           </h1>

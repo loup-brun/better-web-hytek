@@ -90,6 +90,6 @@ db.set('coch-inv-2022', {
   sessionNames: [ 'Concours', 'Piste' ],
 
   // personnalisation
-  logo: '/Logo_COCH+Texte_Fond_Noir.png',
+  logo: '/logos/COCH_FN_4C.svg',
   themeColor: '#f26000',
 });
