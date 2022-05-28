@@ -12,7 +12,7 @@ loin d’être idéal. Les besoins et les attentes aujourd’hui ont évolué
 depuis les années 1990 (résultats en temps réel, design adaptatif,
 données liées, etc.). En attendant, voici simplement :
 
-  <strong>“Better Web Hytek”</strong>.
+  <strong>“Better HyTek Results”</strong>.
 
 
   Louis-Olivier Brassard
@@ -33,9 +33,6 @@ données liées, etc.). En attendant, voici simplement :
     }
   }
 
-  .muted {
-    color: #777;
-  }
   .muted :global(strong) {
     color: #000;
     font-weight: inherit;

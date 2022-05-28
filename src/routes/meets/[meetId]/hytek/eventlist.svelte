@@ -16,8 +16,13 @@
       }
     } catch (e) {
       console.error('Error fetching event index', e);
-
       error = e;
+
+      return {
+        props: {
+          error
+        }
+      }
     }
   }
 </script>

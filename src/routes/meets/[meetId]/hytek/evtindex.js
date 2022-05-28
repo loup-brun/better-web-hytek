@@ -1,5 +1,4 @@
 import fetchDocument from "$lib/utils/fetchDocument.js";
-import { APP_CONFIG } from "$lib/../config.js";
 
 /**
  * Get the hytek event index and returns the utf-8 encoded HTML page
@@ -15,7 +14,8 @@ export async function get({ params, url }) {
   let meetConfig;
   try {
     const res = await fetch(`${origin}/meets/${meetId}/config`);
-    meetConfig = await res.json();
+    const data = await res.json();
+    meetConfig = data.meetConfig;
   } catch (e) {
     console.error('Error fetching event config', e);
   }

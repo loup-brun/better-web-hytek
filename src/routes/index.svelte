@@ -2,7 +2,7 @@
   import { db } from '$lib/services/meetDB';
 
   export function load() {
-    let events = db;
+    let events = db.entries();
 
     return {
       props: {
@@ -17,10 +17,10 @@
   import Navbar from '$lib/components/Navbar.svelte';
 
   // props
-  export let events;
+  export let events = [];
 
   // vars
-  let dbEvents = [... events.entries()]; // copy array
+  let dbEvents = [... events]; // copy array
 </script>
 
 <div class="Accueil">

@@ -2,32 +2,28 @@ import { db } from '$lib/services/meetDB';
 
 export async function get({ params }) {
   const { meetId } = params;
-  let meetData;
 
   // use a try block for when we’ll really fetch from a DB
   // and getting will throw
   try {
-    // fetch the meet config setup
-    meetData = db.get(meetId);
+    // early check if meet exists in DB
+    if (!db.has(meetId)) {
+      throw `Event with meetId '${meetId}' not found.`;
+    }
 
-    // since current implementation is just a Map(),
-    // querying a non-existant key will not throw.
-    if (!meetData) {
-      return {
-        status: 404,
-        body: {
-          error: 'Not found'
-        }
+    return {
+      body: {
+        // fetch the meet config setup
+        meetConfig: db.get(meetId)
       }
     }
-
-    return {
-      body: meetData
-    }
-  } catch (e) {
+  } catch (error) {
     // not found (if DB.get() method throws)
     return {
-      status: 404
+      status: 404,
+      body: {
+        error
+      }
     }
   }
 }

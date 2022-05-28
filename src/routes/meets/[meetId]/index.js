@@ -1,9 +1,8 @@
 export async function get({ params, url }) {
   const { pathname } = url;
   const res = await fetch(`${url.toString()}/config`);
-  const meetConfig = await res.json();
-
-  console.log('res.ok', res.ok)
+  const data = await res.json();
+  const { meetConfig } = data;
 
   if (res.ok) {
     if (meetConfig.resultsType === 'hytek') {
@@ -18,6 +17,7 @@ export async function get({ params, url }) {
       // unsupported results type
       return {
         status: 500,
+        error: 'Results type not implemented',
         body: {
           error: 'Results type not implemented'
         }
@@ -26,8 +26,9 @@ export async function get({ params, url }) {
   } else {
     return {
       status: 404,
+      error: meetConfig.error,
       body: {
-        error: 'Not found'
+        error: meetConfig.error
       }
     }
   }
