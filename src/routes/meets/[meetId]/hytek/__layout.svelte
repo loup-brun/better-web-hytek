@@ -92,8 +92,10 @@
 <div
   class="HytekLayout | flex flex-col"
 >
-  <div class="HytekLayout__header | flex-shrink-0">
-    <Navbar>
+  <div class="HytekLayout__header | flex-shrink-0 relative z-20">
+    <Navbar
+      --themeColor={meetConfig.themeColor}
+    >
       <button
         class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
         on:click={() => isSideNavOpen = !isSideNavOpen}
@@ -107,9 +109,9 @@
         Menu
       </button>
 
-      <span
-        class="Navbar__brand | mx-auto flex flex-row items-center text-xl px-4 py-2 text-white uppercase tracking-wide"
-      >Résultats</span>
+      <h1
+        class="Navbar__brand | mr-auto flex flex-row items-center text-xl px-3 py-2 uppercase tracking-wide"
+      >Résultats</h1>
     </Navbar>
   </div>
 
@@ -124,16 +126,23 @@
         out:fly|local={{ x: -sidebarWidth, opacity: 1, easing: expoOut }}
       >
         <header
-          class="HytekLayout__sidebar-header | px-3 py-4 mb-4 bg-zinc-100 text-zinc-600"
+          class="HytekLayout__sidebar-header | px-3 py-4 bg-zinc-100 text-zinc-600"
         >
           <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
             {meetConfig.title}
           </h1>
 
           <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600">
-            {meetConfig.stadiumName} ({meetConfig.city}, {meetConfig.province})
+            {meetConfig.stadiumName}
+            <br>
+            ({meetConfig.city}, {meetConfig.province})
+
+            <div class="mt-2">
+              {meetConfig.dateStart}
+            </div>
           </div>
-      </header>
+        </header>
+
         <HytekEventList
           {meetId}
           currentEventId={eventId}
