@@ -1,3 +1,4 @@
+<!-- HYTEK EVENT LAYOUT -->
 <script context="module">
   export async function load({ fetch, params, stuff }) {
     const { meetId, eventId } = params;

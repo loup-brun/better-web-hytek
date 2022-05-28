@@ -9,6 +9,7 @@
 
        if (res.ok) {
          return {
+           // pass down the meet config to child layouts
            stuff: { meetConfig }
          };
        } else {
@@ -21,4 +22,5 @@
      }
    }
  </script>
+
  <slot></slot>

@@ -1,11 +1,12 @@
-export function get({ params }) {
-  const { meetId } = params;
+export function get({ url }) {
+  const { pathname } = url;
+  const redirectPath = pathname.replace(/\/event\/?$/g, '');
 
   // simple redirect if no events specified
   return {
     status: 307,
     headers: {
-      Location: `/meets/${meetId}/hytek`
+      Location: `${redirectPath}`
     }
   }
 }

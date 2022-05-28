@@ -25,6 +25,7 @@
   let sidebar;
   let navigatingTo;
 
+  // browser-only code
   onMount(() => {
     if (evtIndexHTML) {
       const parser = new DOMParser();
@@ -37,25 +38,33 @@
     }
   });
 
+  // trigger a pending state in the UI
   beforeNavigate(({ to }) => {
     navigatingTo = to;
   });
 
+  // end pending state
   afterNavigate(() => {
     navigatingTo = null;
   });
 
   //////////
 
+  /**
+   * Build the event list given a parsed event index HTML.
+   * @param evtIndexDOM
+   * @returns {*[]} sessions array
+   */
   function makeEventList(evtIndexDOM) {
     let _sessions = [];
     let finishedWalking = false;
     let _currentSession = Object.assign({}, sessionModel);
     let sessionIndex = 1;
 
-    // traverse the DOM tree
-    // start at first <h2> that does not have align=center
-    // and split sessions at each <hr>
+    // traverse the DOM tree from deepest to shallowest child nodes
+    // build sessions with `<a target="main">`
+    // and split at each `<h2>`.
+    // The main competition title will be `<h2 align=center>` so do not include that to make a session
     walkDOM(evtIndexDOM.querySelector('body'), (node) => {
       if (!finishedWalking) {
         if (node.nodeName === 'A' && node.getAttribute('target') === 'main') {
@@ -78,34 +87,44 @@
             _currentSession = Object.assign({}, sessionModel);
           } else {
             // finished current section
+            // session title could be mapped to meet settings instead...
             _currentSession.title = node.innerText;
-            // map to meet setting
 
+            // add the session in first position (not last)
             _sessions.unshift(_currentSession);
-            sessionIndex++
+
+            // incrase sessionIndex so we keep track
+            sessionIndex++;
+
             // reset _currentSession
-            _currentSession = Object.assign({}, sessionModel);
-            _currentSession.events = [];
+            _currentSession = Object.assign({}, sessionModel); // copy object
+            _currentSession.events = []; // new empty array
           }
         }
       }
     });
-    // seemingly redundant assignment, but allows reactivity
-    // since Array.unshift() just modifies the array in place
-    // https://svelte.dev/docs#component-format-script-2-assignments-are-reactive
+
+    // if we have sessionNames in the meet settings
+    // (rather than using HyTek’s default ones, which are polluted with keywords)
+    // map them to the sessions
     if (sessionNames) {
       sessionNames.forEach((name, i) => {
         _sessions[i].title = name;
       });
     }
+
+    // seemingly redundant assignment, but allows reactivity
+    // since Array.unshift() just modifies the array in place
+    // https://svelte.dev/docs#component-format-script-2-assignments-are-reactive
     _sessions = _sessions;
+
     return _sessions;
   }
 
 </script>
 
 <svelte:window
-  bind:innerWidth={innerWidth}
+  bind:innerWidth
 />
 
 <div
