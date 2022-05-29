@@ -9,13 +9,14 @@ import fetchDocument from "$lib/utils/fetchDocument.js";
 export async function get({ params, url }) {
   const { eventId, meetId } = params;
   const { origin } = url; // since this is a page endpoint, origin is always current env
-
   let meetConfig;
+
   try {
     const res = await fetch(`${origin}/meets/${meetId}/config`);
-    meetConfig = await res.json();
+    const data = await res.json();
+    meetConfig = data.meetConfig;
   } catch (e) {
-    console.error('Error fetching event config', e);
+    console.error('Error fetching meet config', e);
   }
   try {
     const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
@@ -29,6 +30,7 @@ export async function get({ params, url }) {
       body: eventHTML,
     };
   } catch (e) {
+    console.error(`Error fetching event`, e);
     return {
       status: 404,
       error: {
