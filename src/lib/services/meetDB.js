@@ -18,7 +18,22 @@ db.set('jdq-laval-2022', {
   resultsType: 'hytek',
   hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220529/',
   hytekHtmlEncoding: 'ISO-8859-15',
-  sessionNames: [ 'Concours', 'Piste' ],
+  sessionNames: [
+    'Jour 1 AM - Piste',
+    'Jour 1 AM - Concours',
+    'Jour 1 PM - Concours',
+    'Jour 1 PM - Piste',
+    'Jour 2 AM - Concours',
+    'Jour 2 AM - Piste',
+    'Jour 2 PM - Concours',
+    'Jour 2 PM - Piste',
+    'Jour 3 AM - Piste',
+    'Jour 3 AM - Concours',
+    'Jour 3 PM - Piste',
+    'Jour 3 PM - Concours',
+    'Jour 4 AM - Piste',
+    'Jour 4 AM - Concours',
+  ],
 
   // personnalisation
   logo: '/logos/jdq-2022.png',
