@@ -5,6 +5,33 @@ Sélectionnez un événement dans le menu latéral pour débuter.
 
 </pre>
 
+<div class="content">
+
+  <hr class="my-6">
+
+  <p>
+    <strong>Richard Sports Services est distributeur canadien des produits Finish Lynx</strong>
+  </p>
+  <p>
+    <img
+      src="/logos/lynx.gif"
+      alt="Ultrak"
+    >
+  </p>
+
+  <p>
+    <strong>Richard Sports Services est distributeur officiel des chronomètres manuels Ultrak</strong>
+  </p>
+
+  <p>
+    <img
+      src="/logos/ultrak.gif"
+      alt="Ultrak"
+    >
+  </p>
+
+</div>
+
 <style>
   pre {
     margin: 0 auto;
@@ -19,9 +46,14 @@ Sélectionnez un événement dans le menu latéral pour débuter.
     }
   }
 
-  .muted {
-    color: #777;
+  .content {
+    padding: 8px;
   }
+
+  .content p {
+    margin-bottom: 1.5rem;
+  }
+
   .muted :global(strong) {
     color: #000;
     font-weight: inherit;

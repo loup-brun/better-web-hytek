@@ -112,6 +112,7 @@
       <h1
         class="Navbar__brand | mr-auto flex flex-row items-center text-xl px-3 py-2 uppercase tracking-wide"
       >Résultats</h1>
+
     </Navbar>
   </div>
 
@@ -133,7 +134,7 @@
             src="{meetConfig.logo}"
             alt="Logo"
             class="mb-4"
-            style="max-width: 90px;"
+            style="max-width: 180px;"
           />
           {/if}
 
@@ -157,6 +158,7 @@
           currentEventId={eventId}
           {evtIndexHTML}
           sessionNames={meetConfig.sessionNames}
+          --themeColor="{meetConfig.themeColor}"
         >
         </HytekEventList>
 
