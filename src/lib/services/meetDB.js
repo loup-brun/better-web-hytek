@@ -16,7 +16,7 @@ db.set('jdq-laval-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'http://laval.rsstiming.com/ftp/220723/',
+  hytekFtpLocation: 'https://laval.rsstiming.com/',
   hytekHtmlEncoding: 'ISO-8859-15',
   sessionNames: [
     'Jour 1 AM - Piste',
@@ -32,7 +32,6 @@ db.set('jdq-laval-2022', {
     'Jour 3 PM - Piste',
     'Jour 3 PM - Concours',
     'Jour 4 AM - Piste',
-    'Jour 4 AM - Concours',
   ],
 
   // personnalisation
