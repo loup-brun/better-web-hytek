@@ -16,7 +16,7 @@ db.set('jdq-laval-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220529/',
+  hytekFtpLocation: 'http://laval.rsstiming.com/ftp/220723/',
   hytekHtmlEncoding: 'ISO-8859-15',
   sessionNames: [
     'Jour 1 AM - Piste',
