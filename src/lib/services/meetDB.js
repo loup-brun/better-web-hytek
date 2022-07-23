@@ -16,7 +16,7 @@ db.set('jdq-laval-2022', {
 
   // résultats
   resultsType: 'hytek',
-  hytekFtpLocation: 'https://laval.rsstiming.com/',
+  hytekFtpLocation: 'https://jdq.rsstiming.com/',
   hytekHtmlEncoding: 'ISO-8859-15',
   sessionNames: [
     'Jour 1 AM - Piste',
