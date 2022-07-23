@@ -97,7 +97,7 @@
       --themeColor={meetConfig.themeColor}
     >
       <button
-        class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
+        class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center justify-between px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
         on:click={() => isSideNavOpen = !isSideNavOpen}
       >
         <span class="mr-2">
@@ -110,8 +110,19 @@
       </button>
 
       <h1
-        class="Navbar__brand | mr-auto flex flex-row items-center text-xl px-3 py-2 uppercase tracking-wide"
-      >Résultats</h1>
+        class="Navbar__brand | flex flex-row items-baseline text-xl px-3 py-2 uppercase tracking-wide"
+      >Résultats
+
+        <!-- Spécifique timing -->
+        <span
+          class="Navbar__secondary-detail | ml-4 md:ml-4 text-xs text-white/60 normal-case tracking-normal"
+        >par
+        <a
+          href="http://rsstiming.com/"
+          target="_blank"
+          class="Navbar__company | border-b border-transparent hover:border-current inline-block leading-snug transition duration-150 text-current hover:text-white/80"
+        >RSS Timing</a></span>
+      </h1>
 
     </Navbar>
   </div>
