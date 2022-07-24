@@ -29,8 +29,8 @@ db.set('jdq-laval-2022', {
     'Jour 2 PM - Piste',
     'Jour 3 AM - Piste',
     'Jour 3 AM - Concours',
-    'Jour 3 PM - Piste',
     'Jour 3 PM - Concours',
+    'Jour 3 PM - Piste',
     'Jour 4 AM - Piste',
   ],
 
