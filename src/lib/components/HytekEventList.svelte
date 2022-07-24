@@ -109,7 +109,10 @@
     // map them to the sessions
     if (sessionNames) {
       sessionNames.forEach((name, i) => {
-        _sessions[i].title = name;
+        if (name || typeof name === 'string' && name.length) {
+          // only set custom session mame if string is set
+          _sessions[i].title = name;
+        }
       });
     }
 
