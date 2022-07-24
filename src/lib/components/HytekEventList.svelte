@@ -111,7 +111,11 @@
       sessionNames.forEach((name, i) => {
         if (name || typeof name === 'string' && name.length) {
           // only set custom session mame if string is set
-          _sessions[i].title = name;
+
+          // make sure actual sessions can be mapped to our custom titles
+          if (_sessions[i]) {
+            _sessions[i].title = name;
+          }
         }
       });
     }
