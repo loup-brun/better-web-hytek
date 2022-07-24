@@ -141,16 +141,20 @@
           class="HytekLayout__sidebar-header | px-3 py-4 bg-zinc-100 text-zinc-600"
         >
           {#if meetConfig.logo}
-          <img
-            src="{meetConfig.logo}"
-            alt="Logo"
-            class="mb-4"
-            style="max-width: 180px;"
-          />
+            <a href="/meets/{meetId}/hytek">
+              <img
+                src="{meetConfig.logo}"
+                alt="Logo"
+                class="mb-4"
+                style="max-width: 180px;"
+              />
+            </a>
           {/if}
 
           <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
+            <a href="/meets/{meetId}/hytek">
             {meetConfig.title}
+            </a>
           </h1>
 
           <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600">
