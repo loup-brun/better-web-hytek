@@ -115,12 +115,12 @@
 
         <!-- Spécifique timing -->
         <span
-          class="Navbar__secondary-detail | ml-4 md:ml-4 text-xs text-white/60 normal-case tracking-normal"
+          class="Navbar__secondary-detail | hidden sm:inline ml-4 md:ml-4 text-xs text-white/60 normal-case tracking-normal"
         >par
         <a
           href="http://rsstiming.com/"
           target="_blank"
-          class="Navbar__company | border-b border-transparent hover:border-current hidden sm:inline-block leading-snug transition duration-150 text-current hover:text-white/80"
+          class="Navbar__company | border-b border-transparent hover:border-current inline-block leading-snug transition duration-150 text-current hover:text-white/80"
         >RSS Timing</a></span>
       </h1>
 
