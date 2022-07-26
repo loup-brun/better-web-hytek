@@ -6,13 +6,13 @@ db.set('prov-civil-jun-sen-para-2022', {
   // meet info
   dateStart: '2022-07-30',
   dateEnd: '2022-07-31',
-  title: 'Championnat provincial civil jun-sen-para ',
+  title: 'Championnat Provincial Civil Jun-Sen-Para ',
   stadiumName: 'PEPS de l’Université Laval',
-  address: '',
+  address: '2380 Rue du Peps',
   address2: '',
   city: 'Québec',
   province: 'QC',
-  postalCode: '',
+  postalCode: 'G1V 0A6',
 
   // résultats
   resultsType: 'hytek',
@@ -27,7 +27,7 @@ db.set('prov-civil-jun-sen-para-2022', {
   ],
 
   // personnalisation
-  logo: '',
-  themeColor: '#EB1C20',
+  logo: '/apple-touch-icon.png',
+  themeColor: '#e0181c',
 
 });
