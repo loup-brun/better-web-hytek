@@ -6,7 +6,7 @@ import fetchDocument from "$lib/utils/fetchDocument.js";
  * @param params
  * @returns {Promise<{body: *}|{status: number}>}
  */
-export async function get({ params, url }) {
+export async function GET({ params, url }) {
   // per meet config w/ meetId...
   const { meetId } = params;
   const { origin } = url;

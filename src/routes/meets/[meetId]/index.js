@@ -1,4 +1,4 @@
-export async function get({ params, url }) {
+export async function GET({ params, url }) {
   const { pathname } = url;
   const res = await fetch(`${url.toString()}/config`);
   const data = await res.json();

@@ -6,7 +6,7 @@ import fetchDocument from "$lib/utils/fetchDocument.js";
  * @param params
  * @returns {Promise<{body: {eventHTML: *, error: null}}|{error: {message: string}, status: number}>}
  */
-export async function get({ params, url }) {
+export async function GET({ params, url }) {
   const { eventId, meetId } = params;
   const { origin } = url; // since this is a page endpoint, origin is always current env
   let meetConfig;

@@ -1,6 +1,6 @@
 import { db } from '$lib/services/meetDB';
 
-export async function get({ params }) {
+export async function GET({ params }) {
   const { meetId } = params;
 
   // use a try block for when we’ll really fetch from a DB

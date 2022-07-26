@@ -1,4 +1,4 @@
-export function get({ url }) {
+export function GET({ url }) {
   const { pathname } = url;
   const redirectPath = pathname.replace(/\/event\/?$/g, '');
 

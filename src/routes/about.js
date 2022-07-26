@@ -1,4 +1,4 @@
-export async function get() {
+export async function GET() {
   const res = await fetch(`https://data.corsaire-chaparral.org/items/resultats_web`);
   const pageData = await res.json();
   const page = pageData.data;
