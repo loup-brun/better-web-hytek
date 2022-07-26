@@ -10,5 +10,10 @@ export function GET() {
         Location: `/meets/${firstEventSlug}`
       }
     }
+  } else {
+    // continue (fallthrough)
+    return {
+      status: 200
+    }
   }
 }
