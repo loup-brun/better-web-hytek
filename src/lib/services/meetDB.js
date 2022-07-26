@@ -19,6 +19,7 @@ db.set('jdq-laval-2022', {
   hytekFtpLocation: 'https://jdq.rsstiming.com/',
   hytekHtmlEncoding: 'ISO-8859-15',
   sessionNames: [
+    'Résultats globaux',
     'Épreuves combinées (sommaire)',
     'Jour 1 AM - Piste',
     'Jour 1 AM - Concours',
