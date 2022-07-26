@@ -14,7 +14,7 @@
   .Spinner {
     height: var(--spinnerSize, 14px);
     width: var(--spinnerSize, 14px);
-    border: var(--borderSize, 2px) solid var(--primary, #ff6900);
+    border: var(--borderSize, 2px) solid var(--themeColor, #ff6900);
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

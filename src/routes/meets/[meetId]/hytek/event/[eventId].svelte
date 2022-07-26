@@ -7,7 +7,19 @@
       // do not include .html extension since this causes Vercel to render the wrong html
       const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}-html`);
 
-      if (evtRequest.ok) {
+      console.log('request not ok', evtRequest)
+      if (!evtRequest.ok) {
+        if (evtRequest.status === 404) {
+          return {
+            status: 404,
+          }
+        } else {
+          return {
+            status: 500,
+          }
+        }
+      } else {
+        // success
         const eventHTML = await evtRequest.text(); // plain text please
         return {
           props: {

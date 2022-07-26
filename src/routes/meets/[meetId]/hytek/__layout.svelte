@@ -161,6 +161,7 @@
           currentEventId={eventId}
           {evtIndexHTML}
           sessionNames={meetConfig.sessionNames}
+          --themeColor={meetConfig.themeColor}
         >
         </HytekEventList>
 

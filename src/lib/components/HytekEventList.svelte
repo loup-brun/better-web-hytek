@@ -240,7 +240,7 @@
     background-color: rgba(0, 0, 0, .1);
   }
   .active {
-    border-left-color: var(--primary, #ff6900);
+    border-left-color: var(--themeColor, #ff6900);
     background-color: #fff;
     cursor: default;
   }

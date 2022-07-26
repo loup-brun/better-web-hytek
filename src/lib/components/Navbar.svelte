@@ -6,6 +6,6 @@
 
 <style>
   .Navbar {
-    /*background-color: var(--themeColor, theme('colors.zinc.900'));*/
+    background-color: var(--themeColor, theme('colors.zinc.900'));
   }
 </style>
