@@ -152,6 +152,9 @@
 
             <div class="mt-2">
               {meetConfig.dateStart}
+              {#if meetConfig.dateStart !== meetConfig.dateEnd}
+              - {meetConfig.dateEnd}
+              {/if}
             </div>
           </div>
         </header>
