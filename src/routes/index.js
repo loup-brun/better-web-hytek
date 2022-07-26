@@ -1,6 +1,6 @@
 import { db } from '$lib/services/meetDB';
 
-export function get() {
+export function GET() {
   if (db.size === 1) {
     let firstEventSlug = db.keys().next().value;
     console.log('Redirecting')
