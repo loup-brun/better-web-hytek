@@ -84,7 +84,6 @@
           // however the BG color may be configured by user, but we’ll just assume the default
           isProgram = true;
         }
-        console.log({ body });
 
         const pre = eventDoc.querySelector('pre');
         if (pre) {
