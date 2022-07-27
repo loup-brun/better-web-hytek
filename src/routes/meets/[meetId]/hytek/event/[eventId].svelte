@@ -116,12 +116,12 @@
   {:else}
     {#if mainHtml && mainHtml.length}
       {#if isProgram}
-        <div class="Event__alert | mb-2 bg-neutral-200 text-neutral-700 p-3">
-          <div class="content text-sm">
-            <span class="inline-block align-top text-neutral-500 mr-1">
-              <Icon name="info" size={20} />
-            </span>
+        <div class="Event__alert | m-3 rounded inline-block bg-neutral-200 flex flex-row text-neutral-700 p-3">
+          <span class="inline-block align-top text-neutral-500 mr-2">
+            <Icon name="info" size={20} />
+          </span>
 
+          <div class="content text-sm">
             Note&nbsp;: cette page affiche actuellement le <strong>programme</strong> de l’épreuve.
           </div>
         </div>
