@@ -41,18 +41,27 @@
 <script>
   import { afterUpdate, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
+  import Icon from '$lib/components/Icon.svelte';
 
   // props (from page endpoint)
+  /** @type {string} */
   export let eventHTML;
+  /** @type {string} */
   export let error;
 
   // vars
   // index controls major variables
   let isSideNavOpen = false;
+  /** @type {string} */
   let mainHtml = '';
-  let parser; // DOMParser instance, set in browser
-  let eventDoc; // before transform
-  let updateView; // fn
+  /** @type {boolean} */
+  let isProgram = false;
+  /** @type {DOMParser} DOMParser instance, set in browser */
+  let parser;
+  /** @type {HTMLDocument} */
+  let eventDoc;
+  /** @type {function} */
+  let updateView;
 
   // client-side logic
   onMount(async () => {
@@ -65,6 +74,18 @@
     updateView = () => {
       if (eventHTML) {
         eventDoc = parser.parseFromString(eventHTML, 'text/html');
+
+        // parse the `body` elem
+        const body = eventDoc.querySelector('body');
+        if (body.getAttribute('bgcolor') && body.getAttribute('bgcolor') === '#CCCCCC') {
+          // if body background is greyed, this is not a result page
+          // but rather a 'Meet Program' or 'Performance List'
+          // `#CCCCCC` is the default
+          // however the BG color may be configured by user, but we’ll just assume the default
+          isProgram = true;
+        }
+        console.log({ body });
+
         const pre = eventDoc.querySelector('pre');
         if (pre) {
           mainHtml = pre.innerHTML;
@@ -94,6 +115,15 @@
     </div>
   {:else}
     {#if mainHtml && mainHtml.length}
+      {#if isProgram}
+        <div class="Event__alert | my-6 bg-neutral-200 text-neutral-800 p-4 rounded">
+          <Icon name="info" />
+          <div class="content">
+            Cette page affiche la liste préliminaire (et non les résultats).
+          </div>
+        </div>
+      {/if}
+
       <pre
         in:fade={{ duration: 250 }}
       >{@html mainHtml}</pre>
