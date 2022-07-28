@@ -1,7 +1,25 @@
 # better-web-hytek
 Hy-Tek Meet Manager web results interface, improved.
 
-Requires a base directory where HyTek web results files are uploaded.
+Technical instructions are written in English; documentation is written in French.
+
+## À propos de cette interface
+
+Le logiciel HyTek Meet Manager propose une présentation HTML d’une grande résilience et d’une remarquable simplicité.
+Toutefois, elle n’est pas très jolie, peu sémantique et peu adaptative.
+Elle ne correspond mal aux attentes qu’on a du Web aujourd’hui.
+
+La présente solution cherche à améliorer l’expérience utilisateur, en particulier sur les appareils mobiles, tout en maintenant une faible empreinte numérique pour l’utilisateur·trice.
+
+Quelques points clés :
+
+- patterns visuels familiers (comme la liste des épreuves sur la gauche);
+- utiliser les standards du Web;
+- respecter les actions de base du navigateur (ex. boutons retour en arrière du navigateur);
+- interface réactive;
+- URLs addressables;
+- configurable (pour s’harmoniser avec le contexte de chaque événement);
+- _progressive enhancement_ – devrait permettre d’augmenter l’expérience de base sans lui nuire.
 
 ## Ideas
 
@@ -11,25 +29,17 @@ Requires a base directory where HyTek web results files are uploaded.
 - respect basic browser actions (e.g.: browser history when hitting the 'back' button)
 - bonus: each event could be addressable in URL param/hash, allowing to jump to event directly through a shared link (like an SPA) – would work with above (browser behavior)
 
-## Technology
+## Technology & Implementation
 
-- [svelte](https://svelte.dev/) for component pattern design, reactive interface, low-footprint build and excellent dev experience + [kit](https://kit.svelte.dev/) for building a complete web experience.
-- components/styles: TODO but importing a design system (IBM Carbon, Google Material Design, etc.) adds a lot of code for little functionality needed and less flexible UI language.
-- theming: brand/color for separate events. Like intended by Benoit for Sherbrooke in pwa-results.
-
-## Implementation
-
-Implementation with the SvelteKit framework.
+- [Svelte](https://svelte.dev/) for component pattern design, reactive interface, low-footprint build and excellent dev experience + [kit](https://kit.svelte.dev/) for building a complete web experience.
+- [Tailwind CSS](https://tailwindcss.com/) for quickly building user interfaces.
 
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm run dev # or pnpm
 ```
 
 ## Building
