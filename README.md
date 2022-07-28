@@ -7,7 +7,7 @@ Technical instructions are written in English; documentation is written in Frenc
 
 Le logiciel HyTek Meet Manager propose une présentation HTML d’une grande résilience et d’une remarquable simplicité.
 Toutefois, elle n’est pas très jolie, peu sémantique et peu adaptative.
-Elle ne correspond mal aux attentes qu’on a du Web aujourd’hui.
+Elle correspond mal aux attentes qu’on a du Web aujourd’hui.
 
 La présente solution cherche à améliorer l’expérience utilisateur, en particulier sur les appareils mobiles, tout en maintenant une faible empreinte numérique pour l’utilisateur·trice.
 
@@ -15,11 +15,11 @@ Quelques points clés :
 
 - patterns visuels familiers (comme la liste des épreuves sur la gauche);
 - utiliser les standards du Web;
-- respecter les actions de base du navigateur (ex. boutons retour en arrière du navigateur);
+- respecter les actions de base du navigateur (ex. bouton retour en arrière du navigateur);
 - interface réactive;
-- URLs addressables;
-- configurable (pour s’harmoniser avec le contexte de chaque événement);
-- _progressive enhancement_ – devrait permettre d’augmenter l’expérience de base sans lui nuire.
+- vues addressables par URL;
+- configurable (pour s’harmoniser avec le contexte de chaque événement, comme l’a fait [Benoit](https://github.com/vermetteb/) pour Sherbrooke);
+- _progressive enhancement_ – augmenter l’expérience de base sans lui nuire.
 
 ## Ideas
 
