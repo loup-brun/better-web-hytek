@@ -1,22 +1,26 @@
-<pre>Better HyTek Results
-====================
+<pre>Better Web HyTek
+================
 
 C’est quoi cette interface?
 
 Les résultats HyTek Meet Manager ont été conçus à une autre époque,
 pour une autre époque. La présente interface améliore l’expérience
-utilisateur, en particulier sur les appareils mobiles.
+utilisateur, en particulier sur les appareils mobiles. Elle se veut
+légère, conviviale et adaptable.
 
-Bien sûr, le format texte exporté par le logiciel Meet Manager est
+Il s’agit d’un logiciel libre, distribué sous licence GPLv3.
+Le code source est disponible librement sur <a href="https://github.com/loup-brun/better-web-hytek" target="_blank" rel="external" class="underline">GitHub</a>.
+
+Bien sûr, le format texte exporté par le logiciel MeetManager est
 loin d’être idéal. Les besoins et les attentes aujourd’hui ont évolué
 depuis les années 1990 (résultats en temps réel, design adaptatif,
 données liées, etc.). En attendant, voici simplement :
 
-  <strong>“Better HyTek Results”</strong>.
+  <strong>“Better Web HyTek”</strong>.
 
 
-  Louis-Olivier Brassard
-  <em>développeur indépendant</em>
+  <a href="https://www.loupbrun.ca" target="_blank" rel="external" class="hover:underline">Louis-Olivier Brassard</a>
+  développeur indépendant
 </pre>
 
 <style>
