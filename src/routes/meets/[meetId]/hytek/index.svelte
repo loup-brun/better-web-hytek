@@ -1,3 +1,16 @@
+<script context="module">
+  export function load({ stuff }) {
+    const { meetConfig } = stuff;
+
+    return {
+      props: { meetConfig }
+    }
+  }
+</script>
+<script>
+  export let meetConfig;
+</script>
+
 <pre>Better HyTek Results
 ====================
 
