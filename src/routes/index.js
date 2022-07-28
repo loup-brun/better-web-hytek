@@ -1,4 +1,4 @@
-import { db } from '$lib/services/meetDB';
+import { db } from '$lib/services/dbService';
 
 export function GET() {
   if (db.size === 1) {

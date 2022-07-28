@@ -1,4 +1,4 @@
-import { db } from '$lib/services/meetDB';
+import { db } from '$lib/services/dbService';
 
 export async function GET({ params }) {
   const { meetId } = params;

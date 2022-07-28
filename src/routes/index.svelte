@@ -1,5 +1,5 @@
 <script context="module">
-  import { db } from '$lib/services/meetDB';
+  import { db } from '$lib/services/dbService';
 
   export function load() {
     let events = db.entries();
