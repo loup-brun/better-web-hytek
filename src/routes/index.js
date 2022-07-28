@@ -1,8 +1,8 @@
-import { db } from '$lib/services/meetDB';
+import { meetsMap } from '$lib/services/meetsService';
 
 export function GET() {
-  if (db.size === 1) {
-    let firstEventSlug = db.keys().next().value;
+  if (meetsMap.size === 1) {
+    let firstEventSlug = meetsMap.keys().next().value;
     console.log('Redirecting')
     return {
       status: 307,

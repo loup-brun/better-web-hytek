@@ -4,7 +4,7 @@
 C’est quoi cette interface?
 
 Les résultats HyTek Meet Manager ont été conçus à une autre époque,
-pour une autre époque. La présente  interface améliore l’expérience
+pour une autre époque. La présente interface améliore l’expérience
 utilisateur, en particulier sur les appareils mobiles.
 
 Bien sûr, le format texte exporté par le logiciel Meet Manager est

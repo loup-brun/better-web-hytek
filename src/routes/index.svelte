@@ -1,8 +1,8 @@
 <script context="module">
-  import { db } from '$lib/services/meetDB';
+  import { meetsMap } from '$lib/services/meetsService';
 
   export function load() {
-    let events = db.entries();
+    let events = meetsMap.entries();
 
     return {
       props: {
