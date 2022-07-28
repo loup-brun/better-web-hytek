@@ -3,7 +3,7 @@
 
 C’est quoi cette interface?
 
-Les résultats HyTek Meet Manager ont été conçus à une autre époque,
+Les résultats HyTek MeetManager ont été conçus à une autre époque,
 pour une autre époque. La présente interface améliore l’expérience
 utilisateur, en particulier sur les appareils mobiles. Elle se veut
 légère, conviviale et adaptable.
