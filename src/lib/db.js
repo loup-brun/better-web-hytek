@@ -1,4 +1,4 @@
-const meets = [
+export const meets = [
   {
     id: 'laval-primaire-2022',
     // meet info
@@ -22,6 +22,10 @@ const meets = [
     // personnalisation
     logo: '',
     themeColor: '#013871',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
   },
 
 
@@ -47,6 +51,10 @@ const meets = [
     // personnalisation
     logo: '',
     themeColor: '#ff6800',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
   },
 
   {
@@ -70,6 +78,10 @@ const meets = [
     // personnalisation
     logo: '',
     themeColor: '#ff6800',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
   },
 
   {
@@ -93,7 +105,10 @@ const meets = [
     // personnalisation
     logo: '/logos/COCH_FN_4C.svg',
     themeColor: '#f26000',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://corsaire-chaparral.org',
   }
 ];
-
-export default meets;

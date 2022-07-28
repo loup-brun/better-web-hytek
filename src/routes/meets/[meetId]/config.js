@@ -1,4 +1,4 @@
-import { db } from '$lib/services/dbService';
+import { meetsMap } from '$lib/services/meetsService';
 
 export async function GET({ params }) {
   const { meetId } = params;
@@ -7,14 +7,14 @@ export async function GET({ params }) {
   // and getting will throw
   try {
     // early check if meet exists in DB
-    if (!db.has(meetId)) {
+    if (!meetsMap.has(meetId)) {
       throw `Event with meetId '${meetId}' not found.`;
     }
 
     return {
       body: {
         // fetch the meet config setup
-        meetConfig: db.get(meetId)
+        meetConfig: meetsMap.get(meetId)
       }
     }
   } catch (error) {
