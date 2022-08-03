@@ -138,8 +138,7 @@
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
     font-weight: normal;
     font-size: 13px;
-    padding: 8px;
-    padding-bottom: 2rem;
+    padding: 8px 8px 2rem; /* give bottom extra pading */
   }
   @media (min-width: 1056px) {
     pre {
