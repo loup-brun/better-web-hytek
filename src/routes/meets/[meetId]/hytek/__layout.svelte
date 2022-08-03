@@ -134,7 +134,7 @@
                 src="{meetConfig.logo}"
                 alt="Logo"
                 class="mb-4"
-                style="max-width: 90px;"
+                style="max-width: 130px;"
               />
             </a>
           {/if}
