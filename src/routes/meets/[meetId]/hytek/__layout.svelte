@@ -77,6 +77,25 @@
     }
   }
 
+  /**
+   * Svelte use directive
+   * @param node
+   * @param eventId Variable parameter that will trigger an update
+   * @returns {{update(): void}}
+   */
+  function innerScroll(node, eventId) {
+    console.log('node used', node);
+    return {
+      update(eventId) {
+        node.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }
+
 </script>
 
 <svelte:window
@@ -209,11 +228,9 @@
     <div
       class="HytekLayout__main"
       bind:this={mainContainer}
+      use:innerScroll={eventId}
     >
-      <div
-        class="HytekLayout__main-container | mx-auto min-h-full">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </div>
   </div>
 </div>
@@ -231,9 +248,9 @@
   }
   .HytekLayout__inner {
     /* enable native scroll */
-    overflow: auto;
-    /* add momentum scrolling for iOS >=12.5 (more recent devices support momentum scrolling by default) */
-    -webkit-overflow-scrolling: touch;
+    /* actually, only `main` requires scroll */
+    height: 100%;
+    overflow: hidden;
   }
   .HytekLayout__sidebar {
     position: absolute;
@@ -251,8 +268,10 @@
   .HytekLayout__main {
     flex-grow: 1; /* fill up horizontal space */
     overflow: auto; /* enable native scroll */
+    height: 100%;
     margin-left: 0;
     transition: margin .35s;
+    position: relative;
   }
 
   @media (min-width: 768px) {
