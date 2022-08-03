@@ -114,7 +114,7 @@
   {:else}
     {#if mainHtml && mainHtml.length}
       {#if isProgram}
-        <div class="Event__alert | mb-2 bg-neutral-200 flex flex-row text-neutral-700 p-3">
+        <div class="Event__alert | mb-2 bg-neutral-200 flex flex-row text-neutral-700 p-3 sticky left-0">
           <span class="inline-block align-top text-neutral-500 mr-2">
             <Icon name="info" size={20} />
           </span>
@@ -135,10 +135,15 @@
 <style>
   pre {
     margin: 0 auto;
+    padding: 8px 8px 2rem; /* give bottom extra pading */
+    /* the 3 following rules allow the pre element to be as wide as its longest text line */
+    /* see https://stackoverflow.com/questions/18823117/child-div-overflow-x-y-and-scroll-on-parent */
+    overflow: hidden;
+    display: inline-block;
+    min-width: 100%;
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
     font-weight: normal;
     font-size: 13px;
-    padding: 8px 8px 2rem; /* give bottom extra pading */
   }
   @media (min-width: 1056px) {
     pre {

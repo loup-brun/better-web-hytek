@@ -271,6 +271,7 @@
     height: 100%;
     margin-left: 0;
     transition: margin .35s;
+    position: relative;
   }
 
   @media (min-width: 768px) {
