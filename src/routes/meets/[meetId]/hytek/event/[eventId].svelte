@@ -139,6 +139,7 @@
     font-weight: normal;
     font-size: 13px;
     padding: 8px;
+    padding-bottom: 2rem;
   }
   @media (min-width: 1056px) {
     pre {
