@@ -7,7 +7,6 @@
       // do not include .html extension since this causes Vercel to render the wrong html
       const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}-html`);
 
-      console.log('request not ok', evtRequest)
       if (!evtRequest.ok) {
         if (evtRequest.status === 404) {
           return {
