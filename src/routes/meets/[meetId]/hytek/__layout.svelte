@@ -249,6 +249,7 @@
   .HytekLayout__inner {
     /* enable native scroll */
     /* actually, only `main` requires scroll */
+    height: 100%;
     overflow: hidden;
   }
   .HytekLayout__sidebar {
