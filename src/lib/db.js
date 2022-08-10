@@ -110,5 +110,39 @@ export const meets = [
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
     hostingProviderUrl: 'https://corsaire-chaparral.org',
+  },
+
+  {
+    id: 'petits-combines-2022',
+    dateStart: '2022-08-13',
+    dateEnd: '2022-08-13',
+    title: 'Les petits combinés du Corsaire-Chaparral',
+    stadiumName: 'Stade d’athlétisme Richard-Garneau',
+    address: '401 boul. du Domaine',
+    address2: '',
+    city: 'Ste-Thérèse',
+    province: 'QC',
+    postalCode: 'J7E 4S4',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220813/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Triathlon coccinelle',
+      'Quadrathlon colibri',
+      'Quadrathlon minime',
+      'Pentathlon benjamin',
+      'Relais',
+    ],
+
+    // personnalisation
+    logo: '/logos/COCH_FN_4C.svg',
+    themeColor: '#f26000',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://corsaire-chaparral.org',
   }
 ];
