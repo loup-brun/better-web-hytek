@@ -90,7 +90,7 @@ export const meets = [
     hytekFtpLocation: 'https://rsstiming.com/quebec/220813/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
-      'Soirée',
+      'Session soirée',
     ],
 
     // personnalisation
