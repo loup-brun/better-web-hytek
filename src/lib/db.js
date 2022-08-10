@@ -87,7 +87,7 @@ export const meets = [
     // résultats
     resultsType: 'hytek',
     finishlynx: true,
-    hytekFtpLocation: 'https://rsstiming.com/quebec/220815/',
+    hytekFtpLocation: 'https://rsstiming.com/quebec/220813/',
     hytekHtmlEncoding: 'ISO-8859-15',
     // sessionNames: [
     //   'Samedi piste',
