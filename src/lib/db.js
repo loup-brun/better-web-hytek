@@ -89,12 +89,9 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/220813/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    // sessionNames: [
-    //   'Samedi piste',
-    //   'Samedi concours',
-    //   'Dimanche piste',
-    //   'Dimanche concours',
-    // ],
+    sessionNames: [
+      'Soirée',
+    ],
 
     // personnalisation
     logo: '/apple-touch-icon.png',
