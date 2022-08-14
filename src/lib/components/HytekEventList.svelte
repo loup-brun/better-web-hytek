@@ -265,6 +265,12 @@
     background-position: top left;
     background-repeat: no-repeat;
   }
+  @media (prefers-color-scheme: dark) {
+    .EventList__skeleton-item div {
+      background-color: theme('colors.zinc.800');
+      background-image: linear-gradient(90deg, theme('colors.zinc.800'), theme('colors.zinc.700'), theme('colors.zinc.700'));
+    }
+  }
   .EventList__skeleton-item:nth-child(2n) div {
     animation-delay: .15s;
   }
