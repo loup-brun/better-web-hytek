@@ -23,7 +23,7 @@
   let dbEvents = [... events]; // copy array
 </script>
 
-<div class="Accueil">
+<div class="Accueil | bg-white dark:bg-zinc-800 dark:text-zinc-100">
   <Navbar>
     <h1 class="Accueil__titre | px-2 py-2 text-xl uppercase mx-auto">Résultats en ligne</h1>
   </Navbar>
@@ -33,7 +33,7 @@
     <li class="Accueil__item">
       <a
         href="/meets/{event[0]}"
-        class="Accueil__lien | flex flex-row nowrap justify-between items-center px-2 py-3 border-t border-zinc-300 hover:bg-zinc-100"
+        class="Accueil__lien | flex flex-row nowrap justify-between items-center px-2 py-3 border-t border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800"
       >
         <div class="flex-grow-0 overflow-hidden text-ellipsis">
           <span class="Accueil__item-date | hidden md:inline-block">

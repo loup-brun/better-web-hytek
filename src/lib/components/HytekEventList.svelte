@@ -212,6 +212,11 @@
   .EventList__title-wrap :global(> button):hover {
     background-color: rgba(0, 0, 0, .1);
   }
+  @media (prefers-color-scheme: dark) {
+    .EventList__title-wrap :global(> button):hover {
+      background-color: rgba(255, 255, 255, .075);
+    }
+  }
   .EventList__title-icon {
     position: relative;
     display: inline-block;
@@ -243,6 +248,14 @@
     border-left-color: var(--themeColor, #ff6900);
     background-color: #fff;
     cursor: default;
+  }
+  @media (prefers-color-scheme: dark) {
+    .active {
+      background-color: rgba(255, 255, 255, .15);
+    }
+    .EventList__button:not(.active):hover {
+      background-color: rgba(255, 255, 255, .075);
+    }
   }
   .EventList__skeleton-item div {
     animation: pulseLoad 1s linear infinite;

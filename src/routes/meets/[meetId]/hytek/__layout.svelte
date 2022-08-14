@@ -139,13 +139,13 @@
 
     {#if isSideNavOpen}
       <div
-        class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300"
+        class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300 dark:bg-zinc-900 dark:border-zinc-600"
         bind:this={sidebar}
         in:fly|local={{ x: -sidebarWidth, opacity: 1, delay: 400, easing: expoOut }}
         out:fly|local={{ x: -sidebarWidth, opacity: 1, easing: expoOut }}
       >
         <header
-          class="HytekLayout__sidebar-header | px-3 py-4 bg-zinc-100 text-zinc-600"
+          class="HytekLayout__sidebar-header | px-3 py-4 text-zinc-600 dark:text-zinc-500"
         >
           {#if meetConfig.logo}
             <a href="/meets/{meetId}/hytek">
@@ -164,7 +164,7 @@
             </a>
           </h1>
 
-          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600">
+          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600 dark:text-zinc-500">
             {meetConfig.stadiumName}
             <br>
             ({meetConfig.city}, {meetConfig.province})
@@ -198,7 +198,7 @@
         >Épreuve en direct</a>
         -->
 
-        <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 p-2 mt-6">
+        <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">
             <a
               href="/meets/{meetId}/hytek/about"
@@ -226,7 +226,7 @@
     {/if}
 
     <div
-      class="HytekLayout__main"
+      class="HytekLayout__main | bg-white dark:bg-zinc-800 text-black dark:text-zinc-100"
       bind:this={mainContainer}
       use:innerScroll={eventId}
     >
