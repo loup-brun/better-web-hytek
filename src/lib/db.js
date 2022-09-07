@@ -144,5 +144,36 @@ export const meets = [
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
     hostingProviderUrl: 'https://corsaire-chaparral.org',
+  },
+
+  {
+    id: 'championnat-marche-blainville-2022',
+    dateStart: '2022-09-11',
+    dateEnd: '2022-09-11',
+    title: 'Championnat de 5km marche',
+    stadiumName: 'Parc équestre de Blainville',
+    address: '1025 chemin du Plan-Bouchard',
+    address2: '',
+    city: 'Blainville',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://corsaire-chaparral.org/resultats/direct/20220911/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Championnat québécois',
+      'Championnat canadien masters',
+    ],
+
+    // personnalisation
+    logo: '/logos/COCH_FN_4C.svg',
+    themeColor: '#f26000',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://corsaire-chaparral.org',
   }
 ];
