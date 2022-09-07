@@ -17,10 +17,24 @@
   import Navbar from '$lib/components/Navbar.svelte';
 
   // props
-  export let events = [];
+  /** @type {array} */
+  export let events;
 
   // vars
+  /** @type {array} */
   let dbEvents = [... events]; // copy array
+
+  let sorted = dbEvents.sort(sortByDate);
+
+  function sortByDate(a, b) {
+    if (a[1].dateStart > b[1].dateStart) {
+      return -1;
+    }
+    if (a[1].dateStart < b[1].dateStart) {
+      return 1;
+    }
+    return 0;
+  }
 </script>
 
 <div class="Accueil | bg-white dark:bg-zinc-800 dark:text-zinc-100">
@@ -29,7 +43,7 @@
   </Navbar>
 
   <ul class="Accueil__liste | border-b border-zinc-300">
-    {#each dbEvents as event}
+    {#each sorted.sort(sortByDate) as event}
     <li class="Accueil__item">
       <a
         href="/meets/{event[0]}"
