@@ -1,34 +1,7 @@
 <!-- HY-TEK EVENT LAYOUT -->
-<script context="module">
-  export async function load({ fetch, params, stuff }) {
-    const { meetId, eventId } = params;
-    const { meetConfig } = stuff ;
-
-    // get the event list
-    try {
-      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-      const { evtIndexHTML } = await getEvtIndex.json();
-
-      return {
-        props: {
-          evtIndexHTML,
-          meetConfig,
-          meetId,
-          eventId,
-        },
-      }
-    } catch (e) {
-      console.warn('Could not fetch event index', e);
-      return {
-        meetConfig,
-        meetId,
-        eventId,
-        evtIndexHTML: null
-      }
-    }
-  }
-</script>
 <script>
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { fade, fly } from 'svelte/transition';
   import { linear, expoOut } from 'svelte/easing';
   // components
@@ -40,10 +13,14 @@
   import { page } from '$app/stores';
 
   // props
-  export let evtIndexHTML;
-  export let meetId;
-  export let eventId; // eventId won’t necessarily be available on first load
-  export let meetConfig;
+  export let data;
+
+  const {
+    evtIndexHTML,
+    meetId,
+    eventId, // eventId won’t necessarily be available on first load
+    meetConfig
+  } = data;
 
   // vars
   let sidebar;

@@ -1,3 +1,5 @@
+import { json as json$1 } from '@sveltejs/kit';
+
 export async function GET({ params, url }) {
   const { pathname } = url;
   const res = await fetch(`${url.toString()}/config`);
@@ -7,29 +9,25 @@ export async function GET({ params, url }) {
   if (res.ok) {
     if (meetConfig.resultsType === 'hytek') {
       // redirect to hytek results layout
-      return {
+      return new Response(undefined, {
         status: 307,
         headers: {
           Location: `${pathname}/hytek`
         }
-      }
+      })
     } else {
       // unsupported results type
-      return {
-        status: 500,
-        error: 'Results type not implemented',
-        body: {
-          error: 'Results type not implemented'
-        }
-      }
+      return json$1({
+  error: 'Results type not implemented'
+}, {
+        status: 500
+      })
     }
   } else {
-    return {
-      status: 404,
-      error: meetConfig.error,
-      body: {
-        error: meetConfig.error
-      }
-    }
+    return json$1({
+  error: meetConfig.error
+}, {
+      status: 404
+    })
   }
 }

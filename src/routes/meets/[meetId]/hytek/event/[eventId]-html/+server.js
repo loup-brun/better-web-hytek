@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import fetchDocument from "$lib/utils/fetchDocument.js";
 
 /**
@@ -23,19 +24,14 @@ export async function GET({ params, url }) {
       encoding: meetConfig.hytekHtmlEncoding,
       baseLocation: meetConfig.hytekFtpLocation,
     });
-    return {
+
+    return json(eventHTML, {
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
       },
-      body: eventHTML,
-    };
+    });
   } catch (e) {
     console.error(`Error fetching event`, e);
-    return {
-      status: 404,
-      error: {
-        message: 'Épreuve non trouvée.'
-      }
-    };
+    return new Response(undefined, { status: 404 });
   }
 }

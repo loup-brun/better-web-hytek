@@ -1,24 +1,29 @@
 <script context="module">
-  import { meetsMap } from '$lib/services/meetsService';
+  // throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export function load() {
-    let events = meetsMap.entries();
+  // import { meetsMap } from '$lib/services/meetsService';
 
-    return {
-      props: {
-        events
-      }
-    }
-  }
+  // export function load() {
+  //   let events = meetsMap.entries();
+
+  //   return {
+  //     props: {
+  //       events
+  //     }
+  //   }
+  // }
 </script>
 
 <script>
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import Icon from '$lib/components/Icon.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
 
   // props
+  export let data;
   /** @type {array} */
-  export let events;
+  const { events } = data;
 
   // vars
   /** @type {array} */

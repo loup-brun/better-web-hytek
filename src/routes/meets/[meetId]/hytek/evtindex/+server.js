@@ -1,3 +1,4 @@
+import { json as json$1 } from '@sveltejs/kit';
 import fetchDocument from "$lib/utils/fetchDocument.js";
 
 /**
@@ -28,13 +29,9 @@ export async function GET({ params, url }) {
       baseLocation: meetConfig.hytekFtpLocation, // with trailing slash
     });
 
-    return {
-      body: { evtIndexHTML },
-    }
+    return json$1({ evtIndexHTML })
   } catch (e) {
     console.error('Error fetching evtindex', e);
-    return {
-      status: 404,
-    }
+    return new Response(undefined, { status: 404 })
   }
 }

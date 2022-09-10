@@ -1,37 +1,13 @@
-<script context="module">
-  export async function load({ fetch, params }) {
-    const { meetId } = params;
-    let error;
-
-    try {
-      // get the event list
-      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-      const { evtIndexHTML } = await getEvtIndex.json();
-
-      return {
-        props: {
-          meetId,
-          evtIndexHTML,
-        }
-      }
-    } catch (e) {
-      console.error('Error fetching event index', e);
-      error = e;
-
-      return {
-        props: {
-          error
-        }
-      }
-    }
-  }
-</script>
 <script>
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import HytekEventList from '$lib/components/HytekEventList.svelte';
 
-  export let meetId;
-  export let evtIndexHTML;
-  export let error;
+  export let data;
+
+  const meetId = data.meetId;
+  const evtIndexHTML = data.evtIndexHTML;
+  const error = data.error;
 </script>
 
 <HytekEventList

@@ -1,14 +1,8 @@
-<script context="module">
-  export function load({ stuff }) {
-    const { meetConfig } = stuff;
-
-    return {
-      props: { meetConfig }
-    }
-  }
-</script>
 <script>
-  export let meetConfig;
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
+  export let data;
+  const { meetConfig } = data;
 </script>
 
 <pre>Better HyTek Results

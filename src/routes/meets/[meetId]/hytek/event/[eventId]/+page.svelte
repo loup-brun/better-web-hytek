@@ -1,52 +1,17 @@
-<script context="module">
-  export async function load({ fetch, params }) {
-    const { meetId, eventId } = params;
-
-    try {
-      // call page endpoint manually since there is already a load function in layout-hytek
-      // do not include .html extension since this causes Vercel to render the wrong html
-      const evtRequest = await fetch(`/meets/${meetId}/hytek/event/${eventId}-html`);
-
-      if (!evtRequest.ok) {
-        if (evtRequest.status === 404) {
-          return {
-            status: 404,
-          }
-        } else {
-          return {
-            status: 500,
-          }
-        }
-      } else {
-        // success
-        const eventHTML = await evtRequest.text(); // plain text please
-        return {
-          props: {
-            eventHTML,
-            error: null,
-          }
-        };
-      }
-    } catch (e) {
-      return {
-        status: 404,
-        body: {
-          error: e
-        }
-      }
-    }
-  }
-</script>
 <script>
+  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { afterUpdate, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Icon from '$lib/components/Icon.svelte';
 
   // props (from page endpoint)
-  /** @type {string} */
-  export let eventHTML;
-  /** @type {string} */
-  export let error;
+  export let data;
+  const {
+    /** @type {string} */
+    eventHTML,
+    /** @type {string} */
+    error } = data;
 
   // vars
   // index controls major variables

@@ -1,15 +1,3 @@
-<script context="module">
-  export function load({ params }) {
-    const { eventId } = params;
-
-    return {
-      props: {
-        eventId,
-      }
-    }
-  }
-</script>
-
 <script>
   import { fade } from 'svelte/transition';
   export let eventId;
