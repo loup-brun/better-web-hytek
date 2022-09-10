@@ -13,15 +13,15 @@ export async function GET({ params }) {
     }
 
     return json({
-  // fetch the meet config setup
-  meetConfig: meetsMap.get(meetId)
-})
+      // fetch the meet config setup
+      meetConfig: meetsMap.get(meetId)
+    });
   } catch (error) {
     // not found (if DB.get() method throws)
     return json({
-  error
-}, {
+      error
+    }, {
       status: 404
-    })
+    });
   }
 }

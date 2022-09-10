@@ -18,9 +18,9 @@ export async function load({ fetch, params }) {
       // success
       const eventHTML = await evtRequest.text(); // plain text please
       return {
-  eventHTML,
-  error: null,
-};
+        eventHTML,
+        error: null,
+      };
     }
   } catch (e) {
     throw error(404);

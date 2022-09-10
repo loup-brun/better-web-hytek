@@ -1,17 +1,11 @@
 <script>
-  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import { afterUpdate, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Icon from '$lib/components/Icon.svelte';
 
   // props (from page endpoint)
+  /** @type {import('./$types').PageData} */
   export let data;
-  const {
-    /** @type {string} */
-    eventHTML,
-    /** @type {string} */
-    error } = data;
 
   // vars
   // index controls major variables
@@ -36,8 +30,8 @@
 
     // when component is mounted, set this function w/ browser-side logic
     updateView = () => {
-      if (eventHTML) {
-        eventDoc = parser.parseFromString(eventHTML, 'text/html');
+      if (data.eventHTML) {
+        eventDoc = parser.parseFromString(data.eventHTML, 'text/html');
 
         // parse the `body` elem
         const body = eventDoc.querySelector('body');
@@ -62,14 +56,14 @@
 
   afterUpdate(() => {
     // logic set in onMount
-    // afterNavigate is buggy in production, try another strategy (afterUpdate?)
+    // `afterUpdate` seems more reliable than `afterNavigate`
     updateView();
   });
 
 </script>
 
 {#key mainHtml}
-  {#if error}
+  {#if data.error}
     <div
       in:fade={{ duration: 250 }}
       class="p-4"

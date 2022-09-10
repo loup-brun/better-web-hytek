@@ -1,21 +1,10 @@
-<script context="module">
-  // throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
-
-  // import { meetsMap } from '$lib/services/meetsService';
-
-  // export function load() {
-  //   let events = meetsMap.entries();
-
-  //   return {
-  //     props: {
-  //       events
-  //     }
-  //   }
-  // }
-</script>
-
 <script>
-  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+  /**
+   * Meets index
+   * ===========
+   *
+   * Display the list of meets by date in descending order
+   */
 
   import Icon from '$lib/components/Icon.svelte';
   import Navbar from '$lib/components/Navbar.svelte';

@@ -18,9 +18,10 @@
   const {
     evtIndexHTML,
     meetId,
-    eventId, // eventId won’t necessarily be available on first load
     meetConfig
   } = data;
+
+  let eventId = data.eventId;
 
   // vars
   let sidebar;
@@ -61,7 +62,6 @@
    * @returns {{update(): void}}
    */
   function innerScroll(node, eventId) {
-    console.log('node used', node);
     return {
       update(eventId) {
         node.scroll({

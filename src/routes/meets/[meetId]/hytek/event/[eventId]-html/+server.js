@@ -25,13 +25,13 @@ export async function GET({ params, url }) {
       baseLocation: meetConfig.hytekFtpLocation,
     });
 
-    return json(eventHTML, {
+    return new Response(eventHTML, {
       headers: {
         'Content-Type': 'text/html; charset=UTF-8',
       },
     });
   } catch (e) {
-    console.error(`Error fetching event`, e);
+    console.error(`Error fetching event`);
     return new Response(undefined, { status: 404 });
   }
 }

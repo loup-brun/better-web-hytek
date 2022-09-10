@@ -1,6 +1,11 @@
 <script>
   import { fade } from 'svelte/transition';
-  export let eventId;
+  import { page } from '$app/stores';
+
+  let eventId = $page.params.eventId;
+  page.subscribe(newPage => {
+    eventId = newPage.params.eventId;
+  });
 </script>
 
 {#key eventId}

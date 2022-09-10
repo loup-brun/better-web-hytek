@@ -1,16 +1,21 @@
 import { error } from '@sveltejs/kit';
 
-export async function load({ fetch, params, parent }) {
+/**
+ * Load meet data and make it available to child routes
+ *
+ * @param fetch
+ * @param params
+ * @param parent
+ * @returns {Promise<{meetConfig: *}>}
+ */
+export async function load({ fetch, params }) {
   const { meetId } = params;
-  const data = await parent();
-  const { meetConfig } = data;
 
   try {
     const res = await fetch(`/meets/${meetId}/config`);
     const { meetConfig } = await res.json();
 
     if (res.ok) {
-      // throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292693)");
       return {
         // pass down the meet config to child layouts
         meetConfig
