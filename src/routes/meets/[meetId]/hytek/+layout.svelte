@@ -82,6 +82,8 @@
 <!-- Set title in browser tab bar -->
 <svelte:head>
   <title>Résultats</title>
+
+  <meta name="theme-color" content="{meetConfig.themeColor}">
 </svelte:head>
 
 <div
