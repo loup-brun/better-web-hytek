@@ -1,7 +1,5 @@
 <!-- HY-TEK EVENT LAYOUT -->
 <script>
-  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import { fade, fly } from 'svelte/transition';
   import { linear, expoOut } from 'svelte/easing';
   // components
@@ -13,6 +11,7 @@
   import { page } from '$app/stores';
 
   // props
+  /** @type {import('./$types').PageData} */
   export let data;
 
   const {

@@ -10,6 +10,7 @@
   import Navbar from '$lib/components/Navbar.svelte';
 
   // props
+  /** @type {import('./$types').PageData} */
   export let data;
   /** @type {array} */
   const { events } = data;

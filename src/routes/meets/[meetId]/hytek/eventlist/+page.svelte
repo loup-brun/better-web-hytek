@@ -1,8 +1,7 @@
 <script>
-  // throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import HytekEventList from '$lib/components/HytekEventList.svelte';
 
+  /** @type {import('./$types').PageData} */
   export let data;
 
   const meetId = data.meetId;
