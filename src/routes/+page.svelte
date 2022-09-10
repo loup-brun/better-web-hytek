@@ -1,24 +1,19 @@
-<script context="module">
-  import { meetsMap } from '$lib/services/meetsService';
-
-  export function load() {
-    let events = meetsMap.entries();
-
-    return {
-      props: {
-        events
-      }
-    }
-  }
-</script>
-
 <script>
+  /**
+   * Meets index
+   * ===========
+   *
+   * Display the list of meets by date in descending order
+   */
+
   import Icon from '$lib/components/Icon.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
 
   // props
+  /** @type {import('./$types').PageData} */
+  export let data;
   /** @type {array} */
-  export let events;
+  const { events } = data;
 
   // vars
   /** @type {array} */

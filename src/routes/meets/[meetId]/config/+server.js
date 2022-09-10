@@ -1,3 +1,4 @@
+import { json } from '@sveltejs/kit';
 import { meetsMap } from '$lib/services/meetsService';
 
 export async function GET({ params }) {
@@ -11,19 +12,16 @@ export async function GET({ params }) {
       throw `Event with meetId '${meetId}' not found.`;
     }
 
-    return {
-      body: {
-        // fetch the meet config setup
-        meetConfig: meetsMap.get(meetId)
-      }
-    }
+    return json({
+      // fetch the meet config setup
+      meetConfig: meetsMap.get(meetId)
+    });
   } catch (error) {
     // not found (if DB.get() method throws)
-    return {
-      status: 404,
-      body: {
-        error
-      }
-    }
+    return json({
+      error
+    }, {
+      status: 404
+    });
   }
 }

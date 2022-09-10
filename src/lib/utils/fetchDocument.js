@@ -1,5 +1,6 @@
 /**
  * Wrapper function around Fetch API handling encoding and returning decoded HTML through promise
+ * @param fetch Fetch implementation
  * @param fileName
  * @param config {Object}
  * @returns {Promise<void>} Returns parsed document object if promise is ok, else the error

@@ -1,33 +1,4 @@
 <!-- HY-TEK EVENT LAYOUT -->
-<script context="module">
-  export async function load({ fetch, params, stuff }) {
-    const { meetId, eventId } = params;
-    const { meetConfig } = stuff ;
-
-    // get the event list
-    try {
-      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-      const { evtIndexHTML } = await getEvtIndex.json();
-
-      return {
-        props: {
-          evtIndexHTML,
-          meetConfig,
-          meetId,
-          eventId,
-        },
-      }
-    } catch (e) {
-      console.warn('Could not fetch event index', e);
-      return {
-        meetConfig,
-        meetId,
-        eventId,
-        evtIndexHTML: null
-      }
-    }
-  }
-</script>
 <script>
   import { fade, fly } from 'svelte/transition';
   import { linear, expoOut } from 'svelte/easing';
@@ -40,10 +11,16 @@
   import { page } from '$app/stores';
 
   // props
-  export let evtIndexHTML;
-  export let meetId;
-  export let eventId; // eventId won’t necessarily be available on first load
-  export let meetConfig;
+  /** @type {import('./$types').PageData} */
+  export let data;
+
+  const {
+    evtIndexHTML,
+    meetId,
+    meetConfig
+  } = data;
+
+  let eventId = data.eventId;
 
   // vars
   let sidebar;
@@ -84,7 +61,6 @@
    * @returns {{update(): void}}
    */
   function innerScroll(node, eventId) {
-    console.log('node used', node);
     return {
       update(eventId) {
         node.scroll({

@@ -49,8 +49,9 @@ export const meets = [
 
 
     // personnalisation
-    logo: '',
-    themeColor: '#ff6800',
+    logo: 'https://ll.rseq.ca/wp-content/uploads/2022/07/cropped-RSEQLL_site-web-02-scaled-1-300x110.jpg',
+    logoMaxWidth: 200,
+    themeColor: '#008AC9',
 
     // credits
     timingCompany: 'COCH Chrono',
@@ -76,8 +77,9 @@ export const meets = [
     sessionNames: ['Piste', 'Pelouse'],
 
     // personnalisation
-    logo: '',
-    themeColor: '#ff6800',
+    logo: 'https://ll.rseq.ca/wp-content/uploads/2022/07/cropped-RSEQLL_site-web-02-scaled-1-300x110.jpg',
+    logoMaxWidth: 200,
+    themeColor: '#008AC9',
 
     // credits
     timingCompany: 'COCH Chrono',

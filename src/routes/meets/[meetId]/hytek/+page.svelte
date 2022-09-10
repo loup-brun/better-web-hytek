@@ -1,14 +1,7 @@
-<script context="module">
-  export function load({ stuff }) {
-    const { meetConfig } = stuff;
-
-    return {
-      props: { meetConfig }
-    }
-  }
-</script>
 <script>
-  export let meetConfig;
+  /** @type {import('./$types').PageData} */
+  export let data;
+  const { meetConfig } = data;
 </script>
 
 <pre>Better HyTek Results

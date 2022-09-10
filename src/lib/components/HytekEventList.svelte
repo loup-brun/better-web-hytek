@@ -173,7 +173,7 @@
                   class:active={event.eventId === currentEventId}
                   title="{event.text}"
                 >
-                  {#if navigatingTo && navigatingTo.pathname === evtPathname}
+                  {#if navigatingTo && navigatingTo.url.pathname === evtPathname}
                     <Spinner size={14} />
                   {:else}
                   {event.text}

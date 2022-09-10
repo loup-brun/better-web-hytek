@@ -3,10 +3,10 @@ export function GET({ url }) {
   const redirectPath = pathname.replace(/\/event\/?$/g, '');
 
   // simple redirect if no events specified
-  return {
+  return new Response(undefined, {
     status: 307,
     headers: {
       Location: `${redirectPath}`
     }
-  }
+  })
 }
