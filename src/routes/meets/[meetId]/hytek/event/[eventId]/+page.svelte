@@ -94,7 +94,7 @@
 <style>
   pre {
     margin: 0 auto;
-    padding: 8px 8px 2rem; /* give bottom extra pading */
+    padding: 8px 8px 4rem; /* give bottom extra pading */
     /* the 3 following rules allow the pre element to be as wide as its longest text line */
     /* see https://stackoverflow.com/questions/18823117/child-div-overflow-x-y-and-scroll-on-parent */
     overflow: hidden;
