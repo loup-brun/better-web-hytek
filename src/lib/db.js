@@ -15,7 +15,7 @@ export const meets = [
     // résultats
     resultsType: 'hytek',
     finishlynx: true,
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220518/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220518/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: ['Pelouse', 'Piste'],
 
@@ -43,7 +43,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220525/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220525/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: ['Piste', 'Pelouse'],
 
@@ -72,7 +72,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220526/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220526/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: ['Piste', 'Pelouse'],
 
@@ -100,7 +100,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220529/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220529/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: ['Concours', 'Piste'],
 
@@ -111,7 +111,7 @@ export const meets = [
     // credits
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+    hostingProviderUrl: 'https://static.resultats.corsaire-chaparral.org',
   },
 
   {
@@ -128,7 +128,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220813/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220813/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
       'Triathlon coccinelle',
@@ -162,7 +162,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://www.corsaire-chaparral.org/resultats/direct/20220911/',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220911/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
       'Championnat québécois',
@@ -170,13 +170,13 @@ export const meets = [
     ],
 
     // personnalisation
-    logo: 'https://www.demimarathondeblainville.com/images/logos/DMBlainville_Logo_Principal_Vertical-sm.png',
+    logo: 'https://static.resultats.demimarathondeblainville.com/images/logos/DMBlainville_Logo_Principal_Vertical-sm.png',
     logoMaxWidth: 224,
     themeColor: '#ffa300',
 
     // credits
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+    hostingProviderUrl: 'https://static.resultats.corsaire-chaparral.org',
   }
 ];
