@@ -7,7 +7,7 @@
 <pre>Better HyTek Results
 ====================
 
-Sélectionnez un événement dans
+Sélectionnez une épreuve dans
 le menu latéral pour débuter.
 
 </pre>
