@@ -73,8 +73,8 @@
   {:else}
     {#if mainHtml && mainHtml.length}
       {#if isProgram}
-        <div class="Event__alert | mb-2 bg-neutral-200 flex flex-row text-neutral-700 p-3 sticky left-0">
-          <span class="inline-block align-top text-neutral-500 mr-2">
+        <div class="Event__alert | mb-2 p-3 sticky left-0 flex flex-row bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-100">
+          <span class="inline-block align-top text-neutral-500 dark:text-neutral-400 mr-2">
             <Icon name="info" size={20} />
           </span>
 
