@@ -7,7 +7,8 @@
 <pre>Better HyTek Results
 ====================
 
-Sélectionnez un événement dans le menu latéral pour débuter.
+Sélectionnez un événement dans
+le menu latéral pour débuter.
 
 </pre>
 
@@ -62,6 +63,11 @@ Sélectionnez un événement dans le menu latéral pour débuter.
   }
   .content a:hover {
     @apply text-zinc-900;
+  }
+  @media (prefers-color-scheme: dark) {
+    .content a:hover {
+      color: theme('colors.zinc.100');
+    }
   }
   .content p {
     @apply mb-3;
