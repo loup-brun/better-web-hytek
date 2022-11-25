@@ -27,6 +27,7 @@ export const meets = [
 
     // credits
     timingCompany: 'COCH Chrono',
+    timingCompanyUrl: 'mailto:chronometrage@corsaire-chaparral.org',
     //hostingProvider: 'Corsaire-Chaparral.org',
     hostingProviderUrl: 'https://www.corsaire-chaparral.org',
   },
