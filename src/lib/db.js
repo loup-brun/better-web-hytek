@@ -211,4 +211,38 @@ export const meets = [
     hostingProvider: 'Corsaire-Chaparral.org',
     hostingProviderUrl: 'https://www.corsaire-chaparral.org',
   },
+
+  {
+    id: 'festival-coch-2022',
+    dateStart: '2022-12-03',
+    dateEnd: '2022-12-03',
+    title: 'Festival en salle des jeunes Corsaire-Chaparral 2022',
+    stadiumName: 'Polyvalente Ste-Thérèse',
+    address: '401 boul. du Domaine',
+    address2: '',
+    city: 'Ste-Thérèse',
+    province: 'QC',
+    postalCode: 'J7E 4S4',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20221203/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Coccinelles',
+      'Colibris',
+      'Minimes',
+      'Benjamins',
+    ],
+
+    // personnalisation
+    logo: '/logos/COCH_FN_4C.svg',
+    // logoMaxWidth: 224,
+    themeColor: '#ff6900',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+  },
 ];
