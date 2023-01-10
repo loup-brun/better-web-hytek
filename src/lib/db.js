@@ -146,7 +146,7 @@ export const meets = [
     // meet info
     dateStart: '2023-03-04',
     dateEnd: '2023-03-05',
-    title: 'Rouge et Or Invitation',
+    title: 'Championnats québécois benjamin, cadet et junior',
     stadiumName: 'PEPS de l’Université Laval',
     address: '2380 Rue du Peps',
     address2: '',
