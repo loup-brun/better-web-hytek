@@ -41,7 +41,7 @@ export const meets = [
     dateStart: '2022-07-30',
     dateEnd: '2022-07-31',
     title: 'Championnat Provincial Civil Jun-Sen-Para ',
-    stadiumName: 'Stade Telus, Université Laval',
+    stadiumName: 'PEPS de l’Université Laval',
     address: '2380 Rue du Peps',
     address2: '',
     city: 'Québec',
@@ -77,7 +77,7 @@ export const meets = [
     dateStart: '2022-08-15',
     dateEnd: '2022-08-15',
     title: 'Soirée Rouge et Or #2',
-    stadiumName: 'Stade Telus, Université Laval',
+    stadiumName: 'PEPS de l’Université Laval',
     address: '2380 Rue du Peps',
     address2: '',
     city: 'Québec',
@@ -90,7 +90,80 @@ export const meets = [
     hytekFtpLocation: 'https://rsstiming.com/quebec/220813/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
+      'Soirée',
       'Session soirée',
+    ],
+
+    // personnalisation
+    logo: '/apple-touch-icon.png',
+    themeColor: '#e0181c',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
+  {
+    id: 'rouge-et-or-inv-2023',
+
+    // meet info
+    dateStart: '2023-02-04',
+    dateEnd: '2023-02-04',
+    title: 'Rouge et Or Invitation',
+    stadiumName: 'PEPS de l’Université Laval',
+    address: '2380 Rue du Peps',
+    address2: '',
+    city: 'Québec',
+    province: 'QC',
+    postalCode: 'G1V 0A6',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/230204/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Session #1',
+      'Session #2',
+    ],
+
+    // personnalisation
+    logo: '/apple-touch-icon.png',
+    themeColor: '#e0181c',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
+  {
+    id: 'championnats-qc-ben-cad-juv-2023',
+
+    // meet info
+    dateStart: '2023-03-04',
+    dateEnd: '2023-03-05',
+    title: 'Rouge et Or Invitation',
+    stadiumName: 'PEPS de l’Université Laval',
+    address: '2380 Rue du Peps',
+    address2: '',
+    city: 'Québec',
+    province: 'QC',
+    postalCode: 'G1V 0A6',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/230304/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Session #1',
+      'Session #2',
+      'Session #3',
+      'Session #4',
     ],
 
     // personnalisation

@@ -173,7 +173,7 @@
                   class:active={event.eventId === currentEventId}
                   title="{event.text}"
                 >
-                  {#if navigatingTo && navigatingTo.pathname === evtPathname}
+                  {#if navigatingTo && navigatingTo.url.pathname === evtPathname}
                     <Spinner size={14} />
                   {:else}
                   {event.text}
@@ -212,6 +212,11 @@
   .EventList__title-wrap :global(> button):hover {
     background-color: rgba(0, 0, 0, .1);
   }
+  @media (prefers-color-scheme: dark) {
+    .EventList__title-wrap :global(> button):hover {
+      background-color: rgba(255, 255, 255, .075);
+    }
+  }
   .EventList__title-icon {
     position: relative;
     display: inline-block;
@@ -244,6 +249,14 @@
     background-color: #fff;
     cursor: default;
   }
+  @media (prefers-color-scheme: dark) {
+    .active {
+      background-color: rgba(255, 255, 255, .15);
+    }
+    .EventList__button:not(.active):hover {
+      background-color: rgba(255, 255, 255, .075);
+    }
+  }
   .EventList__skeleton-item div {
     animation: pulseLoad 1s linear infinite;
     @apply bg-zinc-200;
@@ -251,6 +264,12 @@
     background-size: 400px 100%;
     background-position: top left;
     background-repeat: no-repeat;
+  }
+  @media (prefers-color-scheme: dark) {
+    .EventList__skeleton-item div {
+      background-color: theme('colors.zinc.800');
+      background-image: linear-gradient(90deg, theme('colors.zinc.800'), theme('colors.zinc.700'), theme('colors.zinc.700'));
+    }
   }
   .EventList__skeleton-item:nth-child(2n) div {
     animation-delay: .15s;

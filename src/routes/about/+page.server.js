@@ -1,4 +1,6 @@
-export async function GET() {
+import { error } from '@sveltejs/kit';
+
+export async function load() {
   const res = await fetch(`https://data.corsaire-chaparral.org/items/resultats_web`);
   const pageData = await res.json();
   const page = pageData.data;
@@ -6,13 +8,8 @@ export async function GET() {
   const { about_content } = page;
 
   if (page) {
-    return {
-      body: { about_content }
-    };
+    return { about_content };
   }
 
-  return {
-    status: 404,
-    error: new Error('Not found')
-  }
+  throw error(404, 'Not found')
 }

@@ -1,7 +1,9 @@
 <script>
   import Navbar from '$lib/components/Navbar.svelte';
 
-  export let about_content;
+  /** @type {import('./$types').PageData} */
+  export let data;
+  const { about_content } = data;
 </script>
 
 <Navbar />

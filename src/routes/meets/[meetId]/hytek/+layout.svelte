@@ -1,33 +1,4 @@
 <!-- HY-TEK EVENT LAYOUT -->
-<script context="module">
-  export async function load({ fetch, params, stuff }) {
-    const { meetId, eventId } = params;
-    const { meetConfig } = stuff ;
-
-    // get the event list
-    try {
-      const getEvtIndex = await fetch(`/meets/${meetId}/hytek/evtindex`);
-      const { evtIndexHTML } = await getEvtIndex.json();
-
-      return {
-        props: {
-          evtIndexHTML,
-          meetConfig,
-          meetId,
-          eventId,
-        },
-      }
-    } catch (e) {
-      console.warn('Could not fetch event index', e);
-      return {
-        meetConfig,
-        meetId,
-        eventId,
-        evtIndexHTML: null
-      }
-    }
-  }
-</script>
 <script>
   import { fade, fly } from 'svelte/transition';
   import { linear, expoOut } from 'svelte/easing';
@@ -40,10 +11,16 @@
   import { page } from '$app/stores';
 
   // props
-  export let evtIndexHTML;
-  export let meetId;
-  export let eventId; // eventId won’t necessarily be available on first load
-  export let meetConfig;
+  /** @type {import('./$types').PageData} */
+  export let data;
+
+  const {
+    evtIndexHTML,
+    meetId,
+    meetConfig
+  } = data;
+
+  let eventId = data.eventId;
 
   // vars
   let sidebar;
@@ -84,7 +61,6 @@
    * @returns {{update(): void}}
    */
   function innerScroll(node, eventId) {
-    console.log('node used', node);
     return {
       update(eventId) {
         node.scroll({
@@ -106,6 +82,8 @@
 <!-- Set title in browser tab bar -->
 <svelte:head>
   <title>Résultats</title>
+
+  <meta name="theme-color" content="{meetConfig.themeColor}">
 </svelte:head>
 
 <div
@@ -139,13 +117,13 @@
 
     {#if isSideNavOpen}
       <div
-        class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300"
+        class="HytekLayout__sidebar | bg-zinc-100 border-r border-zinc-300 dark:bg-zinc-900 dark:border-zinc-600"
         bind:this={sidebar}
         in:fly|local={{ x: -sidebarWidth, opacity: 1, delay: 400, easing: expoOut }}
         out:fly|local={{ x: -sidebarWidth, opacity: 1, easing: expoOut }}
       >
         <header
-          class="HytekLayout__sidebar-header | px-3 py-4 bg-zinc-100 text-zinc-600"
+          class="HytekLayout__sidebar-header | px-3 py-4 text-zinc-600 dark:text-zinc-500"
         >
           {#if meetConfig.logo}
             <a href="/meets/{meetId}/hytek">
@@ -164,7 +142,7 @@
             </a>
           </h1>
 
-          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600">
+          <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600 dark:text-zinc-500">
             {meetConfig.stadiumName}
             <br>
             ({meetConfig.city}, {meetConfig.province})
@@ -198,7 +176,7 @@
         >Épreuve en direct</a>
         -->
 
-        <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 p-2 mt-6">
+        <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">
             <a
               href="/meets/{meetId}/hytek/about"
@@ -226,7 +204,7 @@
     {/if}
 
     <div
-      class="HytekLayout__main"
+      class="HytekLayout__main | bg-white dark:bg-zinc-800 text-black dark:text-zinc-100"
       bind:this={mainContainer}
       use:innerScroll={eventId}
     >
@@ -239,7 +217,8 @@
   .HytekLayout {
     --sidebarWidth: 275px;
     height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100%;
     overflow: hidden;
   }
   .Navbar__sidebar-toggle {
