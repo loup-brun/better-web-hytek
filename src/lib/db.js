@@ -125,8 +125,8 @@ export const meets = [
     hytekFtpLocation: 'https://rsstiming.com/quebec/230204/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
-      'Session #1',
-      'Session #2',
+      'Concours',
+      'Piste',
     ],
 
     // personnalisation
@@ -140,40 +140,40 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
-  {
-    id: 'championnats-qc-ben-cad-juv-2023',
-
-    // meet info
-    dateStart: '2023-03-04',
-    dateEnd: '2023-03-05',
-    title: 'Championnats québécois benjamins, cadets et juniors',
-    stadiumName: 'PEPS de l’Université Laval',
-    address: '2380 Rue du Peps',
-    address2: '',
-    city: 'Québec',
-    province: 'QC',
-    postalCode: 'G1V 0A6',
-
-    // résultats
-    resultsType: 'hytek',
-    finishlynx: true,
-    hytekFtpLocation: 'https://rsstiming.com/quebec/230304/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [
-      'Session #1',
-      'Session #2',
-      'Session #3',
-      'Session #4',
-    ],
-
-    // personnalisation
-    logo: '/apple-touch-icon.png',
-    themeColor: '#e0181c',
-
-    // credits
-    timingCompany: 'CAUL',
-    timingCompanyUrl: 'https://www.caul.ca/',
-    hostingProvider: 'RSS Timing',
-    hostingProviderUrl: 'https://rsstiming.com',
-  },
+  // {
+  //   id: 'championnats-qc-ben-cad-juv-2023',
+  //
+  //   // meet info
+  //   dateStart: '2023-03-04',
+  //   dateEnd: '2023-03-05',
+  //   title: 'Championnats québécois benjamins, cadets et juniors',
+  //   stadiumName: 'PEPS de l’Université Laval',
+  //   address: '2380 Rue du Peps',
+  //   address2: '',
+  //   city: 'Québec',
+  //   province: 'QC',
+  //   postalCode: 'G1V 0A6',
+  //
+  //   // résultats
+  //   resultsType: 'hytek',
+  //   finishlynx: true,
+  //   hytekFtpLocation: 'https://rsstiming.com/quebec/230304/',
+  //   hytekHtmlEncoding: 'ISO-8859-15',
+  //   sessionNames: [
+  //     'Session #1',
+  //     'Session #2',
+  //     'Session #3',
+  //     'Session #4',
+  //   ],
+  //
+  //   // personnalisation
+  //   logo: '/apple-touch-icon.png',
+  //   themeColor: '#e0181c',
+  //
+  //   // credits
+  //   timingCompany: 'CAUL',
+  //   timingCompanyUrl: 'https://www.caul.ca/',
+  //   hostingProvider: 'RSS Timing',
+  //   hostingProviderUrl: 'https://rsstiming.com',
+  // },
 ];
