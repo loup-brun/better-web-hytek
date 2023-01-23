@@ -9,7 +9,7 @@ utilisateur, en particulier sur les appareils mobiles. Elle se veut
 légère, conviviale et adaptable.
 
 Il s’agit d’un logiciel libre, distribué sous licence GPLv3.
-Le code source est disponible librement sur <a href="https://github.com/loup-brun/better-web-hytek" target="_blank" rel="external" class="underline">GitHub</a>.
+Le code source est disponible librement sur <a href="https://github.com/loup-brun/better-web-hytek" target="_blank" rel="noreferrer" class="underline">GitHub</a>.
 
 Bien sûr, le format texte exporté par le logiciel MeetManager est
 loin d’être idéal. Les besoins et les attentes aujourd’hui ont évolué
@@ -19,7 +19,7 @@ données liées, etc.). En attendant, voici simplement :
   <strong>“Better Web HyTek”</strong>.
 
 
-  <a href="https://www.loupbrun.ca" target="_blank" rel="external" class="hover:underline">Louis-Olivier Brassard</a>
+  <a href="https://www.loupbrun.ca" target="_blank" rel="noreferrer" class="hover:underline">Louis-Olivier Brassard</a>
   développeur indépendant
 </pre>
 
@@ -35,11 +35,5 @@ données liées, etc.). En attendant, voici simplement :
     pre {
       font-size: 14px;
     }
-  }
-
-  .muted :global(strong) {
-    color: #000;
-    font-weight: inherit;
-    background-color: #ffc;
   }
 </style>
