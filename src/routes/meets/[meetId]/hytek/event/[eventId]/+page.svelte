@@ -41,6 +41,9 @@
           // `#CCCCCC` is the default
           // however the BG color may be configured by user, but we’ll just assume the default
           isProgram = true;
+        } else {
+          // reset attr
+          isProgram = false;
         }
 
         const pre = eventDoc.querySelector('pre');
