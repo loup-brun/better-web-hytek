@@ -18,6 +18,8 @@
   export let evtIndexHTML = '';
   export let currentEventId;
   export let sessionNames;
+  /** @type {object|*} svelte store for capturing the user state */
+  export let userState = {};
 
   // vars
   let sessionModel = { title: '', events: [] }; // base model for new sessions
@@ -49,6 +51,35 @@
   });
 
   //////////
+
+  function hasDialogOpen(index) {
+    return $userState.menuDisclosures.includes(index);
+  }
+
+  /**
+   *
+   * @param {object} pref Key-value pair
+   */
+  function saveUserPref(pref) {
+    if (pref.open) {
+      // pane should be open
+      if (!$userState.menuDisclosures.includes(pref.id)) {
+        userState.update(u => {
+          u.menuDisclosures.push(pref.id);
+          return u;
+        });
+      }
+    } else {
+      // pane should be closed
+      if ($userState.menuDisclosures.includes(pref.id)) {
+        userState.update(u => {
+          // delete 1 elem at index of pane id
+          u.menuDisclosures.splice(u.menuDisclosures.indexOf(pref.id), 1);
+          return u;
+        })
+      }
+    }
+  }
 
   /**
    * Build the event list given a parsed event index HTML.
@@ -149,9 +180,14 @@
   <!-- TODO: maybe await sessions? to catch on load error -->
   {#if sessions.length}
     {#each sessions as session, i}
-      <Disclosure let:open>
+      <Disclosure
+        let:open
+        defaultOpen={hasDialogOpen(i)}
+      >
         <div class="EventList__title-wrap">
-          <DisclosureButton>
+          <DisclosureButton
+            on:click={() => saveUserPref({ id: i, open: !open })}
+          >
             <span
               class="EventList__title-icon"
               class:open
