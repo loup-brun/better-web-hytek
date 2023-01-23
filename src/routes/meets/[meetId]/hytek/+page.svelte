@@ -20,7 +20,7 @@ le menu latéral pour débuter.
       <p>
         Chronométrage par
         {#if meetConfig.timingCompanyUrl}
-          <a href="{meetConfig.timingCompanyUrl}" target="_blank">{meetConfig.timingCompany}</a>
+          <a href="{meetConfig.timingCompanyUrl}" target="_blank" rel="noreferrer">{meetConfig.timingCompany}</a>
         {:else}
           {meetConfig.timingCompany}
         {/if}
@@ -31,7 +31,7 @@ le menu latéral pour débuter.
     <p>
       Résultats hébergés par
       {#if meetConfig.hostingProviderUrl}
-        <a href="{meetConfig.hostingProviderUrl}" target="_blank">{meetConfig.hostingProvider}</a>
+        <a href="{meetConfig.hostingProviderUrl}" target="_blank" rel="noreferrer">{meetConfig.hostingProvider}</a>
       {:else}
         {meetConfig.hostingProvider}
       {/if}
@@ -40,7 +40,7 @@ le menu latéral pour débuter.
 
     <!-- dev credits ;) -->
     <p>
-      Interface par <a href="https://www.loupbrun.ca" target="_blank">Louis-Olivier Brassard</a>
+      Interface par <a href="https://www.loupbrun.ca" target="_blank" rel="noreferrer">Louis-Olivier Brassard</a>
     </p>
   </div>
 </div>
