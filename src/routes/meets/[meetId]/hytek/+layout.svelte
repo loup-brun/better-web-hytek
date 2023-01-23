@@ -6,7 +6,8 @@
   import Navbar from '$lib/components/Navbar.svelte';
   import HytekEventList from '$lib/components/HytekEventList.svelte';
   import Icon from '$lib/components/Icon.svelte';
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
+  import { writable } from 'svelte/store';
   import { afterNavigate } from '$app/navigation';
   import { page } from '$app/stores';
 
@@ -22,6 +23,11 @@
 
   let eventId = data.eventId;
 
+  // store
+  const userState = writable({
+    menuDisclosures: [],
+    menuScrollY: 0,
+  });
   // vars
   let sidebar;
   let innerWidth = 0;
@@ -52,6 +58,24 @@
         isSideNavOpen = true
       }
     }
+  }
+
+  function saveSideNavScroll(ev) {
+    const { scrollTop } = ev.currentTarget;
+    userState.update(u => {
+      u.menuScrollY = scrollTop;
+      return u;
+    });
+  }
+
+  /**
+   * Svelte `use` action to scroll container back
+   * @param {HTMLElement} node
+   */
+  async function scrollNavToPref(node) {
+    console.log(`we should scroll to`, $userState)
+    await tick();
+    node.scroll(0, $userState.menuScrollY || 0);
   }
 
   /**
@@ -121,6 +145,8 @@
         bind:this={sidebar}
         in:fly|local={{ x: -sidebarWidth, opacity: 1, delay: 400, easing: expoOut }}
         out:fly|local={{ x: -sidebarWidth, opacity: 1, easing: expoOut }}
+        on:scroll={ev => saveSideNavScroll(ev)}
+        use:scrollNavToPref
       >
         <header
           class="HytekLayout__sidebar-header | px-3 py-4 text-zinc-600 dark:text-zinc-500"
@@ -161,6 +187,7 @@
           currentEventId={eventId}
           {evtIndexHTML}
           sessionNames={meetConfig.sessionNames}
+          {userState}
           --themeColor={meetConfig.themeColor}
         >
         </HytekEventList>
