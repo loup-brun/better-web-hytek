@@ -192,17 +192,6 @@
         >
         </HytekEventList>
 
-        <!--
-        <a
-          href="/meets/{meetId}/hytek/eventlist"
-          class="HytekLayout__sidebar-button"
-        >Programme</a>
-        <a
-          href="/meets/{meetId}/live"
-          class="HytekLayout__sidebar-button"
-        >Épreuve en direct</a>
-        -->
-
         <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">
             <a
@@ -214,8 +203,8 @@
           <div class="my-1">
             <a
               href="{meetConfig.hytekFtpLocation}index.htm"
-              rel="external"
               target="_blank"
+              rel="noreferrer"
               class="HytekLayout__sidebar-link"
             >Utiliser l’expérience classique</a>
           </div>
@@ -294,22 +283,5 @@
   }
   .HytekLayout__sidebar-link:hover {
     text-decoration: underline;
-  }
-
-  .HytekLayout__sidebar-button {
-    display: block;
-    padding: .75rem .5rem;
-    max-width: 100%;
-    text-decoration: none;
-    color: inherit;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    border-left: 4px solid transparent;
-  }
-  .HytekLayout__sidebar-button:not(.active):hover {
-    background-color: rgba(0, 0, 0, .1);
   }
 </style>
