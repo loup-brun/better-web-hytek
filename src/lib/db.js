@@ -35,7 +35,7 @@ export const meets = [
     id: 'mcgill-team-challenge-2023',
     dateStart: '2023-01-27',
     dateEnd: '2023-01-28',
-    title: 'McGill Team Challenge 2023',
+    title: '27th Annual McGill Team Challenge 2023',
     stadiumName: 'Tomlinson Fieldhouse',
     address: '475 avenue des Pins',
     address2: '',
@@ -48,10 +48,10 @@ export const meets = [
     hytekFtpLocation: 'https://rsstiming.com/mcgill/230127/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
-      'Session #1',
-      'Session #2',
-      'Session #3',
-      'Session #4',
+      'Vendredi - concours',
+      'Vendredi - piste',
+      'Samedi - concours',
+      'Samedi - piste',
     ],
 
     // personnalisation
