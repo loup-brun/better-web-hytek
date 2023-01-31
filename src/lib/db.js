@@ -111,7 +111,7 @@ export const meets = [
     // meet info
     dateStart: '2023-02-04',
     dateEnd: '2023-02-04',
-    title: 'Rouge et Or Invitation',
+    title: 'Invitation Rouge et Or',
     stadiumName: 'PEPS de l’Université Laval',
     address: '2380 Rue du Peps',
     address2: '',
@@ -125,8 +125,8 @@ export const meets = [
     hytekFtpLocation: 'https://rsstiming.com/quebec/230204/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
-//      'Concours',
-//      'Piste',
+      'Concours',
+      'Piste',
     ],
 
     // personnalisation
