@@ -94,8 +94,13 @@
   {/if}
 {/key}
 
-<style>
+<style lang="postcss">
   pre {
+    --event-font-size: max(11px, 2.25vw); /* 12px or larger */
+    @media (min-width: 48rem) {
+      --event-font-size: 14px;
+    }
+
     margin: 0 auto;
     padding: 8px 8px 4rem; /* give bottom extra pading */
     /* the 3 following rules allow the pre element to be as wide as its longest text line */
@@ -105,11 +110,15 @@
     min-width: 100%;
     font-family: 'Courier New', Courier, monospace; /* default mono fonts */
     font-weight: normal;
-    font-size: 13px;
-  }
-  @media (min-width: 1056px) {
-    pre {
-      font-size: 14px;
-    }
+
+    /*
+    The fixed width of the text will cause the container to overflow.
+    Pinch-zooming can then lead to 'double-scrolling' situations, where
+    the user is both panning the browser’s pinch-zoom state and scrolling
+    the regular layout overflow (actual scrollbars). Setting font-size is
+    dicey, so we could do better by preventing scrolling on the page and
+    providing pinch-zoom on the scrollable container only.
+    */
+    font-size: var(--event-font-size, 13px);
   }
 </style>
