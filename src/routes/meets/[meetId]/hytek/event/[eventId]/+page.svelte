@@ -8,10 +8,21 @@
   export let data;
 
   // vars
+  // meet program dictionary
+  const meetProgramDictionary = [
+    'Meet Program',
+    'Programme',
+  ];
+  const perfListDictionary = [
+    'Performance List',
+    'Liste des performances',
+  ];
   // index controls major variables
   let isSideNavOpen = false;
   /** @type {string} */
   let mainHtml = '';
+  /** @type {boolean} */
+  let isPerfList = false;
   /** @type {boolean} */
   let isProgram = false;
   /** @type {DOMParser} DOMParser instance, set in browser */
@@ -35,18 +46,40 @@
 
         // parse the `body` elem
         const body = eventDoc.querySelector('body');
+        // and the first `pre` elem
+        const pre = body.querySelector('pre');
+
+        // We’ll run a check in lines 3, 4 or 5
+        // 1) split: capturing newlines in an array
+        // 2) slice: keep desired lines
+        // 3) trim: clean up whitespace
+        const lines = pre.innerHTML.split('\n').slice(3, 6).map(i => i.trim());
+
+        // reset vars
+        isProgram = false;
+        isPerfList = false;
+
+        // run the check against the dictionary
+        meetProgramDictionary.forEach(word => {
+          if (lines.includes(word)) {
+            isProgram = true
+          }
+        });
+        perfListDictionary.forEach(word => {
+          if (lines.includes(word)) {
+            isPerfList = true;
+          }
+        });
+
+        // fallback check if the hytek operator has different dictionary
         if (body.getAttribute('bgcolor') && body.getAttribute('bgcolor') === '#CCCCCC') {
-          // if body background is greyed, this is not a result page
+          // if body background is greyed, this is usually not a result page
           // but rather a 'Meet Program' or 'Performance List'
           // `#CCCCCC` is the default
           // however the BG color may be configured by user, but we’ll just assume the default
           isProgram = true;
-        } else {
-          // reset attr
-          isProgram = false;
         }
 
-        const pre = eventDoc.querySelector('pre');
         if (pre) {
           mainHtml = pre.innerHTML;
         } else {
@@ -75,14 +108,19 @@
     </div>
   {:else}
     {#if mainHtml && mainHtml.length}
-      {#if isProgram}
+      <!-- Banner -->
+      {#if isProgram || isPerfList}
         <div class="Event__alert | mb-2 p-3 sticky left-0 flex flex-row bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-100">
           <span class="inline-block align-top text-neutral-500 dark:text-neutral-400 mr-2">
             <Icon name="info" size={20} />
           </span>
 
           <div class="content text-sm">
-            Note&nbsp;: cette page affiche actuellement le <strong>programme</strong> de l’épreuve.
+            {#if isProgram}
+              Cette page affiche actuellement le <strong>programme</strong> de l’épreuve.
+            {:else if isPerfList}
+              Cette page affiche actuellement la <strong>liste des performances</strong> de l’épreuve.
+            {/if}
           </div>
         </div>
       {/if}
