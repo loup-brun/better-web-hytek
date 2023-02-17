@@ -1,6 +1,6 @@
 export const meets = [
   {
-    id: 'live',
+    id: 'ravens-last-chance-2023',
     dateStart: '2023-02-17',
     dateEnd: '2023-02-18',
     title: 'Ottawa Lions U-16 Chilly Open & Carleton Ravens U-Sports Last Chance',
