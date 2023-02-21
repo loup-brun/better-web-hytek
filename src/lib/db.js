@@ -65,4 +65,38 @@ export const meets = [
     //hostingProvider: 'RSS Timing',
     //hostingProviderUrl: 'https://rsstiming.com',
   },
+  {
+    id: 'championnat-rseq-2023',
+    dateStart: '2023-02-24',
+    dateEnd: '2023-02-25',
+    title: 'Championnats provinciaux universitaires RSEQ 2023',
+    stadiumName: 'Tomlinson Fieldhouse',
+    address: '475 avenue des Pins',
+    address2: '',
+    city: 'Montréal',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://rsstiming.com/mcgill/230224/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    // sessionNames: [
+    //   'Vendredi - concours',
+    //   'Vendredi - piste',
+    //   'Samedi - concours',
+    //   'Samedi - piste',
+    // ],
+
+    // personnalisation
+    logo: 'http://rseq.ca/media/ui/bg/bg-logo.png',
+    logoMaxWidth: 150,
+    themeColor: '#008AC9',
+
+    // credits
+    timingCompany: 'RSS Timing',
+    timingCompanyUrl: 'https://www.rsstiming.com',
+    //hostingProvider: 'RSS Timing',
+    //hostingProviderUrl: 'https://rsstiming.com',
+  },
 ];
