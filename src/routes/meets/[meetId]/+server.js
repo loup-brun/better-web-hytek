@@ -15,7 +15,7 @@ export async function GET({ url }) {
       return new Response(undefined, {
         status: 307,
         headers: {
-          Location: `${pathname}/hytek`
+          Location: `${pathname}`
         }
       });
     } else {

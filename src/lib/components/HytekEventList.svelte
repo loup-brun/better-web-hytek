@@ -172,7 +172,7 @@
   <header class="EventList__header">
     <slot name="header">
       <!--
-      <div class="px-2 py-6"><a href="/meets/{meetId}/hytek">Accueil</a></div>
+      <div class="px-2 py-6"><a href="/meets/{meetId}">Accueil</a></div>
       -->
     </slot>
   </header>
@@ -202,7 +202,7 @@
           <div transition:slide|local={{ duration: 800 }}>
             <DisclosurePanel>
               {#each session.events as event}
-                {@const evtPathname = `/meets/${meetId}/hytek/event/${event.eventId}`}
+                {@const evtPathname = `/meets/${meetId}/event/${event.eventId}`}
                 <a
                   href="{evtPathname}"
                   class="EventList__button"
