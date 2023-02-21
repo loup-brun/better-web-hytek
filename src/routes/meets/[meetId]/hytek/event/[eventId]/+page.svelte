@@ -16,6 +16,8 @@
   const perfListDictionary = [
     'Performance List',
     'Liste des performances',
+    'Liste de performances',
+    'Liste de performance',
   ];
   // index controls major variables
   let isSideNavOpen = false;
@@ -134,7 +136,7 @@
 
 <style lang="postcss">
   pre {
-    --event-font-size: max(11px, 2.25vw); /* 12px or larger */
+    --event-font-size: max(10px, 2vw); /* 10px or larger */
     @media (min-width: 48rem) {
       --event-font-size: 14px;
     }
@@ -146,8 +148,9 @@
     overflow: hidden;
     display: inline-block;
     min-width: 100%;
-    font-family: 'Courier New', Courier, monospace; /* default mono fonts */
+    font-family: 'Courier New', Courier, monospace; /* default mono fonts --  Courier is classic */
     font-weight: normal;
+    letter-spacing: -0.025em; /* a bit of negative letter spacing to save space */
 
     /*
     The fixed width of the text will cause the container to overflow.
