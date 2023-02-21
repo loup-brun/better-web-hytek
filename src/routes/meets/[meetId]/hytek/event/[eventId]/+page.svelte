@@ -136,7 +136,7 @@
 
 <style lang="postcss">
   pre {
-    --event-font-size: max(10px, 2vw); /* 10px or larger */
+    --event-font-size: max(10px, 2.2vw); /* 10px or larger */
     @media (min-width: 48rem) {
       --event-font-size: 14px;
     }
