@@ -16,6 +16,8 @@
   const perfListDictionary = [
     'Performance List',
     'Liste des performances',
+    'Liste de performances',
+    'Liste de performance',
   ];
   // index controls major variables
   let isSideNavOpen = false;
