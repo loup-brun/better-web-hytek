@@ -66,7 +66,7 @@ export const meets = [
     //hostingProviderUrl: 'https://rsstiming.com',
   },
   {
-    id: 'championnat-rseq-2023',
+    id: 'championnats-rseq-2023',
     dateStart: '2023-02-24',
     dateEnd: '2023-02-25',
     title: 'Championnats provinciaux universitaires RSEQ 2023',
