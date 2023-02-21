@@ -81,12 +81,12 @@ export const meets = [
     resultsType: 'hytek',
     hytekFtpLocation: 'https://rsstiming.com/mcgill/230224/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    // sessionNames: [
-    //   'Vendredi - concours',
-    //   'Vendredi - piste',
-    //   'Samedi - concours',
-    //   'Samedi - piste',
-    // ],
+    sessionNames: [
+      'Vendredi - piste',
+      'Vendredi - concours',
+      'Samedi - concours',
+      'Samedi - piste',
+    ],
 
     // personnalisation
     logo: 'http://rseq.ca/media/ui/bg/bg-logo.png',
