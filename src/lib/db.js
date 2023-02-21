@@ -89,7 +89,7 @@ export const meets = [
     ],
 
     // personnalisation
-    logo: 'http://rseq.ca/media/ui/bg/bg-logo.png',
+    logo: '/logos/rseq.png',
     logoMaxWidth: 150,
     themeColor: '#008AC9',
 
