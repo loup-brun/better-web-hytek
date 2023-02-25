@@ -4,6 +4,7 @@ specifiers:
   '@rgossiaux/svelte-headlessui': ^1.0.0
   '@sveltejs/adapter-vercel': ^2.0.2
   '@sveltejs/kit': ~1.5.2
+  '@vercel/analytics': ^0.1.10
   autoprefixer: ^10.4.7
   carbon-icons-svelte: '11'
   postcss: ^8.4.13
@@ -16,6 +17,7 @@ devDependencies:
   '@rgossiaux/svelte-headlessui': 1.0.0_svelte@3.55.1
   '@sveltejs/adapter-vercel': 2.0.2_@sveltejs+kit@1.5.2
   '@sveltejs/kit': 1.5.2_svelte@3.55.1+vite@4.0.4
+  '@vercel/analytics': 0.1.10
   autoprefixer: 10.4.7_postcss@8.4.13
   carbon-icons-svelte: 11.0.1
   postcss: 8.4.13
@@ -360,6 +362,12 @@ packages:
 
   /@types/cookie/0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
+    dev: true
+
+  /@vercel/analytics/0.1.10:
+    resolution: {integrity: sha512-jjJ8GzcPnQp0cMxpfYoUycMRBtDiaIeyVjZPiEPe99Dj1PdjMzAFYEASiV/hpNsXHkpcNYCveDFh6jnmh0YSDQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
     dev: true
 
   /@vercel/nft/0.22.6:

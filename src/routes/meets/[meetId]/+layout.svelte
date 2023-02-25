@@ -10,6 +10,9 @@
   import { writable } from 'svelte/store';
   import { afterNavigate } from '$app/navigation';
   import { page } from '$app/stores';
+  // vercel analytics
+  import { dev } from '$app/environment';
+  import { inject } from '@vercel/analytics';
 
   // props
   /** @type {import('./$types').PageData} */
@@ -35,6 +38,9 @@
   let isSideNavOpen = true;
   let expansionBreakpoint = 768; // 1056 by default
   let mainContainer;
+
+  // vercel analytics
+  inject({ mode: dev ? 'development' : 'production' });
 
   onMount(() => {
     sidebarWidth = sidebar.getBoundingClientRect().width;
