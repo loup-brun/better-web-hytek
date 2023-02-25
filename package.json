@@ -11,7 +11,6 @@
     "@rgossiaux/svelte-headlessui": "^1.0.0",
     "@sveltejs/adapter-vercel": "^2.0.2",
     "@sveltejs/kit": "~1.5.2",
-    "@vercel/analytics": "^0.1.10",
     "autoprefixer": "^10.4.7",
     "carbon-icons-svelte": "11",
     "postcss": "^8.4.13",
