@@ -1,6 +1,6 @@
 {
   "name": "better-web-hytek",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",

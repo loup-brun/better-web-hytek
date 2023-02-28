@@ -74,12 +74,14 @@
         });
 
         // fallback check if the hytek operator has different dictionary
-        if (body.getAttribute('bgcolor') && body.getAttribute('bgcolor') === '#CCCCCC') {
-          // if body background is greyed, this is usually not a result page
-          // but rather a 'Meet Program' or 'Performance List'
-          // `#CCCCCC` is the default
-          // however the BG color may be configured by user, but we’ll just assume the default
-          isProgram = true;
+        if (!isPerfList && !isProgram) {
+          if (body.getAttribute('bgcolor') && body.getAttribute('bgcolor') === '#CCCCCC') {
+            // if body background is greyed, this is usually not a result page
+            // but rather a 'Meet Program' or 'Performance List'
+            // `#CCCCCC` is the default
+            // however the BG color may be configured by user, but we’ll just assume the default
+            isPerfList = true;
+          }
         }
 
         if (pre) {
