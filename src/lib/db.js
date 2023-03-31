@@ -27,7 +27,7 @@ export const meets = [
 
     // credits
     timingCompany: 'RSS Timing',
+    timingCompanyUrl: 'https://www.rsstiming.com',
     hostingProvider: 'RSSTiming.com',
-    hostingProviderUrl: 'https://www.rsstiming.com',
   },
 ];
