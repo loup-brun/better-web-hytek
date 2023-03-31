@@ -4,7 +4,7 @@ export const meets = [
     dateStart: '2023-04-15',
     dateEnd: '2023-04-15',
     title: 'Rencontre d’athlétisme du 15 avril 2023',
-    stadiumName: '',
+    stadiumName: 'Centre de glaces Intact Assurance',
     address: '',
     address2: '',
     city: 'Québec',
