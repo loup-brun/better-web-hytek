@@ -13,7 +13,7 @@ export const meets = [
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'http://static.caq.rsstiming.com/230415/',
+    hytekFtpLocation: 'http://caq-static.rsstiming.com/230415/',
     hytekHtmlEncoding: 'ISO-8859-15',
 //    sessionNames: [
 //      'Pelouse / Field',
