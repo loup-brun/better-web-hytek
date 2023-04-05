@@ -26,8 +26,9 @@ export const meets = [
     themeColor: '#071F75',
 
     // credits
-    timingCompany: 'RSS Timing',
-    timingCompanyUrl: 'https://www.rsstiming.com',
+//    timingCompany: 'RSS Timing',
+//    timingCompanyUrl: '',
     hostingProvider: 'RSSTiming.com',
+    hostingProviderUrl: 'https://www.rsstiming.com',
   },
 ];
