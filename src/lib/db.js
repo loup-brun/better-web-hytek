@@ -176,4 +176,77 @@ export const meets = [
     hostingProvider: 'RSS Timing',
     hostingProviderUrl: 'https://rsstiming.com',
   },
+  {
+    id: 'regional-cote-nord',
+
+    // meet info
+    dateStart: '2023-05-27',
+    dateEnd: '2023-05-27',
+    title: 'Championnat régional scolaire Côte-Nord',
+    stadiumName: '',
+    address: '',
+    address2: '',
+    city: '',
+    province: '',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/230527/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Samedi - concours',
+//      'Samedi - piste',
+//      'Dimanche - concours',
+//      'Dimanche - piste',
+//    ],
+
+    // personnalisation
+    logo: '/apple-touch-icon.png',
+    themeColor: '#e0181c',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+  {
+    id: 'soiree-rouge-orange-2023',
+
+    // meet info
+    dateStart: '2023-06-02',
+    dateEnd: '2023-06-02',
+    title: 'Soirée Rouge et Orange',
+    stadiumName: 'Stade de l’UQTR',
+    address: '3351 boul. des Forges',
+    address2: '',
+    city: 'Trois-Rivières',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/230602/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Samedi - concours',
+//      'Samedi - piste',
+//      'Dimanche - concours',
+//      'Dimanche - piste',
+//    ],
+
+    // personnalisation
+    logo: '/logos/patriotes-uqtr.png',
+    logoMaxWidth: 130,
+    themeColor: '#2D7944',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
 ];
