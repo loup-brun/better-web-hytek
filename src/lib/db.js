@@ -177,7 +177,7 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
   {
-    id: 'regional-cote-nord',
+    id: 'regional-resq-cn-2023',
 
     // meet info
     dateStart: '2023-05-27',
@@ -186,8 +186,8 @@ export const meets = [
     stadiumName: '',
     address: '',
     address2: '',
-    city: '',
-    province: '',
+    city: 'Sept-Îles',
+    province: 'QC',
     postalCode: '',
 
     // résultats
@@ -203,8 +203,8 @@ export const meets = [
 //    ],
 
     // personnalisation
-    logo: '/apple-touch-icon.png',
-    themeColor: '#e0181c',
+    logo: 'https://rseqcn.ca/wp-content/uploads/2022/06/icone_RSEQ_bleu-2.png',
+    themeColor: '#2C99D8',
 
     // credits
     timingCompany: 'CAUL',
@@ -249,4 +249,41 @@ export const meets = [
     hostingProvider: 'RSS Timing',
     hostingProviderUrl: 'https://rsstiming.com',
   },
+  {
+    id: 'regional-rseq-qca-2023',
+
+    // meet info
+    dateStart: '2023-06-03',
+    dateEnd: '2023-06-03',
+    title: 'Championnat régional scolaire Québec et Chaudière-Appalaches',
+    stadiumName: '',
+    address: '',
+    address2: '',
+    city: 'Québec',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/230603/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Samedi - concours',
+//      'Samedi - piste',
+//      'Dimanche - concours',
+//      'Dimanche - piste',
+//    ],
+
+    // personnalisation
+    logo: '/logos/rseq-qca.jpg','
+    themeColor: '#2C99D8',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
 ];
