@@ -276,7 +276,7 @@ export const meets = [
 //    ],
 
     // personnalisation
-    logo: '/logos/rseq-qca.jpg','
+    logo: '/logos/rseq-qca.jpg',
     themeColor: '#2C99D8',
 
     // credits
