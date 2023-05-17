@@ -204,6 +204,7 @@ export const meets = [
 
     // personnalisation
     logo: 'https://rseqcn.ca/wp-content/uploads/2022/06/icone_RSEQ_bleu-2.png',
+    logoMaxWidth: 150,
     themeColor: '#2C99D8',
 
     // credits
@@ -255,7 +256,7 @@ export const meets = [
     // meet info
     dateStart: '2023-06-03',
     dateEnd: '2023-06-03',
-    title: 'Championnat régional scolaire Québec et Chaudière-Appalaches',
+    title: 'Championnat régional scolaire Québec - Chaudière-Appalaches',
     stadiumName: '',
     address: '',
     address2: '',
@@ -277,6 +278,7 @@ export const meets = [
 
     // personnalisation
     logo: '/logos/rseq-qca.jpg',
+    logoMaxWidth: 150,
     themeColor: '#2C99D8',
 
     // credits
