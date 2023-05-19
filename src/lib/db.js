@@ -308,4 +308,32 @@ export const meets = [
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
   },
+
+  {
+    id: 'coch-inv-2023',
+    dateStart: '2023-05-28',
+    dateEnd: '2023-05-28',
+    title: 'Corsaire-Chaparral Invitation 2023',
+    stadiumName: 'Stade d’athlétisme Richard-Garneau',
+    address: '401 boul. du Domaine',
+    address2: '',
+    city: 'Ste-Thérèse',
+    province: 'QC',
+    postalCode: 'J7E 4S4',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230528/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: ['Concours', 'Piste'],
+
+    // personnalisation
+    logo: '/logos/COCH_FN_4C.svg',
+    themeColor: '#f26000',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+  },
 ];
