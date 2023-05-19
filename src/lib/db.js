@@ -28,7 +28,6 @@ export const meets = [
     hostingProvider: 'Corsaire-Chaparral.org',
   },
 
-
   {
     id: 'rseq-ll-primaire-2022',
     dateStart: '2022-05-25',
@@ -244,5 +243,62 @@ export const meets = [
     timingCompany: 'COCH Chrono',
     hostingProvider: 'Corsaire-Chaparral.org',
     hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+  },
+
+  {
+    id: 'rseq-ll-primaire-2023',
+    dateStart: '2023-05-24',
+    dateEnd: '2023-05-24',
+    title: 'Mini-athlétisme RSEQ-LL',
+    stadiumName: 'Stade d’athlétisme Richard-Garneau',
+    address: '401 boul. du Domaine',
+    address2: '',
+    city: 'Ste-Thérèse',
+    province: 'QC',
+    postalCode: 'J7E 4S4',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230524/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: ['Piste', 'Pelouse'],
+
+
+    // personnalisation
+    logo: '/logos/rseq-ll.png',
+    logoMaxWidth: 210,
+    themeColor: '#008AC9',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+  },
+
+  {
+    id: 'rseq-ll-2023',
+    dateStart: '2023-05-25',
+    dateEnd: '2023-05-25',
+    title: 'CRS d’athlétisme RSEQ Laurentides-Lanaudière',
+    stadiumName: 'Stade d’athlétisme Richard-Garneau',
+    address: '401 boul. du Domaine',
+    address2: '',
+    city: 'Ste-Thérèse',
+    province: 'QC',
+    postalCode: 'J7E 4S4',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230525/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: ['Piste', 'Pelouse'],
+
+    // personnalisation
+    logo: '/logos/rseq-ll.png',
+    logoMaxWidth: 210,
+    themeColor: '#008AC9',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
   },
 ];
