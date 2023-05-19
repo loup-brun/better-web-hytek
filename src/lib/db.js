@@ -261,7 +261,10 @@ export const meets = [
     resultsType: 'hytek',
     hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230524/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Piste', 'Pelouse'],
+    sessionNames: [
+      'Piste',
+      'Pelouse'
+    ],
 
 
     // personnalisation
@@ -290,7 +293,11 @@ export const meets = [
     resultsType: 'hytek',
     hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230525/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Piste', 'Pelouse'],
+    sessionNames: [
+      'Horaire',
+      'Piste',
+      'Pelouse'
+    ],
 
     // personnalisation
     logo: '/logos/rseq-ll.png',
