@@ -266,7 +266,7 @@ export const meets = [
 
     // personnalisation
     logo: '/logos/rseq-ll.png',
-    logoMaxWidth: 210,
+    logoMaxWidth: 150,
     themeColor: '#008AC9',
 
     // credits
@@ -294,7 +294,7 @@ export const meets = [
 
     // personnalisation
     logo: '/logos/rseq-ll.png',
-    logoMaxWidth: 210,
+    logoMaxWidth: 150,
     themeColor: '#008AC9',
 
     // credits
