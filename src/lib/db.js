@@ -186,7 +186,7 @@ export const meets = [
     stadiumName: '',
     address: '',
     address2: '',
-    city: 'Sept-Îles',
+    city: 'Baie-Comeau',
     province: 'QC',
     postalCode: '',
 
