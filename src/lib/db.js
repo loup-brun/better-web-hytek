@@ -310,6 +310,34 @@ export const meets = [
   },
 
   {
+    id: 'mini-athletisme-sherbrooke-2023',
+    dateStart: '2023-05-26',
+    dateEnd: '2023-05-26',
+    title: 'Mini-athlétisme primaire CSS Région-de-Sherbrooke',
+    stadiumName: 'Stade de l’Université de Sherbrooke',
+    address: '',
+    address2: '',
+    city: 'Sherbrooke',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20230526/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: ['Piste'],
+
+    // personnalisation
+    logo: 'https://app.streamlineathletes.com/assets/programs/6/sherbrooke-vert-et-or_logo.png',
+    themeColor: '#018849',
+
+    // credits
+    timingCompany: 'COCH Chrono',
+    hostingProvider: 'Corsaire-Chaparral.org',
+    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+  },
+
+  {
     id: 'coch-inv-2023',
     dateStart: '2023-05-28',
     dateEnd: '2023-05-28',
