@@ -257,7 +257,7 @@ export const meets = [
     dateStart: '2023-06-03',
     dateEnd: '2023-06-03',
     title: 'Championnat régional scolaire Québec - Chaudière-Appalaches',
-    stadiumName: '',
+    stadiumName: 'PEPS de l’Université Laval',
     address: '',
     address2: '',
     city: 'Québec',
