@@ -195,12 +195,12 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/230527/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Samedi - concours',
-//      'Samedi - piste',
-//      'Dimanche - concours',
-//      'Dimanche - piste',
-//    ],
+    sessionNames: [
+      'Samedi - concours',
+      'Samedi - piste',
+      'Dimanche - concours',
+      'Dimanche - piste',
+    ],
 
     // personnalisation
     logo: 'https://rseqcn.ca/wp-content/uploads/2022/06/icone_RSEQ_bleu-2.png',
