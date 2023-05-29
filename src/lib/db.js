@@ -242,7 +242,7 @@ export const meets = [
     // personnalisation
     logo: '/logos/patriotes-uqtr.png',
     logoMaxWidth: 130,
-    themeColor: '#2D7944',
+    themeColor: 'rgb(244, 119, 33)',
 
     // credits
     timingCompany: 'CAUL',
