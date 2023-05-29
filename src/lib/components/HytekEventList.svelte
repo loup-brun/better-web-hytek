@@ -19,7 +19,7 @@
   export let currentEventId;
   export let sessionNames;
   /** @type {object|*} svelte store for capturing the user state */
-  export let userState = {};
+  export let userState;
 
   // vars
   let sessionModel = { title: '', events: [] }; // base model for new sessions
@@ -53,7 +53,11 @@
   //////////
 
   function hasDialogOpen(index) {
-    return $userState.menuDisclosures.includes(index);
+    if (userState) {
+      return $userState.menuDisclosures.includes(index);
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -61,22 +65,24 @@
    * @param {object} pref Key-value pair
    */
   function saveUserPref(pref) {
-    if (pref.open) {
-      // pane should be open
-      if (!$userState.menuDisclosures.includes(pref.id)) {
-        userState.update(u => {
-          u.menuDisclosures.push(pref.id);
-          return u;
-        });
-      }
-    } else {
-      // pane should be closed
-      if ($userState.menuDisclosures.includes(pref.id)) {
-        userState.update(u => {
-          // delete 1 elem at index of pane id
-          u.menuDisclosures.splice(u.menuDisclosures.indexOf(pref.id), 1);
-          return u;
-        })
+    if (userState) {
+      if (pref.open) {
+        // pane should be open
+        if (!$userState.menuDisclosures.includes(pref.id)) {
+          userState.update(u => {
+            u.menuDisclosures.push(pref.id);
+            return u;
+          });
+        }
+      } else {
+        // pane should be closed
+        if ($userState.menuDisclosures.includes(pref.id)) {
+          userState.update(u => {
+            // delete 1 elem at index of pane id
+            u.menuDisclosures.splice(u.menuDisclosures.indexOf(pref.id), 1);
+            return u;
+          })
+        }
       }
     }
   }
