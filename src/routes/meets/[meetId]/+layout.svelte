@@ -237,6 +237,11 @@
     width: 100%;
     overflow: hidden;
   }
+  @media (min-width: 480px) {
+    .HytekLayout {
+      --sidebarWidth: 312px;
+    }
+  }
   .Navbar__sidebar-toggle {
     -webkit-appearance: none;
     line-height: 1;
