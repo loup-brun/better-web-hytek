@@ -269,12 +269,10 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/230603/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Samedi - concours',
-//      'Samedi - piste',
-//      'Dimanche - concours',
-//      'Dimanche - piste',
-//    ],
+    sessionNames: [
+      'Pelouse',
+      'Piste',
+    ],
 
     // personnalisation
     logo: '/logos/rseq-qca.jpg',
