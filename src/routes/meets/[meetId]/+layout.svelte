@@ -73,7 +73,6 @@
    * @param {HTMLElement} node
    */
   async function scrollNavToPref(node) {
-    console.log(`we should scroll to`, $userState)
     await tick();
     node.scroll(0, $userState.menuScrollY || 0);
   }

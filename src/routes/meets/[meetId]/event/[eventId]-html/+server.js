@@ -30,7 +30,6 @@ export async function GET({ params }) {
       },
     });
   } catch (e) {
-    console.error(`Error fetching event`);
     return new Response(undefined, { status: 404 });
   }
 }
