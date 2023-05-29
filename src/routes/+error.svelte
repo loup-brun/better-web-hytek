@@ -19,11 +19,6 @@
     {/if}
   </div>
 
-  <a
-    href="/"
-    class="ErrorPage__link-button"
-  >Retourner à l’accueil</a>
-
 </div>
 
 <style>
@@ -53,10 +48,4 @@
     font-size: 1.5rem;
   }
 
-  .ErrorPage__link-button {
-    padding: .75rem;
-    border-radius: .25rem;
-    color: theme('colors.teal.500');
-    border: 1px solid currentColor;
-  }
 </style>
