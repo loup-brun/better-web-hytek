@@ -130,7 +130,7 @@
       </button>
 
       <h1
-        class="Navbar__brand | mr-auto flex flex-row items-center text-xl px-3 py-2 uppercase tracking-wide"
+        class="Navbar__brand | mx-3 my-2 inline-flex flex-row items-center uppercase text-lg whitespace-nowrap overflow-hidden overflow-ellipsis tracking-wide"
       >Résultats</h1>
     </Navbar>
   </div>
