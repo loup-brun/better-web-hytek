@@ -237,7 +237,7 @@
     width: 100%;
     overflow: hidden;
   }
-  @media (min-width: 480px) {
+  @media (min-width: 375px) {
     .HytekLayout {
       --sidebarWidth: 312px;
     }
