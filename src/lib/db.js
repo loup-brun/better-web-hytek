@@ -232,12 +232,9 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/230602/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Samedi - concours',
-//      'Samedi - piste',
-//      'Dimanche - concours',
-//      'Dimanche - piste',
-//    ],
+    sessionNames: [
+      'Piste',
+    ],
 
     // personnalisation
     logo: '/logos/patriotes-uqtr.png',
