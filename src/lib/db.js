@@ -254,12 +254,12 @@ export const meets = [
     dateStart: '2023-06-03',
     dateEnd: '2023-06-03',
     title: 'Championnat régional scolaire Québec - Chaudière-Appalaches',
-    stadiumName: 'PEPS de l’Université Laval',
-    address: '',
+    stadiumName: 'École secondaire Louis-Jacques Casault',
+    address: '141, boulevard Taché Est',
     address2: '',
-    city: 'Québec',
+    city: 'Montmagny',
     province: 'QC',
-    postalCode: '',
+    postalCode: 'G5V 1B9',
 
     // résultats
     resultsType: 'hytek',
