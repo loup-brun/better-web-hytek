@@ -73,7 +73,6 @@
    * @param {HTMLElement} node
    */
   async function scrollNavToPref(node) {
-    console.log(`we should scroll to`, $userState)
     await tick();
     node.scroll(0, $userState.menuScrollY || 0);
   }
@@ -131,7 +130,7 @@
       </button>
 
       <h1
-        class="Navbar__brand | mr-auto flex flex-row items-center text-xl px-3 py-2 uppercase tracking-wide"
+        class="Navbar__brand | mx-3 my-2 inline-flex flex-row items-center uppercase text-lg whitespace-nowrap overflow-hidden overflow-ellipsis tracking-wide"
       >Résultats</h1>
     </Navbar>
   </div>
@@ -236,6 +235,11 @@
     height: 100dvh;
     width: 100%;
     overflow: hidden;
+  }
+  @media (min-width: 375px) {
+    .HytekLayout {
+      --sidebarWidth: 312px;
+    }
   }
   .Navbar__sidebar-toggle {
     -webkit-appearance: none;

@@ -12,5 +12,4 @@
 <HytekEventList
   {meetId}
   {evtIndexHTML}
-  {error}
 />
