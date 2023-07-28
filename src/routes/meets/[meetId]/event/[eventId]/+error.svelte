@@ -3,8 +3,19 @@
   import { page } from '$app/stores';
 
   let eventId = $page.params.eventId;
+  let eventNo;
+  let eventSerie;
+
   page.subscribe(newPage => {
     eventId = newPage.params.eventId;
+
+    // Match event number
+    // we start by capturing the full event id (3-4 digits at the end);
+    // then we retrieve that result and replace the leading zeros.
+    eventNo = eventId.match(/\d{1,4}$/)[0].replaceAll(/^(0)+/ig, '');
+    // Match event series
+    // will be a single capital letter, such as F (final) or P (prelims)
+    eventSerie = eventId.match(/([A-Z])\d{1,4}$/)[1];
   });
 </script>
 
@@ -19,9 +30,18 @@
 
   <small class="text-xs">
     <!-- last 3 digits: evt number -->
-    Épreuve #{eventId.slice(-3)}
+    Épreuve #{eventNo} •
     <!-- round -->
-    (série {eventId.slice(-4, -3)})</small>
+    {#if eventSerie === 'F'}
+    Finale
+    {:else if eventSerie === 'P'}
+    Préliminaire
+    {:else if eventSerie === 'S'}
+    Demie-finale
+    {:else}
+    Ronde {eventSerie}
+    {/if}
+  </small>
 
 </div>
 {/key}

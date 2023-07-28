@@ -18,8 +18,18 @@
   // vars
   /** @type {array} */
   let dbEvents = [... events]; // copy array
-
+  /** @type {array} */
   let sorted = dbEvents.sort(sortByDate);
+  /** @type {array} */
+  let years = [];
+  let currentYear;
+
+  sorted.forEach(item => {
+    let year = new Date(item.dateStart).getFullYear();
+    if (!years.includes(year)) {
+      years.push(year);
+    }
+  });
 
   function sortByDate(a, b) {
     if (a[1].dateStart > b[1].dateStart) {
@@ -32,32 +42,31 @@
   }
 </script>
 
-<div class="Accueil | bg-white dark:bg-zinc-800 dark:text-zinc-100">
+<div class="Accueil | bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 min-h-screen pb-4">
   <Navbar>
-    <h1 class="Accueil__titre | px-2 py-2 text-xl uppercase mx-auto">Résultats en ligne</h1>
+    <h1 class="Accueil__titre | px-2 py-2 text-xl mx-auto tracking-wide">Résultats en ligne</h1>
   </Navbar>
 
-  <ul class="Accueil__liste | border-b border-zinc-300">
+  <nav class="Accueil__liste | flex flex-col gap-2 m-2">
     {#each sorted.sort(sortByDate) as event}
-    <li class="Accueil__item">
       <a
         href="/meets/{event[0]}"
-        class="Accueil__lien | flex flex-row nowrap justify-between items-center px-2 py-3 border-t border-zinc-300 dark:border-zinc-600 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        class="Accueil__lien | flex flex-col md:flex-row nowrap gap-2 md:justify-between md:items-center px-2 py-3 rounded border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-black hover:bg-zinc-100 dark:hover:bg-zinc-900"
       >
-        <div class="flex-grow-0 overflow-hidden text-ellipsis">
-          <span class="Accueil__item-date | hidden md:inline-block">
-            {event[1].dateStart}
-          </span>
+        <div class="inline-flex flex-row gap-1 items-center flex-grow-0 overflow-hidden text-ellipsis">
           <span class="Accueil__item-titre | font-bold">
             {event[1].title}
           </span>
+
+          <Icon name="chevronRight" />
         </div>
 
-        <Icon name="chevronRight" />
+        <span class="Accueil__item-date | block text-zinc-600 dark:text-zinc-500 text-sm md:text-base">
+          {event[1].dateStart}
+        </span>
       </a>
-    </li>
     {/each}
-  </ul>
+  </nav>
 </div>
 
 <style>
