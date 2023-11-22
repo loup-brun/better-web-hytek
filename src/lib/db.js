@@ -283,4 +283,39 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
+  {
+    id: 'invitation-rouge-et-or-2023',
+
+    // meet info
+    dateStart: '2023-12-02',
+    dateEnd: '2023-12-02',
+    title: 'Rouge et Or 2023',
+    stadiumName: 'PEPS de l’Université Laval',
+    address: '2380 Rue du Peps',
+    address2: '',
+    city: 'Québec',
+    province: 'QC',
+    postalCode: 'G1V 0A6',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/231202/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Concours',
+//      'Piste',
+//    ],
+
+    // personnalisation
+    logo: '/apple-touch-icon.png',
+    themeColor: '#e0181c',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
 ];
