@@ -289,7 +289,7 @@ export const meets = [
     // meet info
     dateStart: '2023-12-02',
     dateEnd: '2023-12-02',
-    title: 'Rouge et Or 2023',
+    title: 'Rouge et Or Invitation 2023',
     stadiumName: 'PEPS de l’Université Laval',
     address: '2380 Rue du Peps',
     address2: '',
