@@ -302,10 +302,10 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/231202/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Concours',
-//      'Piste',
-//    ],
+   sessionNames: [
+     'Concours',
+     'Piste',
+   ],
 
     // personnalisation
     logo: '/apple-touch-icon.png',
@@ -318,4 +318,39 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
+  {
+    id: '231203',
+
+    // meet info
+    dateStart: '2023-12-03',
+    dateEnd: '2023-12-03',
+    title: 'Championnat scolaire #1 - 3 décembre',
+    stadiumName: 'PEPS de l’Université Laval',
+    address: '2380 Rue du Peps',
+    address2: '',
+    city: 'Québec',
+    province: 'QC',
+    postalCode: 'G1V 0A6',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/231203/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+    sessionNames: [
+      'Concours',
+      'Piste',
+    ],
+
+    // personnalisation
+    logo: '/logos/rseq.png',
+    logoMaxWidth: 128,
+    themeColor: '#2C99D8',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
 ];
