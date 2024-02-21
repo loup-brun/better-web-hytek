@@ -480,10 +480,10 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/240225/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    // sessionNames: [
-    //   'Concours',
-    //   'Piste',
-    // ],
+    sessionNames: [
+      'Concours',
+      'Piste',
+    ],
 
     // personnalisation
     logo: '/logos/rseq.png',
