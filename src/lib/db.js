@@ -444,12 +444,10 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/240223/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    // sessionNames: [
-    //   'Concours samedi',
-    //   'Piste samedi',
-    //   'Concours dimanche',
-    //   'Piste dimanche',
-    // ],
+    sessionNames: [
+      'Samedi',
+      'Dimanche',
+    ],
 
     // personnalisation
     logo: '/logos/rseq.png',
