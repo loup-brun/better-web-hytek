@@ -545,8 +545,8 @@ export const meets = [
     stadiumName: '',
     address: '',
     address2: '',
-    city: '',
-    province: 'QC',
+//    city: '',
+//    province: 'QC',
     postalCode: '',
 
     // résultats
@@ -554,10 +554,10 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/240521/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Concours',
-//      'Piste',
-//    ],
+    sessionNames: [
+      'Piste',
+      'Concours',
+    ],
 
     // personnalisation
     logo: '/apple-touch-icon.png',
