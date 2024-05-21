@@ -535,4 +535,74 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
+  {
+    id: '240521',
+
+    // meet info
+    dateStart: '2024-05-21',
+    dateEnd: '2024-05-21',
+    title: 'Sélection ASIP',
+    stadiumName: '',
+    address: '',
+    address2: '',
+    city: '',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/240521/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Concours',
+//      'Piste',
+//    ],
+
+    // personnalisation
+    logo: '/apple-touch-icon.png',
+    themeColor: '#e0181c',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
+//  {
+//    id: 'soiree-rouge-orange-2024',
+//
+//    // meet info
+//    dateStart: '2023-06-08',
+//    dateEnd: '2023-06-08',
+//    title: 'Soirée Rouge et Orange',
+//    stadiumName: 'Stade de l’UQTR',
+//    address: '3351 boul. des Forges',
+//    address2: '',
+//    city: 'Trois-Rivières',
+//    province: 'QC',
+//    postalCode: '',
+
+    // résultats
+//    resultsType: 'hytek',
+//    finishlynx: true,
+//    hytekFtpLocation: 'https://rsstiming.com/quebec/240608/',
+//    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Piste',
+//    ],
+//
+//    // personnalisation
+//    logo: '/logos/patriotes-uqtr.png',
+//    logoMaxWidth: 130,
+//    themeColor: 'rgb(244, 119, 33)',
+//
+//    // credits
+//    timingCompany: 'CAUL',
+//    timingCompanyUrl: 'https://www.caul.ca/',
+//    hostingProvider: 'RSS Timing',
+//    hostingProviderUrl: 'https://rsstiming.com',
+//  },
+
 ];
