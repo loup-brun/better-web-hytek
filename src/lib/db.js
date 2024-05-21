@@ -545,8 +545,8 @@ export const meets = [
     stadiumName: '',
     address: '',
     address2: '',
-//    city: '',
-//    province: 'QC',
+    city: 'Québec',
+    province: 'QC',
     postalCode: '',
 
     // résultats
