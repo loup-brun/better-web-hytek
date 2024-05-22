@@ -570,6 +570,42 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
+  {
+    id: '240525',
+
+    // meet info
+    dateStart: '2024-05-25',
+    dateEnd: '2024-05-25',
+    title: 'Finale régionale Côte-Nord',
+    stadiumName: '',
+    address: '',
+    address2: '',
+    city: 'Côte-Nord',
+    province: 'QC',
+    postalCode: '',
+
+    // résultats
+    resultsType: 'hytek',
+    finishlynx: true,
+    hytekFtpLocation: 'https://rsstiming.com/quebec/240525/',
+    hytekHtmlEncoding: 'ISO-8859-15',
+//    sessionNames: [
+//      'Piste',
+//      'Concours',
+//    ],
+
+    // personnalisation
+    logo: '/logos/rseq.png',
+    logoMaxWidth: 128,
+    themeColor: '#2C99D8'',
+
+    // credits
+    timingCompany: 'CAUL',
+    timingCompanyUrl: 'https://www.caul.ca/',
+    hostingProvider: 'RSS Timing',
+    hostingProviderUrl: 'https://rsstiming.com',
+  },
+
 //  {
 //    id: 'soiree-rouge-orange-2024',
 //
