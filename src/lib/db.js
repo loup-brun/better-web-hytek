@@ -597,7 +597,7 @@ export const meets = [
     // personnalisation
     logo: '/logos/rseq.png',
     logoMaxWidth: 128,
-    themeColor: '#2C99D8'',
+    themeColor: '#2C99D8',
 
     // credits
     timingCompany: 'CAUL',
