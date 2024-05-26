@@ -589,10 +589,12 @@ export const meets = [
     finishlynx: true,
     hytekFtpLocation: 'https://rsstiming.com/quebec/240525/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Piste',
-//      'Concours',
-//    ],
+    sessionNames: [
+      'Samedi - Pelouse'
+      'Samedi - Piste',
+      'Dimanche - Pelouse',
+      'Dimanche - Piste'
+    ],
 
     // personnalisation
     logo: '/logos/rseq.png',
