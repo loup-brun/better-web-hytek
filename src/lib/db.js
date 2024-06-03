@@ -612,8 +612,8 @@ export const meets = [
     id: 'soiree-rouge-orange-2024',
 
     // meet info
-    dateStart: '2023-06-08',
-    dateEnd: '2023-06-08',
+    dateStart: '2024-06-08',
+    dateEnd: '2024-06-08',
     title: 'Soirée Rouge et Orange',
     stadiumName: 'Stade de l’UQTR',
     address: '3351 boul. des Forges',
