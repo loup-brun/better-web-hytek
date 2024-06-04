@@ -626,14 +626,14 @@ export const meets = [
     resultsType: 'hytek',
     hytekFtpLocation: 'https://rsstiming.com/quebec/240608/',
     hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Piste',
-//    ],
+    sessionNames: [
+      'Piste',
+    ],
 
     // personnalisation
-    logo: '/logos/patriotes-uqtr.png',
-    logoMaxWidth: 130,
-    themeColor: 'rgb(244, 119, 33)',
+    logo: '/apple-touch-icon.png',
+//    logoMaxWidth: 100,
+    themeColor: '#ea202e',
 
     // credits
     timingCompany: 'CAUL',
