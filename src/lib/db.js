@@ -1,10 +1,10 @@
 export const meets = [
   {
-    id: 'laval-primaire-2022',
+    id: 'jdq-laval-2022',
     // meet info
-    dateStart: '2022-05-18',
-    dateEnd: '2022-05-18',
-    title: 'Championnat régional primaire RSEQ Laval',
+    dateStart: '2022-07-23',
+    dateEnd: '2022-07-26',
+    title: 'Jeux du Québec Laval 2022',
     stadiumName: 'Stade d’athlétisme Claude-Ferragne',
     address: '4600 Cyrille-Delage',
     address2: '',
@@ -15,234 +15,65 @@ export const meets = [
     // résultats
     resultsType: 'hytek',
     finishlynx: true,
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220518/',
+    hytekFtpLocation: 'https://jdq.rsstiming.com/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Pelouse', 'Piste'],
+    sessionNames: [
+      'Résultats globaux',
+      'Épreuves combinées',
+      'Jour 1 AM - Piste',
+      'Jour 1 AM - Concours',
+      'Jour 1 PM - Concours',
+      'Jour 1 PM - Piste',
+      'Jour 2 AM - Concours',
+      'Jour 2 AM - Piste',
+      'Jour 2 PM - Concours',
+      'Jour 2 PM - Piste',
+      'Jour 3 AM - Piste',
+      'Jour 3 AM - Concours',
+      'Jour 3 PM - Concours',
+      'Jour 3 PM - Piste',
+      'Jour 4 AM - Piste',
+    ],
 
     // personnalisation
-    logo: '',
+    logo: '/logos/jdq-2022.png',
+    logoMaxWidth: 180,
     themeColor: '#013871',
 
     // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-  },
-
-
-  {
-    id: 'rseq-ll-primaire-2022',
-    dateStart: '2022-05-25',
-    dateEnd: '2022-05-25',
-    title: 'Mini-athlétisme RSEQ-LL',
-    stadiumName: 'Stade d’athlétisme Richard-Garneau',
-    address: '401 boul. du Domaine',
-    address2: '',
-    city: 'Ste-Thérèse',
-    province: 'QC',
-    postalCode: 'J7E 4S4',
-
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220525/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Piste', 'Pelouse'],
-
-
-    // personnalisation
-    logo: 'https://ll.rseq.ca/wp-content/uploads/2022/07/cropped-RSEQLL_site-web-02-scaled-1-300x110.jpg',
-    logoMaxWidth: 200,
-    themeColor: '#008AC9',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
+    timingCompany: 'RSS Timing',
+    timingCompanyUrl: 'https://www.rsstiming.com/',
   },
 
   {
-    id: 'rseq-ll-2022',
-    dateStart: '2022-05-26',
-    dateEnd: '2022-05-26',
-    title: 'CRS d’athlétisme RSEQ Laurentides-Lanaudière',
-    stadiumName: 'Stade d’athlétisme Richard-Garneau',
-    address: '401 boul. du Domaine',
+    id: 'coupe-excellence-laval-2024',
+    // meet info
+    dateStart: '2024-07-06',
+    dateEnd: '2024-07-06',
+    title: 'Coupe jeunesse #2',
+    stadiumName: 'Stade d’athlétisme Claude-Ferragne',
+    address: '4600 Cyrille-Delage',
     address2: '',
-    city: 'Ste-Thérèse',
-    province: 'QC',
-    postalCode: 'J7E 4S4',
-
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220526/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Piste', 'Pelouse'],
-
-    // personnalisation
-    logo: 'https://ll.rseq.ca/wp-content/uploads/2022/07/cropped-RSEQLL_site-web-02-scaled-1-300x110.jpg',
-    logoMaxWidth: 200,
-    themeColor: '#008AC9',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-  },
-
-  {
-    id: 'coch-inv-2022',
-    dateStart: '2022-05-29',
-    dateEnd: '2022-05-29',
-    title: 'Corsaire-Chaparral Invitation 2022',
-    stadiumName: 'Stade d’athlétisme Richard-Garneau',
-    address: '401 boul. du Domaine',
-    address2: '',
-    city: 'Ste-Thérèse',
-    province: 'QC',
-    postalCode: 'J7E 4S4',
-
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220529/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: ['Concours', 'Piste'],
-
-    // personnalisation
-    logo: '/logos/COCH_FN_4C.svg',
-    themeColor: '#f26000',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
-  },
-
-  {
-    id: 'petits-combines-2022',
-    dateStart: '2022-08-13',
-    dateEnd: '2022-08-13',
-    title: 'Les petits combinés du Corsaire-Chaparral',
-    stadiumName: 'Stade d’athlétisme Richard-Garneau',
-    address: '401 boul. du Domaine',
-    address2: '',
-    city: 'Ste-Thérèse',
-    province: 'QC',
-    postalCode: 'J7E 4S4',
-
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220813/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [
-      'Triathlon coccinelle',
-      'Quadrathlon colibri',
-      'Quadrathlon minime',
-      'Pentathlon benjamin',
-      'Relais',
-    ],
-
-    // personnalisation
-    logo: '/logos/COCH_FN_4C.svg',
-    themeColor: '#f26000',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
-  },
-
-  {
-    id: 'championnat-marche-blainville-2022',
-    dateStart: '2022-09-11',
-    dateEnd: '2022-09-11',
-    title: 'Championnat québécois/canadien  de 5km marche',
-    stadiumName: 'Parc équestre de Blainville',
-    address: '1025 chemin du Plan-Bouchard',
-    address2: '',
-    city: 'Blainville',
+    city: 'Laval',
     province: 'QC',
     postalCode: '',
 
     // résultats
     resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20220911/',
+    finishlynx: true,
+    hytekFtpLocation: '',
     hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [
-      'Championnat québécois',
-      'Championnat canadien masters',
-    ],
+    sessionNames: [],
 
     // personnalisation
-    logo: 'https://static.resultats.demimarathondeblainville.com/images/logos/DMBlainville_Logo_Principal_Vertical-sm.png',
-    logoMaxWidth: 224,
-    themeColor: '#ffa300',
+    logo: '/logos/athletisme-quebec.svg',
+    logoMaxWidth: 120,
+    themeColor: '#00a1e4',
 
     // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
+    timingCompany: 'RSS Timing',
+    timingCompanyUrl: 'https://www.rsstiming.com/',
   },
 
-  {
-    id: 'mcgill-martlet-2022',
-    dateStart: '2022-11-26',
-    dateEnd: '2022-11-26',
-    title: 'McGill Martlet 2022',
-    stadiumName: 'Tomlinson Fieldhouse',
-    address: '475 avenue des Pins',
-    address2: '',
-    city: 'Montréal',
-    province: 'QC',
-    postalCode: '',
 
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20221126/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [
-      'Pelouse / Field',
-      'Piste / Track',
-    ],
-
-    // personnalisation
-    logo: 'https://dbukjj6eu5tsf.cloudfront.net/sidearm.sites/mcgill.sidearmsports.com/images/responsive_2020/splash-logo.svg',
-    // logoMaxWidth: 224,
-    themeColor: '#ED1B2F',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
-  },
-
-  {
-    id: 'festival-coch-2022',
-    dateStart: '2022-12-03',
-    dateEnd: '2022-12-03',
-    title: 'Festival en salle des jeunes Corsaire-Chaparral 2022',
-    stadiumName: 'Polyvalente Ste-Thérèse',
-    address: '401 boul. du Domaine',
-    address2: '',
-    city: 'Ste-Thérèse',
-    province: 'QC',
-    postalCode: 'J7E 4S4',
-
-    // résultats
-    resultsType: 'hytek',
-    hytekFtpLocation: 'https://static.resultats.corsaire-chaparral.org/20221203/',
-    hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [
-      'Coccinelles',
-      'Colibris',
-      'Minimes',
-      'Benjamins',
-    ],
-
-    // personnalisation
-    logo: '/logos/COCH_FN_4C.svg',
-    // logoMaxWidth: 224,
-    themeColor: '#ff6900',
-
-    // credits
-    timingCompany: 'COCH Chrono',
-    hostingProvider: 'Corsaire-Chaparral.org',
-    hostingProviderUrl: 'https://www.corsaire-chaparral.org',
-  },
 ];
