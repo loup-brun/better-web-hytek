@@ -61,9 +61,14 @@ export const meets = [
     // résultats
     resultsType: 'hytek',
     finishlynx: true,
-    hytekFtpLocation: '',
+    hytekFtpLocation: 'http://athletisme.rsstiming.com/ftp/240706/',
     hytekHtmlEncoding: 'ISO-8859-15',
-    sessionNames: [],
+    sessionNames: [
+      'Concours samedi',
+      'Piste samedi',
+      'Concours dimanche',
+      'Piste dimanche'
+    ],
 
     // personnalisation
     logo: '/logos/athletisme-quebec.svg',
