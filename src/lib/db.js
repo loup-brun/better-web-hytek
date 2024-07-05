@@ -113,7 +113,7 @@ export const meets = [
   },
 
   {
-    id: 'coupe-excellence-laval-2024',
+    id: 'coupe-jeunesse-laval-2024',
     // meet info
     dateStart: '2024-07-06',
     dateEnd: '2024-07-06',
