@@ -128,7 +128,7 @@ export const meets = [
     // résultats
     resultsType: 'hytek',
     finishlynx: true,
-    hytekFtpLocation: 'http://athletisme.rsstiming.com/ftp/240706/',
+    hytekFtpLocation: 'http://rsstiming.com/laval/240706/',
     hytekHtmlEncoding: 'ISO-8859-15',
     sessionNames: [
       'Concours samedi',
