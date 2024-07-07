@@ -642,38 +642,38 @@ export const meets = [
     hostingProviderUrl: 'https://rsstiming.com',
   },
 
-//  {
-//    id: 'festival-jeunesse-2024',
-//
-//    // meet info
-//    dateStart: '2024-08-11',
-//    dateEnd: '2024-08-11',
-//    title: 'Festival jeunesse',
-//    stadiumName: '',
-//    address: '',
-//    address2: '',
-//    city: 'Québec',
-//    province: 'QC',
-//    postalCode: '',
-//
-//    // résultats
-//    resultsType: 'hytek',
-//    hytekFtpLocation: 'https://rsstiming.com/quebec/240811/',
-//    hytekHtmlEncoding: 'ISO-8859-15',
-//    sessionNames: [
-//      'Piste',
-//    ],
-//
-//    // personnalisation
-//    logo: '/apple-touch-icon.png',
-//    logoMaxWidth: 100,
-//    themeColor: '#ea202e',
-//
-//    // credits
-//    timingCompany: 'CAUL',
-//    timingCompanyUrl: 'https://www.caul.ca/',
-//    hostingProvider: 'RSS Timing',
-//    hostingProviderUrl: 'https://rsstiming.com',
-//  },
+ {
+   id: 'festival-jeunesse-2024',
+
+   // meet info
+   dateStart: '2024-08-11',
+   dateEnd: '2024-08-11',
+   title: 'Festival jeunesse',
+   stadiumName: '',
+   address: '',
+   address2: '',
+   city: 'Québec',
+   province: 'QC',
+   postalCode: '',
+
+   // résultats
+   resultsType: 'hytek',
+   hytekFtpLocation: 'https://rsstiming.com/quebec/240811/',
+   hytekHtmlEncoding: 'ISO-8859-15',
+  //  sessionNames: [
+  //    'Piste',
+  //  ],
+
+   // personnalisation
+   logo: '/apple-touch-icon.png',
+   logoMaxWidth: 100,
+   themeColor: '#ea202e',
+
+   // credits
+   timingCompany: 'CAUL',
+   timingCompanyUrl: 'https://www.caul.ca/',
+   hostingProvider: 'RSS Timing',
+   hostingProviderUrl: 'https://rsstiming.com',
+ },
 
 ];
