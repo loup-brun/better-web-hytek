@@ -13,11 +13,11 @@
   /** @type {import('./$types').PageData} */
   export let data;
   /** @type {array} */
-  const { events } = data;
+  const { meets } = data;
 
   // vars
   /** @type {array} */
-  let dbEvents = [... events]; // copy array
+  let dbEvents = [... meets]; // copy array
   /** @type {array} */
   let sorted = dbEvents.sort(sortByDate);
   /** @type {array} */
