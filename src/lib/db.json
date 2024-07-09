@@ -1,0 +1,55 @@
+{
+  "meets":
+  [
+    {
+      "id": "demo-meet-1",
+      "slug": "demo-meet-1",
+      "title": "Demo Meet #1",
+      "dateStart": "2021-06-24",
+      "dateEnd": "2021-06-24",
+      "stadiumName": "Stade d’athlétisme Richard-Garneau",
+      "address": "401 boul. du Domaine",
+      "address2": "",
+      "city": "Ste-Thérèse",
+      "province": "QC",
+      "postalCode": "J7E 4S4",
+      "resultsType": "hytek",
+      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220525/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+        "Piste",
+        "Pelouse"
+      ],
+      "logo": "https://coch-baserow.s3.bhs.io.cloud.ovh.net/user_files/1p9c3WCCV72BuS054Belw1sWOgKOFB8K_927672220817c470a958a65f54a6498429164ab46cd54a60200c4850ad92cc7d.png",
+      "logoMaxWidth": 150,
+      "themeColor": "#333333",
+      "timingCompany": "Timing Co.",
+      "hostingProvider": "http://www.example.com/"
+    },
+    {
+      "id": "demo-meet-2",
+      "slug": "demo-meet-2",
+      "title": "Demo Meet #2",
+      "dateStart": "2022-06-24",
+      "dateEnd": "2022-06-24",
+      "stadiumName": "Stade d’athlétisme Richard-Garneau",
+      "address": "401 boul. du Domaine",
+      "address2": "",
+      "city": "Ste-Thérèse",
+      "province": "QC",
+      "postalCode": "J7E 4S4",
+      "resultsType": "hytek",
+      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220525/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+        "Piste",
+        "Pelouse"
+      ],
+      "logo": "/logos/150×90.png",
+      "logoMaxWidth": 150,
+      "themeColor": "#333333",
+      "timingCompany": "Timing Co.",
+      "hostingProvider": "http://www.example.com/"
+    }
+  ]
+}
