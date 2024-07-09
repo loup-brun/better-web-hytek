@@ -213,6 +213,7 @@
       <div
         class="HytekLayout__sidebar-overlay | bg-black/50 absolute top-0 left-0 h-full w-full md:hidden"
         on:click={() => isSideNavOpen = !isSideNavOpen}
+        aria-role="button"
         in:fade={{ easing: linear }}
         out:fade={{ delay: 200, duration: 200, easing: linear }}
       ></div>
