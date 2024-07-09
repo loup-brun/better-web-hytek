@@ -1,28 +1,23 @@
 import { error } from '@sveltejs/kit';
+import fetchDocument from '$lib/utils/fetchDocument';
 
-export async function load({ fetch, params }) {
-  const { meetId, eventId } = params;
+export async function load({ fetch, params, parent }) {
+  const { eventId } = params;
+  const parentData = await parent();
 
   try {
-    // call page endpoint manually since there is already a load function in layout-hytek
-    // do not include .html extension since this causes Vercel to render the wrong html
-    const evtRequest = await fetch(`/meets/${meetId}/event/${eventId}/html`);
+    console.log({ meetConfig: parentData.meetConfig })
+    /** @type {string} */
+    const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
+      encoding: parentData.meetConfig.hytekHtmlEncoding,
+      baseLocation: parentData.meetConfig.hytekFtpLocation,
+    });
 
-    if (!evtRequest.ok) {
-      if (evtRequest.status === 404) {
-        throw error(404);
-      } else {
-        throw error(500);
-      }
-    } else {
-      // success
-      const eventHTML = await evtRequest.text(); // plain text please
-      return {
-        eventHTML,
-        error: null,
-      };
-    }
+    return {
+      eventHTML,
+    };
   } catch (e) {
+    console.error(`Error fetching single event ${eventId}`, e);
     throw error(404);
   }
 }

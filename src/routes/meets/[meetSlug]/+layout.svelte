@@ -17,7 +17,7 @@
 
   const {
     evtIndexHTML,
-    meetId,
+    meetSlug,
     meetConfig
   } = data;
 
@@ -151,7 +151,7 @@
           class="HytekLayout__sidebar-header | px-3 py-4 text-zinc-600 dark:text-zinc-500"
         >
           {#if meetConfig.logo}
-            <a href="/meets/{meetId}">
+            <a href="/meets/{meetSlug}">
               <img
                 src="{meetConfig.logo}"
                 alt="Logo"
@@ -162,7 +162,7 @@
           {/if}
 
           <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
-            <a href="/meets/{meetId}">
+            <a href="/meets/{meetSlug}">
             {meetConfig.title}
             </a>
           </h1>
@@ -182,7 +182,7 @@
         </header>
 
         <HytekEventList
-          {meetId}
+          {meetSlug}
           currentEventId={eventId}
           {evtIndexHTML}
           sessionNames={meetConfig.sessionNames}
@@ -194,7 +194,7 @@
         <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">
             <a
-              href="/meets/{meetId}/about"
+              href="/meets/{meetSlug}/about"
               class="HytekLayout__sidebar-link"
             >À propos</a>
           </div>

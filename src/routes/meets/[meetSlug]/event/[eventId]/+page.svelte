@@ -29,7 +29,7 @@
   let isProgram = false;
   /** @type {DOMParser} DOMParser instance, set in browser */
   let parser;
-  /** @type {HTMLDocument} */
+  /** @type {Document} */
   let eventDoc;
   /** @type {function} */
   let updateView;

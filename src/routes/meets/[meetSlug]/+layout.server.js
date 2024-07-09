@@ -1,34 +1,38 @@
 import { error } from '@sveltejs/kit';
 import { getSingleMeet } from '$lib/services/meetsService';
+import fetchDocument from '$lib/utils/fetchDocument.js';
 
 export async function load({ fetch, params }) {
-  const { meetId, eventId } = params;
+  const { meetSlug } = params;
 
   // early check if meet exists in DB
-  try {
-    getSingleMeet(meetId);
-  } catch (e) {
-    throw error(404, `Event with meetId '${meetId}' not found.`);
-  }
+  // try {
+  //   getSingleMeet(meetSlug);
+  // } catch (e) {
+  //   throw error(404, `Event with meetSlug '${meetSlug}' not found.`);
+  // }
 
-  // get the event list
   try {
-    const getEvtIndex = await fetch(`/meets/${meetId}/evtindex`);
-    const { evtIndexHTML } = await getEvtIndex.json();
+    const meetConfig = await getSingleMeet(meetSlug);
+
+    // get the event list
+    // beware of CORS configuration (prefetching evtindex through SSR is preferable here)
+    const evtIndexHTML = await fetchDocument(fetch, 'evtindex.htm', {
+      encoding: meetConfig.hytekHtmlEncoding, // usually ISO-8859-15 (Latin3)
+      baseLocation: meetConfig.hytekFtpLocation, // with trailing slash
+    });
 
     return {
-      meetConfig: await getSingleMeet(meetId),
+      meetConfig,
       evtIndexHTML,
-      meetId,
-      eventId,
+      meetSlug,
     };
   } catch (e) {
     console.warn('Could not fetch event index', e);
     // todo: should warn user there is a config problem (event list will never load)
     return {
-      meetConfig: await getSingleMeet(meetId),
-      meetId,
-      eventId,
+      meetConfig: await getSingleMeet(meetSlug),
+      meetSlug,
       evtIndexHTML: null
     };
   }

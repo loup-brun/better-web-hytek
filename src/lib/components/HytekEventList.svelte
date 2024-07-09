@@ -178,7 +178,7 @@
   <header class="EventList__header">
     <slot name="header">
       <!--
-      <div class="px-2 py-6"><a href="/meets/{meetId}">Accueil</a></div>
+      <div class="px-2 py-6"><a href="/meets/{meetSlug}">Accueil</a></div>
       -->
     </slot>
   </header>

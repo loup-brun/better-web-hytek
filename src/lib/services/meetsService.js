@@ -19,7 +19,7 @@ export async function getMeetsIndex() {
       const meetsMap = new Map();
 
       meets.map(meet => {
-        // set values w/ meetId as key
+        // set values w/ meet slug as key
         meetsMap.set(meet.id, meet);
       });
 
@@ -78,7 +78,7 @@ export async function getMeetsIndex() {
 
 /**
  * 
- * @param {string} meetId Slug/uid of the meet.
+ * @param {string} meetSlug Slug/uid of the meet.
  */
 export async function getSingleMeet(meetSlug) {
   // database is a local JSON file
@@ -88,7 +88,7 @@ export async function getSingleMeet(meetSlug) {
       const meetsMap = new Map();
 
       meets.map(meet => {
-        // set values w/ meetId as key
+        // set values w/ meet slug as key
         meetsMap.set(meet.id, meet);
       });
 
