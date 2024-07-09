@@ -1,5 +1,5 @@
 /**
- * Discontinued route segment
+ * Legacy route segment -- redirect to non-hytek route
  */
 import { redirect } from '@sveltejs/kit';
 

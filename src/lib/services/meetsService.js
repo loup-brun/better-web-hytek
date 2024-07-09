@@ -23,9 +23,11 @@ export async function getMeetsIndex() {
         meetsMap.set(meet.id, meet);
       });
 
-      return {
-        meets: [...meets.entries()]
-      };
+      return new Promise((resolve, reject) => {
+        resolve({
+          meets: [...meets.entries()]
+        });
+      });
     } catch (e) {
       console.error('Error loading local db.js file', e);
     }
@@ -41,7 +43,9 @@ export async function getMeetsIndex() {
           'Authorization': `Token ${BASEROW_TOKEN}`,
         },
       });
+      /** @type {{ meets: Array<any>; meetsName: Array<{ value: string; }; meetsDateStart: Array<{ value: string; }; meetsDateEnd: Array<{ value: string; }; >}} */
       const instanceData = await request.json();
+
       const {
         // `meets` is a link field. Only the first field in the `meets` table
         // is returned as value.
@@ -56,8 +60,10 @@ export async function getMeetsIndex() {
         meetsDateEnd
       } = instanceData;
 
+      /** @type {Map<string, object>} */
       const meetsMap = new Map();
     
+      // iterating over `meets` is necessary to map the slugs to the names, dateStart, etc.
       meets.forEach((meet, index) => {
         meetsMap.set(meet.value, {
           id: meet.value,
@@ -67,9 +73,11 @@ export async function getMeetsIndex() {
         });
       });
 
-      return {
-        meets: meetsMap.entries(),
-      };
+      return new Promise((resolve, reject) => {
+        resolve({
+          meets: [...meetsMap.entries()]
+        });
+      });
     } catch (e) {
       console.error('Error fetching Baserow instance configuration', e);
     }
@@ -77,8 +85,10 @@ export async function getMeetsIndex() {
 }
 
 /**
- * 
+ * Get the data for a single meet
  * @param {string} meetSlug Slug/uid of the meet.
+ * @returns {Promise<{ title: string; slug: string; }>} Successful call returns the meet object
+ * @returns {Promise<{ status: number }>} A rejected promise returns a shallow object with HTTP status code
  */
 export async function getSingleMeet(meetSlug) {
   // database is a local JSON file
@@ -92,11 +102,13 @@ export async function getSingleMeet(meetSlug) {
         meetsMap.set(meet.id, meet);
       });
 
-      if (!meetsMap.has(meetSlug)) {
-        throw new Error('404');
-      } else {
-        return new Promise.resolve(meetsMap.get(meetSlug));
-      }
+      return new Promise((resolve, reject) => {
+        if (!meetsMap.has(meetSlug)) {
+          reject({ status: 404 });
+        } else {
+          resolve(meetsMap.get(meetSlug));
+        }
+      });
     } catch (e) {
       console.error('Error fetching meet from local file', e);
     }
@@ -112,15 +124,27 @@ export async function getSingleMeet(meetSlug) {
           'Authorization': `Token ${BASEROW_TOKEN}`,
         },
       });
+
+      // request returns a `results` object with (ideally) a single meet -- grab the first one
+      /** @type {Object | undefined} */
       const meetData = (await request.json()).results[0];
-      return {
-        ...meetData,
-        sessionNames: meetData.sessionNamesCsv.split(','),
-        hytekHtmlEncoding: meetData.hytekHtmlEncoding?.value,
-        logo: meetData.logoFile.url,
-      };
+
+      return new Promise((resolve, reject) => {
+        // reject if meetData is undefined
+        if (!meetData) {
+          reject({ status: 404 });
+        } else {
+          resolve({
+            ...meetData,
+            sessionNames: meetData.sessionNamesCsv.split(','),
+            hytekHtmlEncoding: meetData.hytekHtmlEncoding?.value,
+            logo: meetData.logoFile.url,
+          });
+        }
+      });
     } catch (e) {
       console.error(`Error fetching meet with slug "${meetSlug}" from Baserow`, e);
+      return new Promise().reject('404')
     }
   }
 }
