@@ -6,7 +6,11 @@ export async function load({ fetch, params, parent }) {
   const parentData = await parent();
 
   try {
-    /** @type {string} */
+    /**
+     * beware of CORS configuration (prefetching evtindex through SSR is preferable here,
+     * hence the `.server.js` route)
+     * @type {string}
+     */
     const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
       encoding: parentData.hytekHtmlEncoding,
       baseLocation: parentData.hytekFtpLocation,

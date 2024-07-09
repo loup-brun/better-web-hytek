@@ -40,9 +40,13 @@
   let expansionBreakpoint = 768; // 1056 by default
   /** @type {HTMLElement} */
   let mainContainer;
+  /** @type {Boolean} */
+  let mounted = false;
 
   onMount(() => {
     sidebarWidth = sidebar.getBoundingClientRect().width;
+
+    mounted = true;
   });
 
   afterNavigate(() => {
@@ -195,15 +199,37 @@
           </div>
         </header>
 
-        <HytekEventList
-          {meetSlug}
-          currentEventId={eventId}
-          {evtIndexHTML}
-          sessionNames={data.sessionNames}
-          {userState}
-          --themeColor={data.themeColor}
-        >
-        </HytekEventList>
+        {#if !mounted}
+        <!-- skeleton UI -->
+          <HytekEventList />
+        {:else}
+
+        {#if !evtIndexHTML}
+        <!-- Error message -->
+          <div
+            class="mt-4 mb-2 mx-2 text-xs text-zinc-400"
+            in:fade={{ duration: 250 }}
+          >
+            <p class="mb-2">Liste d'épreuves introuvable.</p>
+            <p class="mb-2">(Essayer 
+              <a
+                href="{data.hytekFtpLocation}index.htm"
+                target="_blank"
+                rel="noreferrer"
+                class="underline hover:no-underline"
+              >l’expérience classique?</a>)</p>
+          </div>
+        {:else}
+          <HytekEventList
+            {meetSlug}
+            currentEventId={eventId}
+            {evtIndexHTML}
+            sessionNames={data.sessionNames}
+            {userState}
+            --themeColor={data.themeColor}
+          />
+          {/if}
+        {/if}
 
         <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">

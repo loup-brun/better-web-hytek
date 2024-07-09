@@ -139,9 +139,9 @@ export async function getSingleMeet(meetSlug) {
         } else {
           resolve({
             ...meetData,
-            sessionNames: meetData.sessionNamesCsv.split(','),
+            sessionNames: meetData.sessionNamesCsv?.split(',') || [],
             hytekHtmlEncoding: meetData.hytekHtmlEncoding?.value,
-            logo: meetData.logoFile.url,
+            logo: meetData.logoFile?.url || null,
           });
         }
       });
