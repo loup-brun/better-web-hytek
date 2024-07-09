@@ -14,7 +14,7 @@
   // props
   export let sessions = [];
   export let error = null;
-  export let meetId;
+  export let meetSlug;
   export let evtIndexHTML = '';
   export let currentEventId;
   export let sessionNames;
@@ -208,7 +208,7 @@
           <div transition:slide|local={{ duration: 800 }}>
             <DisclosurePanel>
               {#each session.events as event}
-                {@const evtPathname = `/meets/${meetId}/event/${event.eventId}`}
+                {@const evtPathname = `/meets/${meetSlug}/event/${event.eventId}`}
                 <a
                   href="{evtPathname}"
                   class="EventList__button"

@@ -4,12 +4,12 @@
   /** @type {import('./$types').PageData} */
   export let data;
 
-  const meetId = data.meetId;
+  const meetSlug = data.meetSlug;
   const evtIndexHTML = data.evtIndexHTML;
   const error = data.error;
 </script>
 
 <HytekEventList
-  {meetId}
+  {meetSlug}
   {evtIndexHTML}
 />
