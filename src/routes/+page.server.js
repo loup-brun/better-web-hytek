@@ -11,7 +11,7 @@ export async function load() {
    */
   if (meets.length === 1) {
     let firstmeetslug = meets[0];
-    throw redirect(307, `/meets/${firstmeetslug}`);
+    redirect(307, `/meets/${firstmeetslug}`);
   } else {
     // pass meets to page data
     return {

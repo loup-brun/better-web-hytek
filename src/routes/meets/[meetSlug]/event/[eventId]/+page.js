@@ -18,6 +18,6 @@ export async function load({ fetch, params, parent }) {
     };
   } catch (e) {
     console.error(`Error fetching single event ${eventId}`, e);
-    throw error(404);
+    error(404);
   }
 }
