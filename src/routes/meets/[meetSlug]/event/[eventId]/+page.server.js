@@ -6,7 +6,6 @@ export async function load({ fetch, params, parent }) {
   const parentData = await parent();
 
   try {
-    console.log({ meetConfig: parentData.meetConfig })
     /** @type {string} */
     const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
       encoding: parentData.meetConfig.hytekHtmlEncoding,
