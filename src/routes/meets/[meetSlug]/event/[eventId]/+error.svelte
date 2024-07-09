@@ -2,12 +2,22 @@
   import { fade } from 'svelte/transition';
   import { page } from '$app/stores';
 
+  /** @type {string} */
   let eventId = $page.params.eventId;
+  /** @type {string} */
   let eventNo;
+  /** @type {string} */
   let eventSerie;
 
   page.subscribe(newPage => {
-    eventId = newPage.params.eventId;
+    if (!newPage.params.eventId) {
+      // eewww, no good -- let's stop here
+      eventNo = '--';
+      eventSerie = '';
+      return;
+    } else {
+      eventId = newPage.params.eventId;
+    }
 
     // Match event number
     // we start by capturing the full event id (3-4 digits at the end);
