@@ -10,6 +10,7 @@ import {
 /**
  * Meets index
  * @returns {Promise<{ meets: Array<any> }}
+ * @throws {Error}
  */
 export async function getMeetsIndex() {
   // database is a local JSON file
@@ -30,6 +31,7 @@ export async function getMeetsIndex() {
       });
     } catch (e) {
       console.error('Error loading local db.js file', e);
+      throw new Error('Error loading local db file');
     }
   }
 
@@ -80,6 +82,7 @@ export async function getMeetsIndex() {
       });
     } catch (e) {
       console.error('Error fetching Baserow instance configuration', e);
+      throw new Error('Error fetching Baserow instance configuration');
     }
   }
 }
