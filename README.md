@@ -21,6 +21,27 @@ Quelques points clés :
 - configurable (pour s’harmoniser avec le contexte de chaque événement, comme l’a fait [Benoit](https://github.com/vermetteb/) pour Sherbrooke);
 - _progressive enhancement_ – augmenter l’expérience de base sans lui nuire.
 
+## Installation
+
+Requirements:
+
+- [Node.js](https://nodejs.org/) (current LTS version, v18+ recommended) and its package manager (npm, [pnpm](https://pnpm.io/), [yarn](https://yarnpkg.com/), ...)
+- Web hosting provider compatible with a [SvelteKit](https://kit.svelte.dev/) app, such as Cloudflare Pages, Vercel, Netlify, etc.
+
+### Environment variables
+
+All environment variables _must_ be set, even when empty.
+
+- **DB_TYPE**: `file` | `baserow` (more to come in the future)
+  - `file`: file-based storage within the repository. The storage file is located at `src/lib/db.json` (path is not configurable at this time).
+  - `baserow`: a Baserow instance (cloud-hosted at baserow.io or self-hosted) is required. See the [template demo information](https://github.com/loup-brun/better-web-hytek/pull/27#issuecomment-2218038896).
+- **BASEROW_URL**: Baserow instance URL, without the ending slash, e.g. `https://baserow.io`
+- **BASEROW_DATABASE_ID**: number, e.g. 123
+- **BASEROW_INSTANCE_ROW_ID**: number, e.g. 1
+- **BASEROW_INSTANCE_TABLE_ID**: number, e.g. 1234
+- **BASEROW_MEETS_TABLE_ID**: number, e.g. 5678
+- **BASEROW_TOKEN**: string, e.g. A12bC3D4e5
+
 ## Ideas
 
 - improve overall ergonomy and respond to device screen size
