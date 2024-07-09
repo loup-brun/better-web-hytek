@@ -31,3 +31,9 @@ export async function load({ fetch, params }) {
     error(404, 'La page demandée est introuvable.')
   }
 }
+
+/**
+ * This layout could be prerendered, if the meet config will remain unchanged and published
+ * @type {Boolean}
+ */
+export const prerender = false;

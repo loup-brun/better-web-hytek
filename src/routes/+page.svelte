@@ -22,7 +22,6 @@
   let sorted = dbEvents.sort(sortByDate);
   /** @type {array} */
   let years = [];
-  let currentYear;
 
   sorted.forEach(item => {
     let year = new Date(item.dateStart).getFullYear();
@@ -31,6 +30,11 @@
     }
   });
 
+  /**
+   * JS sort function, by date (descending)
+   * @param {{ dateStart: string; }} a
+   * @param {{ dateStart: string; }} b
+   */
   function sortByDate(a, b) {
     if (a[1].dateStart > b[1].dateStart) {
       return -1;

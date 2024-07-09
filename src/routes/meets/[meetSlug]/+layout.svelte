@@ -38,8 +38,6 @@
   let isSideNavOpen = true;
   /** @type {Number} */
   let expansionBreakpoint = 768; // 1056 by default
-  /** @type {HTMLElement} */
-  let mainContainer;
 
   onMount(() => {
     sidebarWidth = sidebar.getBoundingClientRect().width;

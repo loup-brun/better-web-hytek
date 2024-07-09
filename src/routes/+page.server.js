@@ -20,3 +20,10 @@ export async function load() {
   }
 }
 
+/**
+ * The meet index page could be prerendered for performance
+ * (but updates to content will not be reflected until next build).
+ * @type {Boolean}
+ */
+export const prerender = false;
+

@@ -21,3 +21,9 @@ export async function load({ fetch, params, parent }) {
     error(404);
   }
 }
+
+/**
+ * Don't allow prerendering a results page
+ * @type {Boolean}
+ */
+export const prerender = false;
