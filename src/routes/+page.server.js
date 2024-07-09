@@ -10,7 +10,7 @@ export async function load() {
    * Redirect to event if there’s only a single event
    */
   if (meets.length === 1) {
-    let firstmeetslug = meets[0];
+    let firstmeetslug = meets[0].id;
     redirect(307, `/meets/${firstmeetslug}`);
   } else {
     // pass meets to page data
