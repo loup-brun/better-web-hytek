@@ -17,8 +17,7 @@
 
   const {
     evtIndexHTML,
-    meetId,
-    meetConfig
+    meetSlug,
   } = data;
 
   let eventId = data.eventId;
@@ -29,15 +28,25 @@
     menuScrollY: 0,
   });
   // vars
+  /** @type {HTMLElement} */
   let sidebar;
+  /** @type {Number} */
   let innerWidth = 0;
+  /** @type {Number} */
   let sidebarWidth = 0;
+  /** @type {Boolean} */
   let isSideNavOpen = true;
+  /** @type {Number} */
   let expansionBreakpoint = 768; // 1056 by default
+  /** @type {HTMLElement} */
   let mainContainer;
+  /** @type {Boolean} */
+  let mounted = false;
 
   onMount(() => {
     sidebarWidth = sidebar.getBoundingClientRect().width;
+
+    mounted = true;
   });
 
   afterNavigate(() => {
@@ -51,7 +60,11 @@
     eventId = $page.params.eventId;
   });
 
-
+  /**
+   * Show/hide the side navigation on resize, depending on threshold
+   * @uses expansionBreakpoint
+   * @uses innerWidth
+   */
   function handleResize() {
     if (innerWidth > expansionBreakpoint) {
       if (!isSideNavOpen) {
@@ -60,6 +73,11 @@
     }
   }
 
+  /**
+   * Save the current scroll position of the sidebar, when user closes and reopens it
+   * (feels more natural)
+   * @param {ScrollEvent} ev
+   */
   function saveSideNavScroll(ev) {
     const { scrollTop } = ev.currentTarget;
     userState.update(u => {
@@ -69,7 +87,7 @@
   }
 
   /**
-   * Svelte `use` action to scroll container back
+   * Svelte `use` action to scroll navigation container back
    * @param {HTMLElement} node
    */
   async function scrollNavToPref(node) {
@@ -78,7 +96,7 @@
   }
 
   /**
-   * Svelte use directive
+   * Svelte `use` directive to scroll back up (on event refresh)
    * @param node
    * @param eventId Variable parameter that will trigger an update
    * @returns {{update(): void}}
@@ -106,7 +124,7 @@
 <svelte:head>
   <title>Résultats</title>
 
-  <meta name="theme-color" content="{meetConfig.themeColor}">
+  <meta name="theme-color" content="{data.themeColor}">
 </svelte:head>
 
 <div
@@ -114,7 +132,7 @@
 >
   <div class="HytekLayout__header | flex-shrink-0 relative z-20">
     <Navbar
-      --themeColor={meetConfig.themeColor}
+      --themeColor={data.themeColor}
     >
       <button
         class="Navbar__sidebar-toggle | md:hidden flex flex-row items-center px-4 py-3 text-xs uppercase hover:bg-white/10 hover:text-white active:outline-2 outline-white transition duration-150"
@@ -150,58 +168,80 @@
         <header
           class="HytekLayout__sidebar-header | px-3 py-4 text-zinc-600 dark:text-zinc-500"
         >
-          {#if meetConfig.logo}
-            <a href="/meets/{meetId}">
+          {#if data.logo}
+            <a href="/meets/{meetSlug}">
               <img
-                src="{meetConfig.logo}"
+                src="{data.logo}"
                 alt="Logo"
                 class="mb-4"
-                style="max-width: {meetConfig.logoMaxWidth || 90}px;"
+                style="max-width: {data.logoMaxWidth || 90}px;"
               />
             </a>
           {/if}
 
           <h1 class="HytekLayout__sidebar-title | text-lg leading-tight font-bold">
-            <a href="/meets/{meetId}">
-            {meetConfig.title}
+            <a href="/meets/{meetSlug}">
+            {data.title}
             </a>
           </h1>
 
           <div class="HytekLayout__sidebar-details | text-xs mt-3 text-zinc-600 dark:text-zinc-500">
-            {meetConfig.stadiumName}
+            {data.stadiumName}
             <br>
-            ({meetConfig.city}, {meetConfig.province})
+            ({data.city}, {data.province})
 
             <div class="mt-2">
-              {meetConfig.dateStart}
-              {#if meetConfig.dateStart !== meetConfig.dateEnd}
-              - {meetConfig.dateEnd}
+              {data.dateStart}
+              {#if data.dateStart !== data.dateEnd}
+              - {data.dateEnd}
               {/if}
             </div>
           </div>
         </header>
 
-        <HytekEventList
-          {meetId}
-          currentEventId={eventId}
-          {evtIndexHTML}
-          sessionNames={meetConfig.sessionNames}
-          {userState}
-          --themeColor={meetConfig.themeColor}
-        >
-        </HytekEventList>
+        {#if !mounted}
+        <!-- skeleton UI -->
+          <HytekEventList />
+        {:else}
+
+        {#if !evtIndexHTML}
+        <!-- Error message -->
+          <div
+            class="mt-4 mb-2 mx-2 text-xs text-zinc-400"
+            in:fade={{ duration: 250 }}
+          >
+            <p class="mb-2">Liste d'épreuves introuvable.</p>
+            <p class="mb-2">(Essayer 
+              <a
+                href="{data.hytekFtpLocation}index.htm"
+                target="_blank"
+                rel="noreferrer"
+                class="underline hover:no-underline"
+              >l’expérience classique?</a>)</p>
+          </div>
+        {:else}
+          <HytekEventList
+            {meetSlug}
+            currentEventId={eventId}
+            {evtIndexHTML}
+            sessionNames={data.sessionNames}
+            {userState}
+            --themeColor={data.themeColor}
+          />
+          {/if}
+        {/if}
 
         <footer class="HytekLayout__sidebar-footer | border-t border-zinc-300 dark:border-zinc-600 p-2 mt-6">
           <div class="my-1">
             <a
-              href="/meets/{meetId}/about"
+              href="/meets/{meetSlug}/about"
               class="HytekLayout__sidebar-link"
             >À propos</a>
           </div>
 
           <div class="my-1">
             <a
-              href="{meetConfig.hytekFtpLocation}index.htm"
+              href="{data.hytekFtpLocation}index.htm"
               target="_blank"
               rel="noreferrer"
               class="HytekLayout__sidebar-link"
@@ -213,6 +253,7 @@
       <div
         class="HytekLayout__sidebar-overlay | bg-black/50 absolute top-0 left-0 h-full w-full md:hidden"
         on:click={() => isSideNavOpen = !isSideNavOpen}
+        aria-role="button"
         in:fade={{ easing: linear }}
         out:fade={{ delay: 200, duration: 200, easing: linear }}
       ></div>
