@@ -77,7 +77,7 @@ export async function getMeetsIndex() {
 
       return new Promise((resolve, reject) => {
         resolve({
-          meets: [...meetsMap.entries()]
+          meets: [...meetsMap.values()]
         });
       });
     } catch (e) {

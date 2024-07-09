@@ -8,8 +8,8 @@ export async function load({ fetch, params, parent }) {
   try {
     /** @type {string} */
     const eventHTML = await fetchDocument(fetch, `${eventId}.htm`, {
-      encoding: parentData.meetConfig.hytekHtmlEncoding,
-      baseLocation: parentData.meetConfig.hytekFtpLocation,
+      encoding: parentData.hytekHtmlEncoding,
+      baseLocation: parentData.hytekFtpLocation,
     });
 
     return {
