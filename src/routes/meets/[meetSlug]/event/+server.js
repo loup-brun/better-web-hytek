@@ -8,5 +8,5 @@ export function GET({ url }) {
     headers: {
       Location: `${redirectPath}`
     }
-  })
+  });
 }

@@ -1,7 +1,6 @@
 <script>
   /** @type {import('./$types').PageData} */
   export let data;
-  const { meetConfig } = data;
 </script>
 
 <pre>Better HyTek Results
@@ -16,24 +15,24 @@ le menu latéral pour débuter.
   <div class="content">
     <hr>
 
-    {#if meetConfig.timingCompany}
+    {#if data.timingCompany}
       <p>
         Chronométrage par
-        {#if meetConfig.timingCompanyUrl}
-          <a href="{meetConfig.timingCompanyUrl}" target="_blank" rel="noreferrer">{meetConfig.timingCompany}</a>
+        {#if data.timingCompanyUrl}
+          <a href="{data.timingCompanyUrl}" target="_blank" rel="noreferrer">{data.timingCompany}</a>
         {:else}
-          {meetConfig.timingCompany}
+          {data.timingCompany}
         {/if}
       </p>
     {/if}
 
-    {#if meetConfig.hostingProvider}
+    {#if data.hostingProvider}
     <p>
       Résultats hébergés par
-      {#if meetConfig.hostingProviderUrl}
-        <a href="{meetConfig.hostingProviderUrl}" target="_blank" rel="noreferrer">{meetConfig.hostingProvider}</a>
+      {#if data.hostingProviderUrl}
+        <a href="{data.hostingProviderUrl}" target="_blank" rel="noreferrer">{data.hostingProvider}</a>
       {:else}
-        {meetConfig.hostingProvider}
+        {data.hostingProvider}
       {/if}
     </p>
     {/if}
