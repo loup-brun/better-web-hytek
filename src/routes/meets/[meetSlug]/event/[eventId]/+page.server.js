@@ -14,6 +14,7 @@ export async function load({ fetch, params, parent }) {
     });
 
     return {
+      eventId,
       eventHTML,
     };
   } catch (e) {

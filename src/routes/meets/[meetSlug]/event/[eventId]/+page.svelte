@@ -102,39 +102,39 @@
 
 </script>
 
-{#key mainHtml}
-  {#if data.error}
-    <div
-      in:fade={{ duration: 250 }}
-      class="p-4"
-    >
-      Résultat introuvable.
-    </div>
-  {:else}
-    {#if mainHtml && mainHtml.length}
-      <!-- Banner -->
-      {#if isProgram || isPerfList}
-        <div class="Event__alert | mb-2 p-3 sticky left-0 flex flex-row bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-100">
-          <span class="inline-block align-top text-neutral-500 dark:text-neutral-400 mr-2">
-            <Icon name="info" size={20} />
-          </span>
+{#if data.error}
+  <div
+    in:fade={{ duration: 250 }}
+    class="p-4"
+  >
+    Résultat introuvable.
+  </div>
+{:else}
+  {#if mainHtml && mainHtml.length}
+    <!-- Banner -->
+    {#if isProgram || isPerfList}
+      <div class="Event__alert | mb-2 p-3 sticky left-0 flex flex-row bg-neutral-200 dark:bg-neutral-600 text-neutral-700 dark:text-neutral-100">
+        <span class="inline-block align-top text-neutral-500 dark:text-neutral-400 mr-2">
+          <Icon name="info" size={20} />
+        </span>
 
-          <div class="content text-sm">
-            {#if isProgram}
-              Cette page affiche actuellement le <strong>programme</strong> de l’épreuve.
-            {:else if isPerfList}
-              Cette page affiche actuellement la <strong>liste des performances</strong> de l’épreuve.
-            {/if}
-          </div>
+        <div class="content text-sm">
+          {#if isProgram}
+            Cette page affiche actuellement le <strong>programme</strong> de l’épreuve.
+          {:else if isPerfList}
+            Cette page affiche actuellement la <strong>liste des performances</strong> de l’épreuve.
+          {/if}
         </div>
-      {/if}
+      </div>
+    {/if}
 
+    {#key data.eventId}
       <pre
         in:fade={{ duration: 250 }}
       >{@html mainHtml}</pre>
-    {/if}
+    {/key}
   {/if}
-{/key}
+{/if}
 
 <style lang="postcss">
   pre {
