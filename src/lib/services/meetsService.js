@@ -16,21 +16,21 @@ export async function getMeetsIndex() {
   // database is a local JSON file
   if (DB_TYPE === 'file') {
     try {
-      const { meets } = await import('$lib/db');
-      const meetsMap = new Map();
+      const { meets } = (await import('$lib/db.json')).default;
+      // const meetsMap = new Map();
 
-      meets.map(meet => {
-        // set values w/ meet slug as key
-        meetsMap.set(meet.id, meet);
-      });
+      // meets.map(meet => {
+      //   // set values w/ meet slug as key
+      //   meetsMap.set(meet.id, meet);
+      // });
 
       return new Promise((resolve, reject) => {
         resolve({
-          meets: [...meets.entries()]
+          meets
         });
       });
     } catch (e) {
-      console.error('Error loading local db.js file', e);
+      console.error(`Error loading local "db.json" file`, e);
       throw new Error('Error loading local db file');
     }
   }
@@ -97,7 +97,7 @@ export async function getSingleMeet(meetSlug) {
   // database is a local JSON file
   if (DB_TYPE === 'file') {
     try {
-      const { meets } = await import('$lib/db');
+      const { meets } = (await import('$lib/db.json')).default;
       const meetsMap = new Map();
 
       meets.map(meet => {
