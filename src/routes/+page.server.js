@@ -1,19 +1,29 @@
-import { meetsMap } from '$lib/services/meetsService';
 import { redirect } from '@sveltejs/kit';
+import { getMeetsIndex } from '$lib/services/meetsService';
 
-export function load() {
-  let events = meetsMap.entries();
+export async function load() {
+  let configuration = await getMeetsIndex();
+
+  const { meets } = configuration;
 
   /**
    * Redirect to event if there’s only a single event
    */
-  if (meetsMap.size === 1) {
-    let firstEventSlug = meetsMap.keys().next().value;
-    throw redirect(307, `/meets/${firstEventSlug}`);
+  if (meets.length === 1) {
+    let firstmeetslug = meets[0].id;
+    redirect(307, `/meets/${firstmeetslug}`);
   } else {
-    // pass events to page data
+    // pass meets to page data
     return {
-      events: [...events],
+      meets: [...meets],
     };
   }
 }
+
+/**
+ * The meet index page could be prerendered for performance
+ * (but updates to content will not be reflected until next build).
+ * @type {Boolean}
+ */
+export const prerender = false;
+

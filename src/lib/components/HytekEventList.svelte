@@ -14,7 +14,7 @@
   // props
   export let sessions = [];
   export let error = null;
-  export let meetId;
+  export let meetSlug;
   export let evtIndexHTML = '';
   export let currentEventId;
   export let sessionNames;
@@ -178,7 +178,7 @@
   <header class="EventList__header">
     <slot name="header">
       <!--
-      <div class="px-2 py-6"><a href="/meets/{meetId}">Accueil</a></div>
+      <div class="px-2 py-6"><a href="/meets/{meetSlug}">Accueil</a></div>
       -->
     </slot>
   </header>
@@ -208,7 +208,7 @@
           <div transition:slide|local={{ duration: 800 }}>
             <DisclosurePanel>
               {#each session.events as event}
-                {@const evtPathname = `/meets/${meetId}/event/${event.eventId}`}
+                {@const evtPathname = `/meets/${meetSlug}/event/${event.eventId}`}
                 <a
                   href="{evtPathname}"
                   class="EventList__button"
