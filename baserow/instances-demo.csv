@@ -1,0 +1,2 @@
+﻿id,title,meets,instanceURL,defaultThemeColor,defaultLogo,meetsCount,meetsNames,meetsDateStart,meetsDateEnd,faviconImage,appleTouchIconImage,instanceId
+7,Demo,"demo-meet-1,demo-meet-2",https://better-web-hytek.vercel.app/,#000000,,2,"Demo Meet #1,Demo Meet #2","2021-06-24,2022-06-24","2021-06-24,2022-06-25",,,7
