@@ -140,7 +140,7 @@ export async function getSingleMeet(meetSlug) {
           resolve({
             ...meetData,
             sessionNames: meetData.sessionNamesCsv?.split(',') || [],
-            hytekHtmlEncoding: meetData.hytekHtmlEncoding?.value,
+            hytekHtmlEncoding: meetData.hytekHtmlEncoding,
             logo: meetData.logoFile?.url || null,
           });
         }
