@@ -489,6 +489,10 @@
       "resultsType": "hytek",
       "hytekFtpLocation": "https://rsstiming.com/quebec/240811/",
       "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+        "Pelouse",
+        "Piste"
+      ],
       "logo": "https://coch-baserow.s3.bhs.io.cloud.ovh.net/user_files/ho5Vrarw8WdD6ysyg0XxUP0vzWajUIlS_8b65d5dc4dde79e93de55c29e89f1eee8396f9094e09793e933a63b9f4a75e2f.png",
       "logoMaxWidth": 235,
       "themeColor": "#b7217e",
