@@ -517,6 +517,8 @@
       "hytekFtpLocation": "https://rsstiming.com/quebec/241207/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
+        "Pelouse",
+        "Piste"
       ],
       "logo": "/apple-touch-icon.png",
       "themeColor": "#e0181c",
@@ -541,6 +543,8 @@
       "hytekFtpLocation": "https://rsstiming.com/quebec/241208/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
+         "Pelouse",
+         "Piste"
       ],
       "logo": "/logos/rseq.png",
       "logoMaxWidth": 128,
