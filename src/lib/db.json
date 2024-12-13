@@ -553,6 +553,30 @@
       "timingCompanyUrl": "https://www.caul.ca/",
       "hostingProvider": "RSS Timing",
       "hostingProviderUrl": "https://rsstiming.com"
-    }
+      }, 
+    {
+      "id": "crepuscule-hivernal-2024",
+      "dateStart": "2024-12-20",
+      "dateEnd": "2024-12-20",
+      "title": "Crépuscule hivernal 2024",
+      "stadiumName": "PEPS de l’Université Laval",
+      "address": "2380 Rue du Peps",
+      "address2": "",
+      "city": "Québec",
+      "province": "QC",
+      "postalCode": "G1V 0A6",
+      "resultsType": "hytek",
+      "finishlynx": true,
+      "hytekFtpLocation": "https://rsstiming.com/quebec/241220/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+      ],
+      "logo": "/apple-touch-icon.png",
+      "themeColor": "#e0181c",
+      "timingCompany": "CAUL",
+      "timingCompanyUrl": "https://www.caul.ca/",
+      "hostingProvider": "RSS Timing",
+      "hostingProviderUrl": "https://rsstiming.com"
+    } 
   ]
 }
