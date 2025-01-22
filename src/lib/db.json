@@ -596,6 +596,8 @@
       "hytekFtpLocation": "http://rsstiming.com/quebec/250119/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
+        "Pelouse",
+        "Piste"
       ],
       "logo": "/logos/rseq.png",
       "logoMaxWidth": 128,
