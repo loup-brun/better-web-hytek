@@ -606,6 +606,31 @@
       "timingCompanyUrl": "https://www.caul.ca/",
       "hostingProvider": "RSS Timing",
       "hostingProviderUrl": "https://rsstiming.com"
+    },
+    {
+      "id": "250223",
+      "dateStart": "2025-02-23",
+      "dateEnd": "2025-02-23",
+      "title": "Championnat scolaire #3 (23 février)",
+      "stadiumName": "PEPS de l’Université Laval",
+      "address": "2380 Rue du Peps",
+      "address2": "",
+      "city": "Québec",
+      "province": "QC",
+      "postalCode": "G1V 0A6",
+      "resultsType": "hytek",
+      "finishlynx": true,
+      "hytekFtpLocation": "http://rsstiming.com/quebec/250223/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+      ],
+      "logo": "/logos/rseq.png",
+      "logoMaxWidth": 128,
+      "themeColor": "#2C99D8",
+      "timingCompany": "CAUL",
+      "timingCompanyUrl": "https://www.caul.ca/",
+      "hostingProvider": "RSS Timing",
+      "hostingProviderUrl": "https://rsstiming.com"
     }
   ]
 }
