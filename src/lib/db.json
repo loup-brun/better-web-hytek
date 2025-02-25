@@ -633,6 +633,30 @@
       "timingCompanyUrl": "https://www.caul.ca/",
       "hostingProvider": "RSS Timing",
       "hostingProviderUrl": "https://rsstiming.com"
+    },
+    {
+      "id": "championnats-qc-ben-cad-juv-2025",
+      "dateStart": "2025-02-28",
+      "dateEnd": "2025-03-02",
+      "title": "Championnats québécois benjamins, cadets et juvéniles et pentathlon cadets et juvéniles",
+      "stadiumName": "PEPS de l’Université Laval",
+      "address": "2380 Rue du Peps",
+      "address2": "",
+      "city": "Québec",
+      "province": "QC",
+      "postalCode": "G1V 0A6",
+      "resultsType": "hytek",
+      "finishlynx": true,
+      "hytekFtpLocation": "https://rsstiming.com/quebec/250228/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+      ],
+      "logo": "/logos/athletisme-quebec-2023.svg",
+      "themeColor": "#e0181c",
+      "timingCompany": "CAUL",
+      "timingCompanyUrl": "https://www.caul.ca/",
+      "hostingProvider": "RSS Timing",
+      "hostingProviderUrl": "https://rsstiming.com"
     }
-  ]
+ ]
 }
