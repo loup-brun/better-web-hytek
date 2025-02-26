@@ -650,6 +650,12 @@
       "hytekFtpLocation": "https://rsstiming.com/quebec/250228/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
+        "Vendredi - Pelouse",
+        "Vendrdi - Concours",
+        "Samedi - Piste",
+        "Samedi - Concours",
+        "Dimanche - Concours",
+        "Dimanche - Concours"
       ],
       "logo": "/logos/athletisme-quebec-2023.svg",
       "themeColor": "#00a1e4",
