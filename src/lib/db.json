@@ -653,9 +653,9 @@
         "Vendredi - Pelouse",
         "Vendredi - Piste",
         "Samedi - Piste",
-        "Samedi - Concours",
-        "Dimanche - Concours",
-        "Dimanche - Concours"
+        "Samedi - Pelouse",
+        "Dimanche - Pelouse",
+        "Dimanche - Piste"
       ],
       "logo": "/logos/athletisme-quebec-2023.svg",
       "themeColor": "#00a1e4",
