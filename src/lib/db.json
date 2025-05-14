@@ -663,6 +663,53 @@
       "timingCompanyUrl": "https://www.caul.ca/",
       "hostingProvider": "RSS Timing",
       "hostingProviderUrl": "https://rsstiming.com"
+    },
+    {
+      "id": "selection-asip-2025",
+      "dateStart": "2025-05-20",
+      "dateEnd": "2025-05-20",
+      "title": "Sélection ASIP 2025",
+      "stadiumName": "PEPS de l’Université Laval",
+      "address": "2380 Rue du Peps",
+      "address2": "",
+      "city": "Québec",
+      "province": "QC",
+      "postalCode": "G1V 0A6",
+      "resultsType": "hytek",
+      "hytekFtpLocation": "https://rsstiming.com/quebec/250520/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+      ],
+      "logo": "/apple-touch-icon.png",
+      "themeColor": "#e0181c",
+      "timingCompany": "CAUL",
+      "timingCompanyUrl": "https://www.caul.ca/",
+      "hostingProvider": "RSS Timing",
+      "hostingProviderUrl": "https://rsstiming.com"
+    },
+    {
+      "id": "regional-resq-cn-2025",
+      "dateStart": "2025-05-24",
+      "dateEnd": "2025-05-25",
+      "title": "Championnat régional scolaire Côte-Nord",
+      "stadiumName": "",
+      "address": "",
+      "address2": "",
+      "city": "Baie-Comeau",
+      "province": "QC",
+      "postalCode": "",
+      "resultsType": "hytek",
+      "hytekFtpLocation": "https://rsstiming.com/quebec/250524/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "sessionNames": [
+      ],
+      "logo": "https://rseqcn.ca/wp-content/uploads/2022/06/icone_RSEQ_bleu-2.png",
+      "logoMaxWidth": 150,
+      "themeColor": "#2C99D8",
+      "timingCompany": "CAUL",
+      "timingCompanyUrl": "https://www.caul.ca/",
+      "hostingProvider": "RSS Timing",
+      "hostingProviderUrl": "https://rsstiming.com"
     }
- ]
+  ]
 }
