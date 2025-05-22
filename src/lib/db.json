@@ -679,7 +679,9 @@
       "hytekFtpLocation": "https://rsstiming.com/quebec/250520/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
-      ],
+        "Pelouse",
+        "Piste"
+       ],
       "logo": "/apple-touch-icon.png",
       "themeColor": "#e0181c",
       "timingCompany": "CAUL",
@@ -702,6 +704,10 @@
       "hytekFtpLocation": "https://rsstiming.com/quebec/250524/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
+        "Samedi - Pelouse",
+        "Samedi - Piste",
+        "Dimanche - Pelouse",
+        "Dimanche - Piste"
       ],
       "logo": "https://rseqcn.ca/wp-content/uploads/2022/06/icone_RSEQ_bleu-2.png",
       "logoMaxWidth": 150,
