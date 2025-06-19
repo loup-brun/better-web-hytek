@@ -116,6 +116,62 @@
       "themeColor": "#00a1e4",
       "timingCompany": "RSS Timing",
       "timingCompanyUrl": "https://www.rsstiming.com/"
+    },
+    {
+      "id": "maitres-2024-masters",
+      "title": "Championnats canadiens des maîtres en plein air 2024 Canadian Masters Outdoor Championships",
+      "dateStart": "2024-08-02",
+      "dateEnd": "2024-08-04",
+      "stadiumName": "Stade Claude-Ferragne",
+      "address": "4600 rue Cyrille-Delage",
+      "address2": null,
+      "city": "Laval",
+      "province": "QC",
+      "postalCode": "H7K 2S4",
+      "hytekFtpLocation": "https://rsstiming.com/laval/240802/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "logo": "/logos/cma.png",
+      "logoMaxWidth": 235,
+      "themeColor": "#ed1c24",
+      "timingCompany": "RSS Timing",
+      "timingCompanyUrl": "https://rsstiming.com/",
+      "hostingProvider": null,
+      "hostingProviderUrl": null,
+      "sessionNames": [
+        "Vendredi - Piste",
+        "Vendredi - Concours",
+        "Samedi - Concours",
+        "Samedi - Piste",
+        "Dimanche - Concours",
+        "Dimanche - Piste"
+      ]
+    },
+    {
+      "id": "championnat-rseq-2025",
+      "title": "Championnat provincial RSEQ 2025",
+      "dateStart": "2025-06-07",
+      "dateEnd": "2025-06-08",
+      "stadiumName": "Piste d'athlétisme du Parc St-Jacques",
+      "address": "2175 boulevard Mellon",
+      "address2": null,
+      "city": "Jonquière",
+      "province": "QC",
+      "postalCode": "G7S 3G4",
+      "hytekFtpLocation": "http://rsstiming.com/laval/250607/",
+      "hytekHtmlEncoding": "ISO-8859-15",
+      "logo": "/logos/rseq.png",
+      "logoMaxWidth": 150,
+      "themeColor": "#008AC9",
+      "timingCompany": "RSS Timing",
+      "timingCompanyUrl": "https://rsstiming.com/",
+      "hostingProvider": null,
+      "hostingProviderUrl": null,
+      "sessionNames": [
+        "Samedi - Pelouse",
+        "Samedi - Piste",
+        "Dimanche - Pelouse",
+        "Dimanche - Piste"
+      ]
     }
   ]
 }
