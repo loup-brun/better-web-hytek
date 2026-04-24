@@ -14,7 +14,7 @@
       "postalCode": "",
       "resultsType": "hytek",
       "finishlynx": true,
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220518/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220518/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Pelouse",
@@ -37,7 +37,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220525/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220525/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Piste",
@@ -61,7 +61,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220526/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220526/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Piste",
@@ -85,7 +85,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220529/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220529/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Concours",
@@ -109,7 +109,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220813/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220813/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Triathlon coccinelle",
@@ -136,7 +136,7 @@
       "province": "QC",
       "postalCode": "",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20220911/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20220911/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Championnat québécois",
@@ -161,7 +161,7 @@
       "province": "QC",
       "postalCode": "",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20221126/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20221126/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Pelouse / Field",
@@ -185,7 +185,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20221203/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20221203/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Coccinelles",
@@ -211,7 +211,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20230524/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20230524/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Piste",
@@ -235,7 +235,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20230525/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20230525/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Horaire",
@@ -260,7 +260,7 @@
       "province": "QC",
       "postalCode": "J7E 4S4",
       "resultsType": "hytek",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20230528/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20230528/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "sessionNames": [
         "Concours",
@@ -283,7 +283,7 @@
       "city": "Laval",
       "province": "QC",
       "postalCode": "H7K 2S4",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20240713/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20240713/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "logo": "/logos/COCH_FN_4C.svg",
       "logoMaxWidth": 120.0,
@@ -313,7 +313,7 @@
       "city": "Sainte-Thérèse",
       "province": "QC",
       "postalCode": "J7E 4S4",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20240810/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20240810/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "logo": "/logos/festival-provincial-athletisme-ouest.png",
       "logoMaxWidth": 235.0,
@@ -344,7 +344,7 @@
       "city": "Sainte-Thérèse",
       "province": "QC",
       "postalCode": "J7E 4S4",
-      "hytekFtpLocation": "https://static.resultats.corsaire-chaparral.org/20240814/",
+      "hytekFtpLocation": "http://static.resultats.corsaire-chaparral.org/20240814/",
       "hytekHtmlEncoding": "ISO-8859-15",
       "logo": "/logos/COCH_FN_4C.svg",
       "logoMaxWidth": 120.0,
